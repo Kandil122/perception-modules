@@ -1,0 +1,60 @@
+\doxysection{ground\+\_\+detector.\+h}
+\hypertarget{ground__detector_8h_source}{}\label{ground__detector_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/ground\_detector.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/ground\_detector.h}}
+\mbox{\hyperlink{ground__detector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GROUND\_DETECTOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GROUND\_DETECTOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <pcl/point\_types.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <pcl/ModelCoefficients.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <pcl/PointIndices.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{GroundDetectionParams}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_a0d5e9f42b1635755d720ffca5fc3920c}{method}};\ \ \textcolor{comment}{//\ "{}ransac"{},\ "{}morphological"{},\ or\ "{}conditional"{}}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_ae194f353b890e10de69af43e8fa9d08e}{distance\_threshold}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_a69b1cd891eb8825533e06d80693fb6a5}{angle\_threshold\_deg}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_ab9a2e6b0441c27171dee5f7ef4d7e984}{max\_iterations}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_a1e76e83bb0571c2fd70e8c57ff07d679}{max\_ground\_slope\_deg}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_a8c8cdac9a38134c2d58a16f2434975ed}{min\_obstacle\_height}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams_a1c05b7c4851b81945bbba649357525c0}{mars\_terrain\_mode}};}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector}{GroundDetector}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector}{GroundDetector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{GroundDetectionParams}}\&\ params);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a4f2ea48dae59ecec0832ceed43843d6e}{\string~GroundDetector}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Main\ interface}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a688909ff7793930423b776b7f200339d}{detectGround}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ obstacle\_cloud);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Set\ parameters}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a20329a7d62f8eb4ffac4b6d655b55710}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{GroundDetectionParams}}\&\ params);}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{GroundDetectionParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a080946890c92a1cb28ac20481a203c30}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Different\ ground\ detection\ methods}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ detectGroundRANSAC(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ obstacle\_cloud);}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ detectGroundMorphological(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ obstacle\_cloud);}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ detectGroundConditional(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ obstacle\_cloud);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ Utility\ functions}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ deg2rad(\textcolor{keywordtype}{double}\ degrees)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{GroundDetectionParams}}\ params\_;}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GROUND\_DETECTOR\_H\ }}
+
+\end{DoxyCode}

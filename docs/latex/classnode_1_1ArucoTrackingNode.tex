@@ -1,0 +1,208 @@
+\doxysection{node.\+Aruco\+Tracking\+Node Class Reference}
+\hypertarget{classnode_1_1ArucoTrackingNode}{}\label{classnode_1_1ArucoTrackingNode}\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a1dd9abf86e44aa20969776e64bda8780}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a61146411bf49ccdf283a3108e238fef9}{load\+Parameters}} (self)
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_adbc92f0790a57b94ce756da89c87b741}{image\+Callback}} (self, Image image\+Msg)
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a8935cc05e9c7972005673a9bcbf382da}{camera\+Info\+Callback}} (self, Camera\+Info camera\+Info\+Msg)
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_aaab08da426989f81e58f99bca46ae142}{run}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a4c08c0f79a211e83ef9a3c71bd7ca874}{bridge}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a4bda29d8b45fead76c8e8bca145488f9}{aruco\+Tracker}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a122313e8dde81f06d9ccdcee152f0539}{camera\+Matrix}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a7da465782fcadfdaba0910e3c7d0d098}{dist\+Coeffs}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_aaacb0cb96d6f6783a761df759330028a}{camera\+Topic}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a7b380af09e409271e019990cea6ca629}{image\+Callback}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_af892eeb10459dd14398c95471f7d9462}{camera\+Info\+Topic}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_af86c15f1a929cf416e25652746e3aa06}{camera\+Info\+Callback}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_ae0fc0c461fe32714dad7ef294ccebc94}{pose\+Pub}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_a84e86d50453014233e0eaae1957c00ac}{aruco\+Dict\+Type}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_ac085576b773735ba71be4674f59d5636}{visualize}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_ac233eb10d451aabab6f1186ee6e9f2db}{show\+Rejected}}
+\item 
+\mbox{\hyperlink{classnode_1_1ArucoTrackingNode_ab39d23a11738f8107aa54df18362b052}{marker\+Size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A ROS node for detecting and tracking ArUco markers in a camera stream.
+
+Attributes
+----------
+bridge : CvBridge
+    Object for converting ROS Image messages to OpenCV images.
+arucoTracker : ArucoTracker
+    Object for detecting ArUco markers.
+cameraMatrix : Optional[np.ndarray]
+    The camera matrix for visualization.
+distCoeffs : Optional[np.ndarray]
+    The distortion coefficients for visualization.
+visualize : bool
+    Whether to visualize the detected markers.
+showRejected : bool
+    Whether to show rejected marker candidates.
+posePub : rospy.Publisher
+    Publisher for PoseStamped messages.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classnode_1_1ArucoTrackingNode_a1dd9abf86e44aa20969776e64bda8780}\label{classnode_1_1ArucoTrackingNode_a1dd9abf86e44aa20969776e64bda8780} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialize the ArucoTrackingNode and load parameters.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classnode_1_1ArucoTrackingNode_a8935cc05e9c7972005673a9bcbf382da}\label{classnode_1_1ArucoTrackingNode_a8935cc05e9c7972005673a9bcbf382da} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!cameraInfoCallback@{cameraInfoCallback}}
+\index{cameraInfoCallback@{cameraInfoCallback}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{cameraInfoCallback()}{cameraInfoCallback()}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+camera\+Info\+Callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Camera\+Info}]{camera\+Info\+Msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Callback for processing camera calibration information.
+
+Parameters
+----------
+cameraInfoMsg : CameraInfo
+    The incoming ROS CameraInfo message.
+\end{DoxyVerb}
+ \Hypertarget{classnode_1_1ArucoTrackingNode_adbc92f0790a57b94ce756da89c87b741}\label{classnode_1_1ArucoTrackingNode_adbc92f0790a57b94ce756da89c87b741} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!imageCallback@{imageCallback}}
+\index{imageCallback@{imageCallback}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{imageCallback()}{imageCallback()}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+image\+Callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{Image}]{image\+Msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Callback for processing incoming camera images.
+
+Parameters
+----------
+imageMsg : Image
+    The incoming ROS Image message.
+\end{DoxyVerb}
+ \Hypertarget{classnode_1_1ArucoTrackingNode_a61146411bf49ccdf283a3108e238fef9}\label{classnode_1_1ArucoTrackingNode_a61146411bf49ccdf283a3108e238fef9} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!loadParameters@{loadParameters}}
+\index{loadParameters@{loadParameters}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{loadParameters()}{loadParameters()}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+load\+Parameters (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Load parameters from the ROS parameter server.
+\end{DoxyVerb}
+ \Hypertarget{classnode_1_1ArucoTrackingNode_aaab08da426989f81e58f99bca46ae142}\label{classnode_1_1ArucoTrackingNode_aaab08da426989f81e58f99bca46ae142} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!run@{run}}
+\index{run@{run}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Run the node.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classnode_1_1ArucoTrackingNode_a84e86d50453014233e0eaae1957c00ac}\label{classnode_1_1ArucoTrackingNode_a84e86d50453014233e0eaae1957c00ac} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!arucoDictType@{arucoDictType}}
+\index{arucoDictType@{arucoDictType}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{arucoDictType}{arucoDictType}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+aruco\+Dict\+Type}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_a4bda29d8b45fead76c8e8bca145488f9}\label{classnode_1_1ArucoTrackingNode_a4bda29d8b45fead76c8e8bca145488f9} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!arucoTracker@{arucoTracker}}
+\index{arucoTracker@{arucoTracker}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{arucoTracker}{arucoTracker}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+aruco\+Tracker}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_a4c08c0f79a211e83ef9a3c71bd7ca874}\label{classnode_1_1ArucoTrackingNode_a4c08c0f79a211e83ef9a3c71bd7ca874} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!bridge@{bridge}}
+\index{bridge@{bridge}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{bridge}{bridge}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+bridge}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_af86c15f1a929cf416e25652746e3aa06}\label{classnode_1_1ArucoTrackingNode_af86c15f1a929cf416e25652746e3aa06} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!cameraInfoCallback@{cameraInfoCallback}}
+\index{cameraInfoCallback@{cameraInfoCallback}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{cameraInfoCallback}{cameraInfoCallback}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+camera\+Info\+Callback}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_af892eeb10459dd14398c95471f7d9462}\label{classnode_1_1ArucoTrackingNode_af892eeb10459dd14398c95471f7d9462} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!cameraInfoTopic@{cameraInfoTopic}}
+\index{cameraInfoTopic@{cameraInfoTopic}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{cameraInfoTopic}{cameraInfoTopic}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+camera\+Info\+Topic}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_a122313e8dde81f06d9ccdcee152f0539}\label{classnode_1_1ArucoTrackingNode_a122313e8dde81f06d9ccdcee152f0539} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!cameraMatrix@{cameraMatrix}}
+\index{cameraMatrix@{cameraMatrix}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{cameraMatrix}{cameraMatrix}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+camera\+Matrix}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_aaacb0cb96d6f6783a761df759330028a}\label{classnode_1_1ArucoTrackingNode_aaacb0cb96d6f6783a761df759330028a} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!cameraTopic@{cameraTopic}}
+\index{cameraTopic@{cameraTopic}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{cameraTopic}{cameraTopic}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+camera\+Topic}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_a7da465782fcadfdaba0910e3c7d0d098}\label{classnode_1_1ArucoTrackingNode_a7da465782fcadfdaba0910e3c7d0d098} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!distCoeffs@{distCoeffs}}
+\index{distCoeffs@{distCoeffs}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{distCoeffs}{distCoeffs}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+dist\+Coeffs}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_a7b380af09e409271e019990cea6ca629}\label{classnode_1_1ArucoTrackingNode_a7b380af09e409271e019990cea6ca629} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!imageCallback@{imageCallback}}
+\index{imageCallback@{imageCallback}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{imageCallback}{imageCallback}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+image\+Callback}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_ab39d23a11738f8107aa54df18362b052}\label{classnode_1_1ArucoTrackingNode_ab39d23a11738f8107aa54df18362b052} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!markerSize@{markerSize}}
+\index{markerSize@{markerSize}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{markerSize}{markerSize}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+marker\+Size}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_ae0fc0c461fe32714dad7ef294ccebc94}\label{classnode_1_1ArucoTrackingNode_ae0fc0c461fe32714dad7ef294ccebc94} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!posePub@{posePub}}
+\index{posePub@{posePub}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{posePub}{posePub}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+pose\+Pub}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_ac233eb10d451aabab6f1186ee6e9f2db}\label{classnode_1_1ArucoTrackingNode_ac233eb10d451aabab6f1186ee6e9f2db} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!showRejected@{showRejected}}
+\index{showRejected@{showRejected}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{showRejected}{showRejected}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+show\+Rejected}
+
+\Hypertarget{classnode_1_1ArucoTrackingNode_ac085576b773735ba71be4674f59d5636}\label{classnode_1_1ArucoTrackingNode_ac085576b773735ba71be4674f59d5636} 
+\index{node.ArucoTrackingNode@{node.ArucoTrackingNode}!visualize@{visualize}}
+\index{visualize@{visualize}!node.ArucoTrackingNode@{node.ArucoTrackingNode}}
+\doxysubsubsection{\texorpdfstring{visualize}{visualize}}
+{\footnotesize\ttfamily node.\+Aruco\+Tracking\+Node.\+visualize}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/aruco\+\_\+tracking/nodes/\mbox{\hyperlink{node_8py}{node.\+py}}\end{DoxyCompactItemize}

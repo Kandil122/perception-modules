@@ -1,0 +1,77 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Obstacle\+Tracker Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1ObstacleTracker}{}\label{classzed__obstacle__detector_1_1ObstacleTracker}\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+
+
+{\ttfamily \#include $<$obstacle\+\_\+tracker.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_ab112d726c24a5fd5d48f3d654e620a80}{Obstacle\+Tracker}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_ae08fcdc71be359f4e0c91cb1bb4f0971}{\texorpdfstring{$\sim$}{\string~}\+Obstacle\+Tracker}} ()=default
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_aa0b10774fc8b3f8e8f1778e630f2cc8c}{update\+Tracks}} (const std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&current\+\_\+detections, const ros\+::\+Time \&current\+\_\+time, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle}{Tracked\+Obstacle}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a51be10cafd06c4cf75d258919b156fcb}{get\+Confirmed\+Obstacles}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle}{Tracked\+Obstacle}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_ac9d10704ec9b326bc89e06bdc59fbcd6}{get\+All\+Obstacles}} () const
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a98d4739bab64f67d2fb0c5fa7dafe2f1}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a7addfce676e55de83530c1edd78eb265}{get\+Params}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_ab112d726c24a5fd5d48f3d654e620a80}\label{classzed__obstacle__detector_1_1ObstacleTracker_ab112d726c24a5fd5d48f3d654e620a80} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!ObstacleTracker@{ObstacleTracker}}
+\index{ObstacleTracker@{ObstacleTracker}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{ObstacleTracker()}{ObstacleTracker()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::\+Obstacle\+Tracker (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_ae08fcdc71be359f4e0c91cb1bb4f0971}\label{classzed__obstacle__detector_1_1ObstacleTracker_ae08fcdc71be359f4e0c91cb1bb4f0971} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!````~ObstacleTracker@{\texorpdfstring{$\sim$}{\string~}ObstacleTracker}}
+\index{````~ObstacleTracker@{\texorpdfstring{$\sim$}{\string~}ObstacleTracker}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ObstacleTracker()}{\string~ObstacleTracker()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::\texorpdfstring{$\sim$}{\string~}\+Obstacle\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_ac9d10704ec9b326bc89e06bdc59fbcd6}\label{classzed__obstacle__detector_1_1ObstacleTracker_ac9d10704ec9b326bc89e06bdc59fbcd6} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!getAllObstacles@{getAllObstacles}}
+\index{getAllObstacles@{getAllObstacles}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{getAllObstacles()}{getAllObstacles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle}{Tracked\+Obstacle}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::get\+All\+Obstacles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_a51be10cafd06c4cf75d258919b156fcb}\label{classzed__obstacle__detector_1_1ObstacleTracker_a51be10cafd06c4cf75d258919b156fcb} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!getConfirmedObstacles@{getConfirmedObstacles}}
+\index{getConfirmedObstacles@{getConfirmedObstacles}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{getConfirmedObstacles()}{getConfirmedObstacles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle}{Tracked\+Obstacle}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::get\+Confirmed\+Obstacles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_a7addfce676e55de83530c1edd78eb265}\label{classzed__obstacle__detector_1_1ObstacleTracker_a7addfce676e55de83530c1edd78eb265} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_a98d4739bab64f67d2fb0c5fa7dafe2f1}\label{classzed__obstacle__detector_1_1ObstacleTracker_a98d4739bab64f67d2fb0c5fa7dafe2f1} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{Tracking\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleTracker_aa0b10774fc8b3f8e8f1778e630f2cc8c}\label{classzed__obstacle__detector_1_1ObstacleTracker_aa0b10774fc8b3f8e8f1778e630f2cc8c} 
+\index{zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}!updateTracks@{updateTracks}}
+\index{updateTracks@{updateTracks}!zed\_obstacle\_detector::ObstacleTracker@{zed\_obstacle\_detector::ObstacleTracker}}
+\doxysubsubsection{\texorpdfstring{updateTracks()}{updateTracks()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Tracker\+::update\+Tracks (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&}]{current\+\_\+detections,  }\item[{const ros\+::\+Time \&}]{current\+\_\+time,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{obstacle__tracker_8h}{obstacle\+\_\+tracker.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{obstacle__tracker_8cpp}{obstacle\+\_\+tracker.\+cpp}}\end{DoxyCompactItemize}

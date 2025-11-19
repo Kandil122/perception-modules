@@ -1,0 +1,61 @@
+\doxysection{kalman\+\_\+filter Class Reference}
+\hypertarget{classkalman__filter}{}\label{classkalman__filter}\index{kalman\_filter@{kalman\_filter}}
+
+
+{\ttfamily \#include $<$kalman\+\_\+filter.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classkalman__filter_afbabf6a12c84722c0dcc964bd375ef18}{kalman\+\_\+filter}} ()
+\item 
+void \mbox{\hyperlink{classkalman__filter_ac5e9288da299d4d1d97ccdb7279c3982}{setup}} (Matrix\+Xd states, Matrix\+Xd A, Matrix\+Xd B, Matrix\+Xd H, Matrix\+Xd P, Matrix\+Xd Q, Matrix\+Xd R)
+\item 
+void \mbox{\hyperlink{classkalman__filter_a00cd5454a224726ffea58b79fe91e484}{setA}} (Matrix\+Xd A)
+\item 
+void \mbox{\hyperlink{classkalman__filter_a340eb070459cca3d23bd62d969c7ff88}{estimate}} (Matrix\+Xd z, Matrix\+Xd u)
+\item 
+double \mbox{\hyperlink{classkalman__filter_a366a6cb0d9b66a1058b42232ccb5eaed}{output}} (int state\+\_\+index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classkalman__filter_afbabf6a12c84722c0dcc964bd375ef18}\label{classkalman__filter_afbabf6a12c84722c0dcc964bd375ef18} 
+\index{kalman\_filter@{kalman\_filter}!kalman\_filter@{kalman\_filter}}
+\index{kalman\_filter@{kalman\_filter}!kalman\_filter@{kalman\_filter}}
+\doxysubsubsection{\texorpdfstring{kalman\_filter()}{kalman\_filter()}}
+{\footnotesize\ttfamily kalman\+\_\+filter\+::kalman\+\_\+filter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classkalman__filter_a340eb070459cca3d23bd62d969c7ff88}\label{classkalman__filter_a340eb070459cca3d23bd62d969c7ff88} 
+\index{kalman\_filter@{kalman\_filter}!estimate@{estimate}}
+\index{estimate@{estimate}!kalman\_filter@{kalman\_filter}}
+\doxysubsubsection{\texorpdfstring{estimate()}{estimate()}}
+{\footnotesize\ttfamily void kalman\+\_\+filter\+::estimate (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{z,  }\item[{Matrix\+Xd}]{u }\end{DoxyParamCaption})}
+
+\Hypertarget{classkalman__filter_a366a6cb0d9b66a1058b42232ccb5eaed}\label{classkalman__filter_a366a6cb0d9b66a1058b42232ccb5eaed} 
+\index{kalman\_filter@{kalman\_filter}!output@{output}}
+\index{output@{output}!kalman\_filter@{kalman\_filter}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily double kalman\+\_\+filter\+::output (\begin{DoxyParamCaption}\item[{int}]{state\+\_\+index }\end{DoxyParamCaption})}
+
+\Hypertarget{classkalman__filter_a00cd5454a224726ffea58b79fe91e484}\label{classkalman__filter_a00cd5454a224726ffea58b79fe91e484} 
+\index{kalman\_filter@{kalman\_filter}!setA@{setA}}
+\index{setA@{setA}!kalman\_filter@{kalman\_filter}}
+\doxysubsubsection{\texorpdfstring{setA()}{setA()}}
+{\footnotesize\ttfamily void kalman\+\_\+filter\+::setA (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{A }\end{DoxyParamCaption})}
+
+\Hypertarget{classkalman__filter_ac5e9288da299d4d1d97ccdb7279c3982}\label{classkalman__filter_ac5e9288da299d4d1d97ccdb7279c3982} 
+\index{kalman\_filter@{kalman\_filter}!setup@{setup}}
+\index{setup@{setup}!kalman\_filter@{kalman\_filter}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void kalman\+\_\+filter\+::setup (\begin{DoxyParamCaption}\item[{Matrix\+Xd}]{states,  }\item[{Matrix\+Xd}]{A,  }\item[{Matrix\+Xd}]{B,  }\item[{Matrix\+Xd}]{H,  }\item[{Matrix\+Xd}]{P,  }\item[{Matrix\+Xd}]{Q,  }\item[{Matrix\+Xd}]{R }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{kalman__filter_8h}{kalman\+\_\+filter.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{kalman__filter_8cpp}{kalman\+\_\+filter.\+cpp}}\end{DoxyCompactItemize}

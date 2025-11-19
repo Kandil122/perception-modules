@@ -1,0 +1,201 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Performance\+Monitor Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor}{}\label{classzed__obstacle__detector_1_1PerformanceMonitor}\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+
+
+{\ttfamily \#include $<$performance\+\_\+monitor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a23716b61da799154fe174ecb13fd90de}{Performance\+Monitor}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_afae7d7429e6c8f996a2da531b7e95edf}{\texorpdfstring{$\sim$}{\string~}\+Performance\+Monitor}} ()=default
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a265f8f2b5be38c2a82b47335949265b5}{start\+Frame}} ()
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a96a02d5da2f498aa2e57fb7a0aa424be}{end\+Frame}} ()
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a6ba2e6bc20d83e81e88d37cdcd105f3e}{start\+Timer}} (const std\+::string \&stage)
+\item 
+long \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ad1ef8fbd756a969ac18fa555d51aa478}{end\+Timer}} (const std\+::string \&stage)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_af3667cf169e53cfaf306dac0a7a9274b}{record\+Input\+Points}} (size\+\_\+t count)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a353234800503cc9596882482a5a8f883}{record\+Output\+Points}} (size\+\_\+t count)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a92349d383d746539113c9c3eadd65a11}{record\+Clusters\+Detected}} (size\+\_\+t count)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ad7eb66085729dcb7fbf56ef525440c2c}{record\+Obstacles\+Tracked}} (size\+\_\+t count)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a46a4fe5a4f3fa7a08d1050a40d9329a5}{record\+Confirmed\+Obstacles}} (size\+\_\+t count)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a26ad59af80f8f85be4b05875f00c527c}{record\+Early\+Exit}} (bool triggered)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_adc4f5ad4cd39a0cb27f5478688fef21d}{record\+Aggressive\+Downsampling}} (bool used)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_add16703d75681031285ed34e6e9b1577}{set\+Frame\+Info}} (const std\+::string \&frame\+\_\+id, const ros\+::\+Time \&timestamp)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_aa411d91020f2803a84cedf159a9f9232}{log\+Performance\+Metrics}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&metrics)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a50296973c32e521505456fb2230ccbba}{print\+Detailed\+Timing}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&metrics)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a5134a7da0b9ea47982ddafb46c3cf479}{print\+Summary\+Metrics}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&metrics)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a1407830eeb1e486cf0b9772cbcf5268d}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a70729136e2572f535d0d59e9d4accc17}{get\+Params}} () const
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a9edf80034390fe7eecb79fd35601b9c5}{get\+Current\+Metrics}} () const
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ace9e75c3a3f4e745a520192fbeca3a3c}{reset\+Metrics}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\static long \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_abe07699644843a836763e072d8616e29}{get\+Duration\+Ms}} (const T \&start, const T \&end)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a23716b61da799154fe174ecb13fd90de}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a23716b61da799154fe174ecb13fd90de} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!PerformanceMonitor@{PerformanceMonitor}}
+\index{PerformanceMonitor@{PerformanceMonitor}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{PerformanceMonitor()}{PerformanceMonitor()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::\+Performance\+Monitor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_afae7d7429e6c8f996a2da531b7e95edf}\label{classzed__obstacle__detector_1_1PerformanceMonitor_afae7d7429e6c8f996a2da531b7e95edf} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!````~PerformanceMonitor@{\texorpdfstring{$\sim$}{\string~}PerformanceMonitor}}
+\index{````~PerformanceMonitor@{\texorpdfstring{$\sim$}{\string~}PerformanceMonitor}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PerformanceMonitor()}{\string~PerformanceMonitor()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::\texorpdfstring{$\sim$}{\string~}\+Performance\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a96a02d5da2f498aa2e57fb7a0aa424be}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a96a02d5da2f498aa2e57fb7a0aa424be} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!endFrame@{endFrame}}
+\index{endFrame@{endFrame}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{endFrame()}{endFrame()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::end\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_ad1ef8fbd756a969ac18fa555d51aa478}\label{classzed__obstacle__detector_1_1PerformanceMonitor_ad1ef8fbd756a969ac18fa555d51aa478} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!endTimer@{endTimer}}
+\index{endTimer@{endTimer}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{endTimer()}{endTimer()}}
+{\footnotesize\ttfamily long zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::end\+Timer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{stage }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a9edf80034390fe7eecb79fd35601b9c5}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a9edf80034390fe7eecb79fd35601b9c5} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!getCurrentMetrics@{getCurrentMetrics}}
+\index{getCurrentMetrics@{getCurrentMetrics}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{getCurrentMetrics()}{getCurrentMetrics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::get\+Current\+Metrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_abe07699644843a836763e072d8616e29}\label{classzed__obstacle__detector_1_1PerformanceMonitor_abe07699644843a836763e072d8616e29} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!getDurationMs@{getDurationMs}}
+\index{getDurationMs@{getDurationMs}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{getDurationMs()}{getDurationMs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static long zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::get\+Duration\+Ms (\begin{DoxyParamCaption}\item[{const T \&}]{start,  }\item[{const T \&}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a70729136e2572f535d0d59e9d4accc17}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a70729136e2572f535d0d59e9d4accc17} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_aa411d91020f2803a84cedf159a9f9232}\label{classzed__obstacle__detector_1_1PerformanceMonitor_aa411d91020f2803a84cedf159a9f9232} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!logPerformanceMetrics@{logPerformanceMetrics}}
+\index{logPerformanceMetrics@{logPerformanceMetrics}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{logPerformanceMetrics()}{logPerformanceMetrics()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::log\+Performance\+Metrics (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&}]{metrics }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a50296973c32e521505456fb2230ccbba}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a50296973c32e521505456fb2230ccbba} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!printDetailedTiming@{printDetailedTiming}}
+\index{printDetailedTiming@{printDetailedTiming}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{printDetailedTiming()}{printDetailedTiming()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::print\+Detailed\+Timing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&}]{metrics }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a5134a7da0b9ea47982ddafb46c3cf479}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a5134a7da0b9ea47982ddafb46c3cf479} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!printSummaryMetrics@{printSummaryMetrics}}
+\index{printSummaryMetrics@{printSummaryMetrics}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{printSummaryMetrics()}{printSummaryMetrics()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::print\+Summary\+Metrics (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{Performance\+Metrics}} \&}]{metrics }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_adc4f5ad4cd39a0cb27f5478688fef21d}\label{classzed__obstacle__detector_1_1PerformanceMonitor_adc4f5ad4cd39a0cb27f5478688fef21d} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordAggressiveDownsampling@{recordAggressiveDownsampling}}
+\index{recordAggressiveDownsampling@{recordAggressiveDownsampling}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordAggressiveDownsampling()}{recordAggressiveDownsampling()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Aggressive\+Downsampling (\begin{DoxyParamCaption}\item[{bool}]{used }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a92349d383d746539113c9c3eadd65a11}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a92349d383d746539113c9c3eadd65a11} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordClustersDetected@{recordClustersDetected}}
+\index{recordClustersDetected@{recordClustersDetected}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordClustersDetected()}{recordClustersDetected()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Clusters\+Detected (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a46a4fe5a4f3fa7a08d1050a40d9329a5}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a46a4fe5a4f3fa7a08d1050a40d9329a5} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordConfirmedObstacles@{recordConfirmedObstacles}}
+\index{recordConfirmedObstacles@{recordConfirmedObstacles}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordConfirmedObstacles()}{recordConfirmedObstacles()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Confirmed\+Obstacles (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a26ad59af80f8f85be4b05875f00c527c}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a26ad59af80f8f85be4b05875f00c527c} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordEarlyExit@{recordEarlyExit}}
+\index{recordEarlyExit@{recordEarlyExit}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordEarlyExit()}{recordEarlyExit()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Early\+Exit (\begin{DoxyParamCaption}\item[{bool}]{triggered }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_af3667cf169e53cfaf306dac0a7a9274b}\label{classzed__obstacle__detector_1_1PerformanceMonitor_af3667cf169e53cfaf306dac0a7a9274b} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordInputPoints@{recordInputPoints}}
+\index{recordInputPoints@{recordInputPoints}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordInputPoints()}{recordInputPoints()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Input\+Points (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_ad7eb66085729dcb7fbf56ef525440c2c}\label{classzed__obstacle__detector_1_1PerformanceMonitor_ad7eb66085729dcb7fbf56ef525440c2c} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordObstaclesTracked@{recordObstaclesTracked}}
+\index{recordObstaclesTracked@{recordObstaclesTracked}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordObstaclesTracked()}{recordObstaclesTracked()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Obstacles\+Tracked (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a353234800503cc9596882482a5a8f883}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a353234800503cc9596882482a5a8f883} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!recordOutputPoints@{recordOutputPoints}}
+\index{recordOutputPoints@{recordOutputPoints}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{recordOutputPoints()}{recordOutputPoints()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::record\+Output\+Points (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_ace9e75c3a3f4e745a520192fbeca3a3c}\label{classzed__obstacle__detector_1_1PerformanceMonitor_ace9e75c3a3f4e745a520192fbeca3a3c} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!resetMetrics@{resetMetrics}}
+\index{resetMetrics@{resetMetrics}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{resetMetrics()}{resetMetrics()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::reset\+Metrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_add16703d75681031285ed34e6e9b1577}\label{classzed__obstacle__detector_1_1PerformanceMonitor_add16703d75681031285ed34e6e9b1577} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!setFrameInfo@{setFrameInfo}}
+\index{setFrameInfo@{setFrameInfo}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{setFrameInfo()}{setFrameInfo()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::set\+Frame\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{frame\+\_\+id,  }\item[{const ros\+::\+Time \&}]{timestamp }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a1407830eeb1e486cf0b9772cbcf5268d}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a1407830eeb1e486cf0b9772cbcf5268d} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{Monitor\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a265f8f2b5be38c2a82b47335949265b5}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a265f8f2b5be38c2a82b47335949265b5} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!startFrame@{startFrame}}
+\index{startFrame@{startFrame}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{startFrame()}{startFrame()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::start\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PerformanceMonitor_a6ba2e6bc20d83e81e88d37cdcd105f3e}\label{classzed__obstacle__detector_1_1PerformanceMonitor_a6ba2e6bc20d83e81e88d37cdcd105f3e} 
+\index{zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}!startTimer@{startTimer}}
+\index{startTimer@{startTimer}!zed\_obstacle\_detector::PerformanceMonitor@{zed\_obstacle\_detector::PerformanceMonitor}}
+\doxysubsubsection{\texorpdfstring{startTimer()}{startTimer()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Performance\+Monitor\+::start\+Timer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{stage }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{performance__monitor_8h}{performance\+\_\+monitor.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{performance__monitor_8cpp}{performance\+\_\+monitor.\+cpp}}\end{DoxyCompactItemize}

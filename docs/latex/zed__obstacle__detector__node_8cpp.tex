@@ -1,0 +1,107 @@
+\doxysection{/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/zed\+\_\+obstacle\+\_\+detector\+\_\+node.cpp File Reference}
+\hypertarget{zed__obstacle__detector__node_8cpp}{}\label{zed__obstacle__detector__node_8cpp}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/zed\_obstacle\_detector\_node.cpp@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/zed\_obstacle\_detector\_node.cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$sensor\+\_\+msgs/\+Point\+Cloud2.\+h$>$}\newline
+{\ttfamily \#include $<$roar\+\_\+msgs/\+Obstacle\+Array.\+h$>$}\newline
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker\+Array.\+h$>$}\newline
+{\ttfamily \#include "{}zed\+\_\+obstacle\+\_\+detector/obstacle\+\_\+detector.\+h"{}}\newline
+Include dependency graph for zed\+\_\+obstacle\+\_\+detector\+\_\+node.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{zed__obstacle__detector__node_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a60050bfc350eab4186864cfc764e1bcf}{print\+\_\+parameters}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+Params}} \&params, const std\+::string \&point\+\_\+cloud\+\_\+topic, const std\+::string \&camera\+\_\+frame)
+\item 
+void \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_abcb1afc254b0df3c40b13ff896d15302}{load\+\_\+params}} (ros\+::\+Node\+Handle \&nh, \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+Params}} \&params, std\+::string \&point\+\_\+cloud\+\_\+topic, std\+::string \&camera\+\_\+frame, bool is\+\_\+initialization=false)
+\item 
+void \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_ac5e1821d3f91cb105a7b282a5ab1f6a7}{point\+Cloud\+Callback}} (const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&input\+\_\+msg)
+\item 
+int \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a077b144ab3558b8d8f244440ac365f05}{pub\+\_\+obstacle\+\_\+array}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a5627f937bf8c2095111466a12fde00f0}{pub\+\_\+markers}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a3a2ee07ffe64b3920439454187410459}{pub\+\_\+filtered\+\_\+transformed}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a49da6cbd2b3d5d2a637ec89d5f2ea53e}{pub\+\_\+no\+\_\+ground}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_ad3c9f5b3c1b29451ff33c4f1e80265fa}{pub\+\_\+clusters\+\_\+debug}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector}} $>$ \mbox{\hyperlink{zed__obstacle__detector__node_8cpp_a35ae47af9ece8041d40a151db0f30134}{obstacle\+\_\+detector}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{zed__obstacle__detector__node_8cpp_abcb1afc254b0df3c40b13ff896d15302}\label{zed__obstacle__detector__node_8cpp_abcb1afc254b0df3c40b13ff896d15302} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!load\_params@{load\_params}}
+\index{load\_params@{load\_params}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_params()}{load\_params()}}
+{\footnotesize\ttfamily void load\+\_\+params (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle \&}]{nh,  }\item[{\mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+Params}} \&}]{params,  }\item[{std\+::string \&}]{point\+\_\+cloud\+\_\+topic,  }\item[{std\+::string \&}]{camera\+\_\+frame,  }\item[{bool}]{is\+\_\+initialization = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{zed__obstacle__detector__node_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!main@{main}}
+\index{main@{main}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_ac5e1821d3f91cb105a7b282a5ab1f6a7}\label{zed__obstacle__detector__node_8cpp_ac5e1821d3f91cb105a7b282a5ab1f6a7} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pointCloudCallback@{pointCloudCallback}}
+\index{pointCloudCallback@{pointCloudCallback}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pointCloudCallback()}{pointCloudCallback()}}
+{\footnotesize\ttfamily void point\+Cloud\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&}]{input\+\_\+msg }\end{DoxyParamCaption})}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a60050bfc350eab4186864cfc764e1bcf}\label{zed__obstacle__detector__node_8cpp_a60050bfc350eab4186864cfc764e1bcf} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!print\_parameters@{print\_parameters}}
+\index{print\_parameters@{print\_parameters}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_parameters()}{print\_parameters()}}
+{\footnotesize\ttfamily void print\+\_\+parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+Params}} \&}]{params,  }\item[{const std\+::string \&}]{point\+\_\+cloud\+\_\+topic,  }\item[{const std\+::string \&}]{camera\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{zed__obstacle__detector__node_8cpp_a35ae47af9ece8041d40a151db0f30134}\label{zed__obstacle__detector__node_8cpp_a35ae47af9ece8041d40a151db0f30134} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!obstacle\_detector@{obstacle\_detector}}
+\index{obstacle\_detector@{obstacle\_detector}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{obstacle\_detector}{obstacle\_detector}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector}{zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector}}$>$ obstacle\+\_\+detector}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_ad3c9f5b3c1b29451ff33c4f1e80265fa}\label{zed__obstacle__detector__node_8cpp_ad3c9f5b3c1b29451ff33c4f1e80265fa} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pub\_clusters\_debug@{pub\_clusters\_debug}}
+\index{pub\_clusters\_debug@{pub\_clusters\_debug}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_clusters\_debug}{pub\_clusters\_debug}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+clusters\+\_\+debug}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a3a2ee07ffe64b3920439454187410459}\label{zed__obstacle__detector__node_8cpp_a3a2ee07ffe64b3920439454187410459} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pub\_filtered\_transformed@{pub\_filtered\_transformed}}
+\index{pub\_filtered\_transformed@{pub\_filtered\_transformed}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_filtered\_transformed}{pub\_filtered\_transformed}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+filtered\+\_\+transformed}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a5627f937bf8c2095111466a12fde00f0}\label{zed__obstacle__detector__node_8cpp_a5627f937bf8c2095111466a12fde00f0} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pub\_markers@{pub\_markers}}
+\index{pub\_markers@{pub\_markers}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_markers}{pub\_markers}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+markers}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a49da6cbd2b3d5d2a637ec89d5f2ea53e}\label{zed__obstacle__detector__node_8cpp_a49da6cbd2b3d5d2a637ec89d5f2ea53e} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pub\_no\_ground@{pub\_no\_ground}}
+\index{pub\_no\_ground@{pub\_no\_ground}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_no\_ground}{pub\_no\_ground}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+no\+\_\+ground}
+
+\Hypertarget{zed__obstacle__detector__node_8cpp_a077b144ab3558b8d8f244440ac365f05}\label{zed__obstacle__detector__node_8cpp_a077b144ab3558b8d8f244440ac365f05} 
+\index{zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}!pub\_obstacle\_array@{pub\_obstacle\_array}}
+\index{pub\_obstacle\_array@{pub\_obstacle\_array}!zed\_obstacle\_detector\_node.cpp@{zed\_obstacle\_detector\_node.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_obstacle\_array}{pub\_obstacle\_array}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+obstacle\+\_\+array}
+

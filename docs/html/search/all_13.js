@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['obstacle_20detector_20docker_20setup_0',['ZED Obstacle Detector - Docker Setup',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html',1,'']]],
+  ['obstacle_20detector_20quick_20reference_1',['ZED Obstacle Detector - Quick Reference',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE.html',1,'']]],
+  ['obstacle_5farray_2',['obstacle_array',['../structzed__obstacle__detector_1_1ObstacleDetectorResult.html#ac2657697281e7ac5ee098c1409097f2c',1,'zed_obstacle_detector::ObstacleDetectorResult']]],
+  ['obstacle_5fdetector_3',['obstacle_detector',['../zed__obstacle__detector__node_8cpp.html#a35ae47af9ece8041d40a151db0f30134',1,'zed_obstacle_detector_node.cpp']]],
+  ['obstacle_5fdetector_2ecpp_4',['obstacle_detector.cpp',['../obstacle__detector_8cpp.html',1,'']]],
+  ['obstacle_5fdetector_2eh_5',['obstacle_detector.h',['../obstacle__detector_8h.html',1,'']]],
+  ['obstacle_5ftracker_2ecpp_6',['obstacle_tracker.cpp',['../obstacle__tracker_8cpp.html',1,'']]],
+  ['obstacle_5ftracker_2eh_7',['obstacle_tracker.h',['../obstacle__tracker_8h.html',1,'']]],
+  ['obstacledetector_8',['obstacledetector',['../classzed__obstacle__detector_1_1ObstacleDetector.html',1,'zed_obstacle_detector::ObstacleDetector'],['../classzed__obstacle__detector_1_1ObstacleDetector.html#a22e6254cf1cadc76c518e1b81ab3c97c',1,'zed_obstacle_detector::ObstacleDetector::ObstacleDetector()']]],
+  ['obstacledetectorparams_9',['ObstacleDetectorParams',['../structzed__obstacle__detector_1_1ObstacleDetectorParams.html',1,'zed_obstacle_detector']]],
+  ['obstacledetectorresult_10',['ObstacleDetectorResult',['../structzed__obstacle__detector_1_1ObstacleDetectorResult.html',1,'zed_obstacle_detector']]],
+  ['obstacles_20detected_11',['No Obstacles Detected',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2REAL__WORLD__DEPLOYMENT.html#autotoc_md98',1,'']]],
+  ['obstacles_5ftracked_12',['obstacles_tracked',['../structzed__obstacle__detector_1_1PerformanceMetrics.html#a05c09d2bf8b3bafb9e6986b775db8500',1,'zed_obstacle_detector::PerformanceMetrics']]],
+  ['obstacletracker_13',['obstacletracker',['../classzed__obstacle__detector_1_1ObstacleTracker.html',1,'zed_obstacle_detector::ObstacleTracker'],['../classzed__obstacle__detector_1_1ObstacleTracker.html#ab112d726c24a5fd5d48f3d654e620a80',1,'zed_obstacle_detector::ObstacleTracker::ObstacleTracker()']]],
+  ['optimization_14',['Performance Optimization',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html#autotoc_md30',1,'']]],
+  ['optimizations_20for_20jetson_15',['Key Optimizations for Jetson',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2REAL__WORLD__DEPLOYMENT.html#autotoc_md76',1,'']]],
+  ['option_201_3a_20using_20docker_20compose_20recommended_16',['option 1: using docker compose recommended',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html#autotoc_md11',1,'Option 1: Using Docker Compose (Recommended)'],['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html#autotoc_md8',1,'Option 1: Using Docker Compose (Recommended)']]],
+  ['option_202_3a_20using_20docker_20directly_17',['option 2: using docker directly',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html#autotoc_md9',1,'Option 2: Using Docker directly'],['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker.html#autotoc_md15',1,'Option 2: Using Docker directly']]],
+  ['options_18',['Launch Options',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2REAL__WORLD__DEPLOYMENT.html#autotoc_md70',1,'']]],
+  ['outdoor_20environments_19',['Outdoor Environments',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2REAL__WORLD__DEPLOYMENT.html#autotoc_md91',1,'']]],
+  ['output_20',['output',['../classUVdetector.html#a7beb6705b2e920ccba2fc0804cd8a5bb',1,'UVdetector::output()'],['../classkalman__filter.html#a366a6cb0d9b66a1058b42232ccb5eaed',1,'kalman_filter::output()']]],
+  ['output_20topics_21',['Output Topics',['../md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2REAL__WORLD__DEPLOYMENT.html#autotoc_md81',1,'']]],
+  ['output_5fms_22',['output_ms',['../structzed__obstacle__detector_1_1PerformanceMetrics.html#af12d190a98a1b9370c8d9edf50b74ec9',1,'zed_obstacle_detector::PerformanceMetrics']]],
+  ['output_5fpoints_23',['output_points',['../structzed__obstacle__detector_1_1PerformanceMetrics.html#ad71e17d5772109a5e318d21a33943bc1',1,'zed_obstacle_detector::PerformanceMetrics']]],
+  ['overlap_5fthreshold_24',['overlap_threshold',['../UV__detector_8cpp.html#a67b817379e733876ce528efa2958f85d',1,'OVERLAP_THRESHOLD:&#160;UV_detector.cpp'],['../classUVtracker.html#a6cdab74af8a755404764053cdf0caccb',1,'UVtracker::overlap_threshold']]]
+];

@@ -1,0 +1,319 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Obstacle\+Detector Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1ObstacleDetector}{}\label{classzed__obstacle__detector_1_1ObstacleDetector}\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+
+
+{\ttfamily \#include $<$obstacle\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a22e6254cf1cadc76c518e1b81ab3c97c}{Obstacle\+Detector}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classzed__obstacle__detector_1_1ObstacleDetector}{Obstacle\+Detector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_ac8f1accf81b977f97bfd7dc9a8e98b7e}{\texorpdfstring{$\sim$}{\string~}\+Obstacle\+Detector}} ()=default
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result}} \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a05a4b6b696af1a5cff903323454541d6}{process\+Point\+Cloud}} (const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&input\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Main processing function for point cloud obstacle detection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a107e150fd1901140a10ad06278e8cfd6}{preprocess\+Point\+Cloud}} (const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&input\+\_\+msg, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&processed\+\_\+cloud)
+\begin{DoxyCompactList}\small\item\em Preprocesses a ROS Point\+Cloud2 message into a PCL point cloud. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a772d1c27818ba66c0353855d84f34ba6}{detect\+Ground\+And\+Obstacles}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&obstacle\+\_\+cloud)
+\begin{DoxyCompactList}\small\item\em Detects ground plane and extracts obstacle points. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a111717d04907de051e2363fcc16320db}{detect\+Clusters}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&obstacle\+\_\+cloud, std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&clusters)
+\begin{DoxyCompactList}\small\item\em Detects clusters in the obstacle point cloud. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a3b1f35089bb54ec8613b83ec25c5cf39}{transform\+And\+Track}} (const std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&clusters, const ros\+::\+Time \&timestamp, \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result}} \&result, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor)
+\begin{DoxyCompactList}\small\item\em Transforms clusters to world coordinates and updates obstacle tracking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_abf08786a1415794cfc0367785d413075}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em Updates parameters for the obstacle detector and all its components. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_add97cf5e791f0ab9a83966f1a1aef261}{get\+Params}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor}{Point\+Cloud\+Processor}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_ae8bbed8cf5e25138e9372ea8e9d7b7bd}{get\+Processor}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector}{Ground\+Detector}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_abc7103e377c4969140ebd01c112e2428}{get\+Ground\+Detector}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector}{Cluster\+Detector}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a6ba2aaf564bae3795aae8a2cdf5ddb27}{get\+Cluster\+Detector}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer}{Coordinate\+Transformer}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_aa851a10e1c9cfe5b5b3b66efdf70e7fd}{get\+Transformer}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker}{Obstacle\+Tracker}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_afbc29e4c4b59f3e1ad52672ac0a4789a}{get\+Tracker}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_a19fe057cb60f121d4775a31b94f1df55}{get\+Monitor}} () const
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_abacf5403f2d6553e7868063863ec2fc7}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the obstacle detector to initial state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleDetector_ac6d2d54d752d91a3682a70993a6cfb9a}{is\+Initialized}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a22e6254cf1cadc76c518e1b81ab3c97c}\label{classzed__obstacle__detector_1_1ObstacleDetector_a22e6254cf1cadc76c518e1b81ab3c97c} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!ObstacleDetector@{ObstacleDetector}}
+\index{ObstacleDetector@{ObstacleDetector}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{ObstacleDetector()}{ObstacleDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::\+Obstacle\+Detector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classzed__obstacle__detector_1_1ObstacleDetector}{Obstacle\+Detector}. 
+
+Initializes the obstacle detection system with the provided parameters. Creates and initializes all sub-\/components (processor, ground detector, cluster detector, transformer, tracker, and monitor).
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & Configuration parameters for the obstacle detector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & if any component fails to initialize \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_ac8f1accf81b977f97bfd7dc9a8e98b7e}\label{classzed__obstacle__detector_1_1ObstacleDetector_ac8f1accf81b977f97bfd7dc9a8e98b7e} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!````~ObstacleDetector@{\texorpdfstring{$\sim$}{\string~}ObstacleDetector}}
+\index{````~ObstacleDetector@{\texorpdfstring{$\sim$}{\string~}ObstacleDetector}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ObstacleDetector()}{\string~ObstacleDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::\texorpdfstring{$\sim$}{\string~}\+Obstacle\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a111717d04907de051e2363fcc16320db}\label{classzed__obstacle__detector_1_1ObstacleDetector_a111717d04907de051e2363fcc16320db} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!detectClusters@{detectClusters}}
+\index{detectClusters@{detectClusters}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{detectClusters()}{detectClusters()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::detect\+Clusters (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{obstacle\+\_\+cloud,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&}]{clusters }\end{DoxyParamCaption})}
+
+
+
+Detects clusters in the obstacle point cloud. 
+
+Uses the \doxylink{classzed__obstacle__detector_1_1ClusterDetector}{Cluster\+Detector} component to group nearby points into clusters representing potential obstacles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle\+\_\+cloud} & Point cloud containing obstacle points (ground removed) \\
+\hline
+{\em clusters} & Output vector of detected clusters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if clustering succeeded and clusters were found, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Empty obstacle clouds are rejected with a warning 
+
+Clusters contain centroid, radius, and point data for each detected obstacle 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a772d1c27818ba66c0353855d84f34ba6}\label{classzed__obstacle__detector_1_1ObstacleDetector_a772d1c27818ba66c0353855d84f34ba6} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!detectGroundAndObstacles@{detectGroundAndObstacles}}
+\index{detectGroundAndObstacles@{detectGroundAndObstacles}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{detectGroundAndObstacles()}{detectGroundAndObstacles()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::detect\+Ground\+And\+Obstacles (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{obstacle\+\_\+cloud }\end{DoxyParamCaption})}
+
+
+
+Detects ground plane and extracts obstacle points. 
+
+Either performs ground detection to separate obstacles from ground, or skips ground filtering entirely based on configuration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+cloud} & Input point cloud to process \\
+\hline
+{\em obstacle\+\_\+cloud} & Output cloud containing only obstacle points (ground removed) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ground detection succeeded, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ground detection is performed in camera coordinates before transformation 
+
+If ground filtering is disabled, the entire input cloud is treated as obstacles 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a6ba2aaf564bae3795aae8a2cdf5ddb27}\label{classzed__obstacle__detector_1_1ObstacleDetector_a6ba2aaf564bae3795aae8a2cdf5ddb27} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getClusterDetector@{getClusterDetector}}
+\index{getClusterDetector@{getClusterDetector}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getClusterDetector()}{getClusterDetector()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector}{Cluster\+Detector}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Cluster\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_abc7103e377c4969140ebd01c112e2428}\label{classzed__obstacle__detector_1_1ObstacleDetector_abc7103e377c4969140ebd01c112e2428} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getGroundDetector@{getGroundDetector}}
+\index{getGroundDetector@{getGroundDetector}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getGroundDetector()}{getGroundDetector()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector}{Ground\+Detector}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Ground\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a19fe057cb60f121d4775a31b94f1df55}\label{classzed__obstacle__detector_1_1ObstacleDetector_a19fe057cb60f121d4775a31b94f1df55} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getMonitor@{getMonitor}}
+\index{getMonitor@{getMonitor}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getMonitor()}{getMonitor()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_add97cf5e791f0ab9a83966f1a1aef261}\label{classzed__obstacle__detector_1_1ObstacleDetector_add97cf5e791f0ab9a83966f1a1aef261} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_ae8bbed8cf5e25138e9372ea8e9d7b7bd}\label{classzed__obstacle__detector_1_1ObstacleDetector_ae8bbed8cf5e25138e9372ea8e9d7b7bd} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getProcessor@{getProcessor}}
+\index{getProcessor@{getProcessor}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getProcessor()}{getProcessor()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor}{Point\+Cloud\+Processor}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_afbc29e4c4b59f3e1ad52672ac0a4789a}\label{classzed__obstacle__detector_1_1ObstacleDetector_afbc29e4c4b59f3e1ad52672ac0a4789a} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getTracker@{getTracker}}
+\index{getTracker@{getTracker}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getTracker()}{getTracker()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker}{Obstacle\+Tracker}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_aa851a10e1c9cfe5b5b3b66efdf70e7fd}\label{classzed__obstacle__detector_1_1ObstacleDetector_aa851a10e1c9cfe5b5b3b66efdf70e7fd} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!getTransformer@{getTransformer}}
+\index{getTransformer@{getTransformer}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{getTransformer()}{getTransformer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer}{Coordinate\+Transformer}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::get\+Transformer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_ac6d2d54d752d91a3682a70993a6cfb9a}\label{classzed__obstacle__detector_1_1ObstacleDetector_ac6d2d54d752d91a3682a70993a6cfb9a} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!isInitialized@{isInitialized}}
+\index{isInitialized@{isInitialized}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{isInitialized()}{isInitialized()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::is\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a107e150fd1901140a10ad06278e8cfd6}\label{classzed__obstacle__detector_1_1ObstacleDetector_a107e150fd1901140a10ad06278e8cfd6} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!preprocessPointCloud@{preprocessPointCloud}}
+\index{preprocessPointCloud@{preprocessPointCloud}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{preprocessPointCloud()}{preprocessPointCloud()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::preprocess\+Point\+Cloud (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&}]{input\+\_\+msg,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{processed\+\_\+cloud }\end{DoxyParamCaption})}
+
+
+
+Preprocesses a ROS Point\+Cloud2 message into a PCL point cloud. 
+
+Converts the ROS message to PCL format and validates the input. Delegates the actual processing to the \doxylink{classzed__obstacle__detector_1_1PointCloudProcessor}{Point\+Cloud\+Processor} component.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+msg} & ROS Point\+Cloud2 message to process \\
+\hline
+{\em processed\+\_\+cloud} & Output PCL point cloud after preprocessing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if preprocessing succeeded, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function handles the conversion from ROS to PCL format 
+
+Empty clouds are rejected with a warning message 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a05a4b6b696af1a5cff903323454541d6}\label{classzed__obstacle__detector_1_1ObstacleDetector_a05a4b6b696af1a5cff903323454541d6} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!processPointCloud@{processPointCloud}}
+\index{processPointCloud@{processPointCloud}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{processPointCloud()}{processPointCloud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result}} zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::process\+Point\+Cloud (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Point\+Cloud2\+Const\+Ptr \&}]{input\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+Main processing function for point cloud obstacle detection. 
+
+Processes a ROS Point\+Cloud2 message through the complete obstacle detection pipeline\+:
+\begin{DoxyEnumerate}
+\item Preprocesses the point cloud (downsampling, filtering)
+\item Detects and removes ground plane
+\item Clusters remaining points into potential obstacles
+\item Transforms clusters to world coordinates
+\item Tracks obstacles across frames
+\item Creates output messages (Obstacle\+Array and visualization markers)
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+msg} & ROS Point\+Cloud2 message containing the input point cloud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result} containing detected obstacles, debug clouds, and performance metrics
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function is the main entry point for obstacle detection processing 
+
+Performance monitoring is automatically enabled if configured 
+
+Debug clouds are only populated if debug publishers are enabled 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_abacf5403f2d6553e7868063863ec2fc7}\label{classzed__obstacle__detector_1_1ObstacleDetector_abacf5403f2d6553e7868063863ec2fc7} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!reset@{reset}}
+\index{reset@{reset}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the obstacle detector to initial state. 
+
+Clears all tracked obstacles and resets performance monitoring metrics. Useful for starting fresh after system reconfiguration or error recovery.
+
+\begin{DoxyNote}{Note}
+This function clears all obstacle tracking history 
+
+Performance metrics are reset to zero 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_abf08786a1415794cfc0367785d413075}\label{classzed__obstacle__detector_1_1ObstacleDetector_abf08786a1415794cfc0367785d413075} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorParams}{Obstacle\+Detector\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+Updates parameters for the obstacle detector and all its components. 
+
+Propagates parameter changes to all sub-\/components (processor, ground detector, cluster detector, transformer, tracker, and monitor).
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & New parameters to apply\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function allows runtime parameter updates without restarting the system 
+
+All components are updated atomically 
+\end{DoxyNote}
+\Hypertarget{classzed__obstacle__detector_1_1ObstacleDetector_a3b1f35089bb54ec8613b83ec25c5cf39}\label{classzed__obstacle__detector_1_1ObstacleDetector_a3b1f35089bb54ec8613b83ec25c5cf39} 
+\index{zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}!transformAndTrack@{transformAndTrack}}
+\index{transformAndTrack@{transformAndTrack}!zed\_obstacle\_detector::ObstacleDetector@{zed\_obstacle\_detector::ObstacleDetector}}
+\doxysubsubsection{\texorpdfstring{transformAndTrack()}{transformAndTrack()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Obstacle\+Detector\+::transform\+And\+Track (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{const ros\+::\+Time \&}]{timestamp,  }\item[{\mbox{\hyperlink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result}} \&}]{result,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor }\end{DoxyParamCaption})}
+
+
+
+Transforms clusters to world coordinates and updates obstacle tracking. 
+
+Converts cluster centroids and radii from camera coordinates to world coordinates, then updates the obstacle tracker with the new detections. Creates output messages for confirmed obstacles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clusters} & Vector of clusters detected in camera coordinates \\
+\hline
+{\em timestamp} & Timestamp of the current frame \\
+\hline
+{\em result} & \doxylink{structzed__obstacle__detector_1_1ObstacleDetectorResult}{Obstacle\+Detector\+Result} to populate with output messages \\
+\hline
+{\em monitor} & Performance monitor for timing measurements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if transformation and tracking succeeded, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Clusters are transformed to world frame only if transformations are enabled 
+
+Only confirmed obstacles (detected multiple times) are included in output 
+
+Output messages include Obstacle\+Array and visualization markers 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{obstacle__detector_8h}{obstacle\+\_\+detector.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{obstacle__detector_8cpp}{obstacle\+\_\+detector.\+cpp}}\end{DoxyCompactItemize}

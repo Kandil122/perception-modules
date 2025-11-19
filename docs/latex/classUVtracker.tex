@@ -1,0 +1,107 @@
+\doxysection{UVtracker Class Reference}
+\hypertarget{classUVtracker}{}\label{classUVtracker}\index{UVtracker@{UVtracker}}
+
+
+{\ttfamily \#include $<$UV\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUVtracker_af7594994e2ba0400a8b1550df29dbf90}{UVtracker}} ()
+\item 
+void \mbox{\hyperlink{classUVtracker_a431a155193497ba77e1007c2002b2ca5}{read\+\_\+bb}} (vector$<$ Rect $>$ \mbox{\hyperlink{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65}{now\+\_\+bb}})
+\item 
+void \mbox{\hyperlink{classUVtracker_aca6392e4aea38c2c6618a8671951670d}{check\+\_\+status}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ Rect $>$ \mbox{\hyperlink{classUVtracker_a12998f8c10736a23aae309889dbe17e2}{pre\+\_\+bb}}
+\item 
+vector$<$ Rect $>$ \mbox{\hyperlink{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65}{now\+\_\+bb}}
+\item 
+vector$<$ vector$<$ Point2f $>$ $>$ \mbox{\hyperlink{classUVtracker_adea0b3e5ec48ee2f2e380380c3001cc8}{pre\+\_\+history}}
+\item 
+vector$<$ vector$<$ Point2f $>$ $>$ \mbox{\hyperlink{classUVtracker_ab81cc84b6cb6d66789129e99de3cb81a}{now\+\_\+history}}
+\item 
+vector$<$ \mbox{\hyperlink{classkalman__filter}{kalman\+\_\+filter}} $>$ \mbox{\hyperlink{classUVtracker_a17f020b3d92e656abf0dfdb7913305b7}{pre\+\_\+filter}}
+\item 
+vector$<$ \mbox{\hyperlink{classkalman__filter}{kalman\+\_\+filter}} $>$ \mbox{\hyperlink{classUVtracker_a2f0cc9db2a405a131f13207a123e727e}{now\+\_\+filter}}
+\item 
+float \mbox{\hyperlink{classUVtracker_a6cdab74af8a755404764053cdf0caccb}{overlap\+\_\+threshold}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classUVtracker_af7594994e2ba0400a8b1550df29dbf90}\label{classUVtracker_af7594994e2ba0400a8b1550df29dbf90} 
+\index{UVtracker@{UVtracker}!UVtracker@{UVtracker}}
+\index{UVtracker@{UVtracker}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{UVtracker()}{UVtracker()}}
+{\footnotesize\ttfamily UVtracker\+::\+UVtracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUVtracker_aca6392e4aea38c2c6618a8671951670d}\label{classUVtracker_aca6392e4aea38c2c6618a8671951670d} 
+\index{UVtracker@{UVtracker}!check\_status@{check\_status}}
+\index{check\_status@{check\_status}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{check\_status()}{check\_status()}}
+{\footnotesize\ttfamily void UVtracker\+::check\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVtracker_a431a155193497ba77e1007c2002b2ca5}\label{classUVtracker_a431a155193497ba77e1007c2002b2ca5} 
+\index{UVtracker@{UVtracker}!read\_bb@{read\_bb}}
+\index{read\_bb@{read\_bb}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{read\_bb()}{read\_bb()}}
+{\footnotesize\ttfamily void UVtracker\+::read\+\_\+bb (\begin{DoxyParamCaption}\item[{vector$<$ Rect $>$}]{now\+\_\+bb }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65}\label{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65} 
+\index{UVtracker@{UVtracker}!now\_bb@{now\_bb}}
+\index{now\_bb@{now\_bb}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{now\_bb}{now\_bb}}
+{\footnotesize\ttfamily vector$<$Rect$>$ UVtracker\+::now\+\_\+bb}
+
+\Hypertarget{classUVtracker_a2f0cc9db2a405a131f13207a123e727e}\label{classUVtracker_a2f0cc9db2a405a131f13207a123e727e} 
+\index{UVtracker@{UVtracker}!now\_filter@{now\_filter}}
+\index{now\_filter@{now\_filter}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{now\_filter}{now\_filter}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classkalman__filter}{kalman\+\_\+filter}}$>$ UVtracker\+::now\+\_\+filter}
+
+\Hypertarget{classUVtracker_ab81cc84b6cb6d66789129e99de3cb81a}\label{classUVtracker_ab81cc84b6cb6d66789129e99de3cb81a} 
+\index{UVtracker@{UVtracker}!now\_history@{now\_history}}
+\index{now\_history@{now\_history}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{now\_history}{now\_history}}
+{\footnotesize\ttfamily vector$<$vector$<$Point2f$>$ $>$ UVtracker\+::now\+\_\+history}
+
+\Hypertarget{classUVtracker_a6cdab74af8a755404764053cdf0caccb}\label{classUVtracker_a6cdab74af8a755404764053cdf0caccb} 
+\index{UVtracker@{UVtracker}!overlap\_threshold@{overlap\_threshold}}
+\index{overlap\_threshold@{overlap\_threshold}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{overlap\_threshold}{overlap\_threshold}}
+{\footnotesize\ttfamily float UVtracker\+::overlap\+\_\+threshold}
+
+\Hypertarget{classUVtracker_a12998f8c10736a23aae309889dbe17e2}\label{classUVtracker_a12998f8c10736a23aae309889dbe17e2} 
+\index{UVtracker@{UVtracker}!pre\_bb@{pre\_bb}}
+\index{pre\_bb@{pre\_bb}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{pre\_bb}{pre\_bb}}
+{\footnotesize\ttfamily vector$<$Rect$>$ UVtracker\+::pre\+\_\+bb}
+
+\Hypertarget{classUVtracker_a17f020b3d92e656abf0dfdb7913305b7}\label{classUVtracker_a17f020b3d92e656abf0dfdb7913305b7} 
+\index{UVtracker@{UVtracker}!pre\_filter@{pre\_filter}}
+\index{pre\_filter@{pre\_filter}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{pre\_filter}{pre\_filter}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classkalman__filter}{kalman\+\_\+filter}}$>$ UVtracker\+::pre\+\_\+filter}
+
+\Hypertarget{classUVtracker_adea0b3e5ec48ee2f2e380380c3001cc8}\label{classUVtracker_adea0b3e5ec48ee2f2e380380c3001cc8} 
+\index{UVtracker@{UVtracker}!pre\_history@{pre\_history}}
+\index{pre\_history@{pre\_history}!UVtracker@{UVtracker}}
+\doxysubsubsection{\texorpdfstring{pre\_history}{pre\_history}}
+{\footnotesize\ttfamily vector$<$vector$<$Point2f$>$ $>$ UVtracker\+::pre\+\_\+history}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{UV__detector_8h}{UV\+\_\+detector.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{UV__detector_8cpp}{UV\+\_\+detector.\+cpp}}\end{DoxyCompactItemize}

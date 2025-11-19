@@ -1,0 +1,101 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Coordinate\+Transformer Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer}{}\label{classzed__obstacle__detector_1_1CoordinateTransformer}\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+
+
+{\ttfamily \#include $<$coordinate\+\_\+transformer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_aca7fe282f32c846894c53982232d2e81}{Coordinate\+Transformer}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a79cf20f8331b0e4402da53bcd1460f83}{\texorpdfstring{$\sim$}{\string~}\+Coordinate\+Transformer}} ()=default
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_acd52e2dd6d22d7eb7085a72fc43d946b}{transform\+Clusters\+To\+World}} (const std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&clusters\+\_\+camera, const std\+::string \&camera\+\_\+frame, std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&clusters\+\_\+world, const ros\+::\+Time \&timestamp, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a5fd9fdd0f0c94a9f4f7c105c563d160e}{transform\+Single\+Point}} (const geometry\+\_\+msgs\+::\+Point\+Stamped \&point\+\_\+in, geometry\+\_\+msgs\+::\+Point\+Stamped \&point\+\_\+out, const std\+::string \&target\+\_\+frame)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a92b7f23128000e793b566eaa53a8bc92}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a9986bf3df16f7848fc41995bd8eb69bd}{get\+Params}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ tf2\+\_\+ros\+::\+Buffer $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a6ff5ad7a92a9442914de974ba3de1413}{get\+TFBuffer}} () const
+\item 
+std\+::shared\+\_\+ptr$<$ tf2\+\_\+ros\+::\+Transform\+Listener $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a11b63420d792ccc524dc10fcd272b49b}{get\+TFListener}} () const
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a986003edc50f50c2725871f935c01f5b}{is\+Transform\+Available}} (const std\+::string \&source\+\_\+frame, const std\+::string \&target\+\_\+frame, const ros\+::\+Time \&timestamp) const
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a90bea89377a7c664abc617bcedb9886c}{log\+TFTree\+Status}} (const std\+::string \&source\+\_\+frame, const std\+::string \&target\+\_\+frame, const ros\+::\+Time \&timestamp) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_aca7fe282f32c846894c53982232d2e81}\label{classzed__obstacle__detector_1_1CoordinateTransformer_aca7fe282f32c846894c53982232d2e81} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!CoordinateTransformer@{CoordinateTransformer}}
+\index{CoordinateTransformer@{CoordinateTransformer}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{CoordinateTransformer()}{CoordinateTransformer()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::\+Coordinate\+Transformer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a79cf20f8331b0e4402da53bcd1460f83}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a79cf20f8331b0e4402da53bcd1460f83} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!````~CoordinateTransformer@{\texorpdfstring{$\sim$}{\string~}CoordinateTransformer}}
+\index{````~CoordinateTransformer@{\texorpdfstring{$\sim$}{\string~}CoordinateTransformer}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CoordinateTransformer()}{\string~CoordinateTransformer()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::\texorpdfstring{$\sim$}{\string~}\+Coordinate\+Transformer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a9986bf3df16f7848fc41995bd8eb69bd}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a9986bf3df16f7848fc41995bd8eb69bd} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a6ff5ad7a92a9442914de974ba3de1413}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a6ff5ad7a92a9442914de974ba3de1413} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!getTFBuffer@{getTFBuffer}}
+\index{getTFBuffer@{getTFBuffer}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{getTFBuffer()}{getTFBuffer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ tf2\+\_\+ros\+::\+Buffer $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::get\+TFBuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a11b63420d792ccc524dc10fcd272b49b}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a11b63420d792ccc524dc10fcd272b49b} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!getTFListener@{getTFListener}}
+\index{getTFListener@{getTFListener}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{getTFListener()}{getTFListener()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ tf2\+\_\+ros\+::\+Transform\+Listener $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::get\+TFListener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a986003edc50f50c2725871f935c01f5b}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a986003edc50f50c2725871f935c01f5b} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!isTransformAvailable@{isTransformAvailable}}
+\index{isTransformAvailable@{isTransformAvailable}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{isTransformAvailable()}{isTransformAvailable()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::is\+Transform\+Available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source\+\_\+frame,  }\item[{const std\+::string \&}]{target\+\_\+frame,  }\item[{const ros\+::\+Time \&}]{timestamp }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a90bea89377a7c664abc617bcedb9886c}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a90bea89377a7c664abc617bcedb9886c} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!logTFTreeStatus@{logTFTreeStatus}}
+\index{logTFTreeStatus@{logTFTreeStatus}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{logTFTreeStatus()}{logTFTreeStatus()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::log\+TFTree\+Status (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source\+\_\+frame,  }\item[{const std\+::string \&}]{target\+\_\+frame,  }\item[{const ros\+::\+Time \&}]{timestamp }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a92b7f23128000e793b566eaa53a8bc92}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a92b7f23128000e793b566eaa53a8bc92} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{Transform\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_acd52e2dd6d22d7eb7085a72fc43d946b}\label{classzed__obstacle__detector_1_1CoordinateTransformer_acd52e2dd6d22d7eb7085a72fc43d946b} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!transformClustersToWorld@{transformClustersToWorld}}
+\index{transformClustersToWorld@{transformClustersToWorld}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{transformClustersToWorld()}{transformClustersToWorld()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::transform\+Clusters\+To\+World (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&}]{clusters\+\_\+camera,  }\item[{const std\+::string \&}]{camera\+\_\+frame,  }\item[{std\+::vector$<$ std\+::pair$<$ geometry\+\_\+msgs\+::\+Point, float $>$ $>$ \&}]{clusters\+\_\+world,  }\item[{const ros\+::\+Time \&}]{timestamp,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1CoordinateTransformer_a5fd9fdd0f0c94a9f4f7c105c563d160e}\label{classzed__obstacle__detector_1_1CoordinateTransformer_a5fd9fdd0f0c94a9f4f7c105c563d160e} 
+\index{zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}!transformSinglePoint@{transformSinglePoint}}
+\index{transformSinglePoint@{transformSinglePoint}!zed\_obstacle\_detector::CoordinateTransformer@{zed\_obstacle\_detector::CoordinateTransformer}}
+\doxysubsubsection{\texorpdfstring{transformSinglePoint()}{transformSinglePoint()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Coordinate\+Transformer\+::transform\+Single\+Point (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Point\+Stamped \&}]{point\+\_\+in,  }\item[{geometry\+\_\+msgs\+::\+Point\+Stamped \&}]{point\+\_\+out,  }\item[{const std\+::string \&}]{target\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{coordinate__transformer_8h}{coordinate\+\_\+transformer.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{coordinate__transformer_8cpp}{coordinate\+\_\+transformer.\+cpp}}\end{DoxyCompactItemize}

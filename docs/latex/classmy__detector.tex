@@ -1,0 +1,72 @@
+\doxysection{my\+\_\+detector Class Reference}
+\hypertarget{classmy__detector}{}\label{classmy__detector}\index{my\_detector@{my\_detector}}
+
+
+Main detector class that handles ROS integration and UV detection pipeline.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmy__detector_abed99121b200421ab9f5ffb3d0356f71}{my\+\_\+detector}} ()
+\begin{DoxyCompactList}\small\item\em Constructor -\/ initializes ROS communications. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmy__detector_af6b81ea9605d5502fc678ab7a60a58b8}{run}} (const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Main callback for processing depth images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main detector class that handles ROS integration and UV detection pipeline. 
+
+This class manages\+:
+\begin{DoxyItemize}
+\item ROS topic subscriptions and publications
+\item Depth image processing
+\item UV detection and tracking pipeline
+\item Visualization of results 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmy__detector_abed99121b200421ab9f5ffb3d0356f71}\label{classmy__detector_abed99121b200421ab9f5ffb3d0356f71} 
+\index{my\_detector@{my\_detector}!my\_detector@{my\_detector}}
+\index{my\_detector@{my\_detector}!my\_detector@{my\_detector}}
+\doxysubsubsection{\texorpdfstring{my\_detector()}{my\_detector()}}
+{\footnotesize\ttfamily my\+\_\+detector\+::my\+\_\+detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor -\/ initializes ROS communications. 
+
+Sets up\+:
+\begin{DoxyItemize}
+\item Image transport subscriber for depth images
+\item Publisher for visualization markers 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmy__detector_af6b81ea9605d5502fc678ab7a60a58b8}\label{classmy__detector_af6b81ea9605d5502fc678ab7a60a58b8} 
+\index{my\_detector@{my\_detector}!run@{run}}
+\index{run@{run}!my\_detector@{my\_detector}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void my\+\_\+detector\+::run (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Main callback for processing depth images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Incoming depth image message\\
+\hline
+\end{DoxyParams}
+Processing pipeline\+:
+\begin{DoxyEnumerate}
+\item Converts ROS image to Open\+CV format
+\item Runs UV detection
+\item Performs object tracking
+\item Updates visualizations
+\item Publishes detection results 
+\end{DoxyEnumerate}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/\mbox{\hyperlink{uv__detector__node_8cpp}{uv\+\_\+detector\+\_\+node.\+cpp}}\end{DoxyCompactItemize}

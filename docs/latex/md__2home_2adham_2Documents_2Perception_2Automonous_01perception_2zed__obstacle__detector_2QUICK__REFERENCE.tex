@@ -1,0 +1,165 @@
+\chapter{ZED Obstacle Detector -\/ Quick Reference}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE}{}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE}\index{ZED Obstacle Detector -\/ Quick Reference@{ZED Obstacle Detector -\/ Quick Reference}}
+\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md41}%
+\Hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md41}%
+ \hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md42}{}\doxysection{\texorpdfstring{Quick Start Commands}{Quick Start Commands}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md42}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md43}{}\doxysubsection{\texorpdfstring{Generic Launch (\+Recommended)}{Generic Launch (Recommended)}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md43}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ ZED2i\ Production\ Mode}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=production}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ ZED2i\ Debug\ Mode}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=debug}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ ZED2i\ High\ Performance\ Mode}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=high\_performance}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md44}{}\doxysection{\texorpdfstring{Camera Models}{Camera Models}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md44}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Camera Model   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Default Frame   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Topic Pattern    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Camera Model   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Default Frame   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Topic Pattern    }\\\cline{1-3}
+\endhead
+{\ttfamily zed}   &{\ttfamily zed\+\_\+left\+\_\+camera\+\_\+frame}   &{\ttfamily /zed/zed\+\_\+node/point\+\_\+cloud/cloud\+\_\+registered}    \\\cline{1-3}
+{\ttfamily zed2}   &{\ttfamily zed2\+\_\+left\+\_\+camera\+\_\+frame}   &{\ttfamily /zed2/zed\+\_\+node/point\+\_\+cloud/cloud\+\_\+registered}    \\\cline{1-3}
+{\ttfamily zed2i}   &{\ttfamily zed2i\+\_\+left\+\_\+camera\+\_\+frame}   &{\ttfamily /zed2i/zed\+\_\+node/point\+\_\+cloud/cloud\+\_\+registered}    \\\cline{1-3}
+{\ttfamily zed\+\_\+mini}   &{\ttfamily zed\+\_\+mini\+\_\+left\+\_\+camera\+\_\+frame}   &{\ttfamily /zed\+\_\+mini/zed\+\_\+node/point\+\_\+cloud/cloud\+\_\+registered}   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md45}{}\doxysection{\texorpdfstring{Performance Modes}{Performance Modes}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md45}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{7}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mode   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Voxel Size   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Debug   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Timing   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ RViz   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Early Exit   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Use Case    }\\\cline{1-7}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Mode   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Voxel Size   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Debug   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Timing   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ RViz   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Early Exit   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Use Case    }\\\cline{1-7}
+\endhead
+{\ttfamily debug}   &0.\+05m   &✅   &✅   &✅   &❌   &Development    \\\cline{1-7}
+{\ttfamily production}   &0.\+08m   &❌   &❌   &❌   &✅   &Real-\/world    \\\cline{1-7}
+{\ttfamily high\+\_\+performance}   &0.\+12m   &❌   &❌   &❌   &✅   &Resource-\/constrained   \\\cline{1-7}
+\end{longtabu}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md46}{}\doxysection{\texorpdfstring{Key Parameters}{Key Parameters}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md46}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md47}{}\doxysubsection{\texorpdfstring{Camera Configuration}{Camera Configuration}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md47}
+
+\begin{DoxyItemize}
+\item {\ttfamily camera\+\_\+model}\+: ZED camera model (zed, zed2, zed2i, zed\+\_\+mini)
+\item {\ttfamily camera\+\_\+frame}\+: Custom camera frame (overrides camera\+\_\+model)
+\item {\ttfamily point\+\_\+cloud\+\_\+topic}\+: Custom point cloud topic
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md48}{}\doxysubsection{\texorpdfstring{Performance Configuration}{Performance Configuration}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md48}
+
+\begin{DoxyItemize}
+\item {\ttfamily performance\+\_\+mode}\+: debug, production, high\+\_\+performance
+\item {\ttfamily voxel\+\_\+leaf\+\_\+size}\+: Point cloud downsampling (0.\+05-\/0.\+12m)
+\item {\ttfamily enable\+\_\+early\+\_\+exit}\+: Skip processing for small/large clouds
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md49}{}\doxysubsection{\texorpdfstring{Frame Configuration}{Frame Configuration}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md49}
+
+\begin{DoxyItemize}
+\item {\ttfamily base\+\_\+link\+\_\+frame}\+: Robot\textquotesingle{}s main frame (default\+: base\+\_\+link)
+\item {\ttfamily world\+\_\+frame}\+: Global tracking frame (default\+: world)
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md50}{}\doxysection{\texorpdfstring{Real-\/\+Time Parameter Changes}{Real-Time Parameter Changes}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md50}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md51}{}\doxysubsection{\texorpdfstring{Method 1\+: Interactive Script}{Method 1: Interactive Script}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md51}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Terminal\ 2:\ Run\ the\ testing\ script}
+\DoxyCodeLine{./test\_parameters.sh}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md52}{}\doxysubsection{\texorpdfstring{Method 2\+: Manual Commands}{Method 2: Manual Commands}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md52}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Change\ voxel\ size}
+\DoxyCodeLine{rosparam\ set\ /zed\_obstacle\_detector/voxel\_leaf\_size\ 0.05}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Change\ cluster\ tolerance}
+\DoxyCodeLine{rosparam\ set\ /zed\_obstacle\_detector/cluster\_tolerance\ 0.25}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ current\ value}
+\DoxyCodeLine{rosparam\ get\ /zed\_obstacle\_detector/voxel\_leaf\_size}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md53}{}\doxysubsection{\texorpdfstring{Method 3\+: Load Custom Parameter Sets}{Method 3: Load Custom Parameter Sets}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md53}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Load\ ultra-\/fine\ tuning\ (0.03m\ voxel,\ very\ strict)}
+\DoxyCodeLine{rosparam\ load\ config/test\_params.yaml\ /zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Load\ ultra-\/fast\ settings\ (0.15m\ voxel,\ very\ aggressive)}
+\DoxyCodeLine{rosparam\ load\ config/high\_performance\_params.yaml\ /zed\_obstacle\_detector}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md54}{}\doxysection{\texorpdfstring{Common Use Cases}{Common Use Cases}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md54}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md55}{}\doxysubsection{\texorpdfstring{Development \& Testing}{Development \& Testing}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md55}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Debug\ mode\ with\ fine\ resolution}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=debug}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md56}{}\doxysubsection{\texorpdfstring{Real-\/\+World Deployment}{Real-World Deployment}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md56}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Production\ mode\ with\ balanced\ performance}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=production}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md57}{}\doxysubsection{\texorpdfstring{Resource-\/\+Constrained Systems}{Resource-Constrained Systems}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md57}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ High\ performance\ mode\ for\ Jetson\ or\ low-\/power\ systems}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ performance\_mode:=high\_performance}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md58}{}\doxysubsection{\texorpdfstring{Custom Camera Frame}{Custom Camera Frame}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md58}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Use\ right\ camera\ instead\ of\ left}
+\DoxyCodeLine{roslaunch\ zed\_obstacle\_detector\ zed\_camera\_generic.launch\ camera\_model:=zed2i\ camera\_frame:=zed2i\_right\_camera\_frame\ performance\_mode:=production}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md59}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md59}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md60}{}\doxysubsection{\texorpdfstring{Check Node Status}{Check Node Status}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md60}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ List\ all\ parameters}
+\DoxyCodeLine{rosparam\ list\ /zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ node\ info}
+\DoxyCodeLine{rosnode\ info\ /zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ topics}
+\DoxyCodeLine{rostopic\ list\ |\ grep\ zed\_obstacle}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md61}{}\doxysubsection{\texorpdfstring{TF Issues}{TF Issues}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md61}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Check\ TF\ tree}
+\DoxyCodeLine{rosrun\ tf\ view\_frames}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ specific\ transform}
+\DoxyCodeLine{rosrun\ tf\ tf\_echo\ zed2i\_left\_camera\_frame\ base\_link}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md62}{}\doxysubsection{\texorpdfstring{Performance Issues}{Performance Issues}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2QUICK__REFERENCE_autotoc_md62}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Monitor\ CPU\ usage}
+\DoxyCodeLine{htop}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ memory\ usage}
+\DoxyCodeLine{free\ -\/h}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Monitor\ ROS\ topics}
+\DoxyCodeLine{rostopic\ hz\ /zed\_obstacle/obstacle\_array}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,5 @@
+<map id="zed_obstacle_detector::ObstacleDetectorResult" name="zed_obstacle_detector::ObstacleDetectorResult">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,108,189,148"/>
+<area shape="rect" id="Node000002" href="$structzed__obstacle__detector_1_1PerformanceMetrics.html" title=" " alt="" coords="13,5,181,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,59,100,108,95,108,95,59"/>
+</map>

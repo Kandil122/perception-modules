@@ -1,0 +1,245 @@
+\doxysection{/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\+UV\+\_\+detector.cpp File Reference}
+\hypertarget{UV__detector_8cpp}{}\label{UV__detector_8cpp}\index{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/UV\_detector.cpp@{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/UV\_detector.cpp}}
+
+
+Implementation of UV-\/based object detection and tracking.  
+
+
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$UV\+\_\+detector.\+h$>$}\newline
+{\ttfamily \#include $<$kalman\+\_\+filter.\+h$>$}\newline
+Include dependency graph for UV\+\_\+detector.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{UV__detector_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a67b817379e733876ce528efa2958f85d}{OVERLAP\+\_\+\+THRESHOLD}}~0.\+51
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a84e6ffdf694bf58d5a01015e633dd959}{TRACKING\+\_\+\+FREQUENCY}}~30
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_aa4e67e6f9a5e7a8402fad0ae16db75e0}{PROCESS\+\_\+\+NOISE}}~0.\+4
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a719774871faede09a5498781cda41832}{PROCESS\+\_\+\+NOISE\+\_\+\+SCALE}}~0.\+0
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a4fdef463d2046d077de6006b7b91f1eb}{MEASUREMENT\+\_\+\+NOISE}}~0.\+3
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_ae761ababc8f5bd24db4a056f500c2f70}{MEASUREMENT\+\_\+\+NOISE\+\_\+\+SCALE}}~0.\+99
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a97853dc4bb2d5289e9f9d48adce57622}{ROW\+\_\+\+DOWNSAMPLE}}~4
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a2de22eb946c85d7e743b7cfbac165130}{COL\+\_\+\+SCALE}}~0.\+5
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a549d41dcf9444ed7d6df1da3c73e7d16}{MIN\+\_\+\+DISTANCE}}~10
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a08e4da5f3d0c7936fa52467f40e4b6aa}{MAX\+\_\+\+DISTANCE}}~5000
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a5e889665d0da6d4af7828c140180b352}{THRESHOLD\+\_\+\+POINT}}~2
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a17a56c2dcc061b62a8e4b614e1f2f87a}{THRESHOLD\+\_\+\+LINE}}~2
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a85126fd26e1fd96ab426d84f0304cf6a}{MIN\+\_\+\+LENGTH\+\_\+\+LINE}}~8
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a63468ab927580f6d6eb4692fdebfe3b4}{SHOW\+\_\+\+BOUNDING\+\_\+\+BOX\+\_\+U}}~true
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a27bf2fb9cdf6f6f6675b76e02feb272f}{FOCAL\+\_\+\+LENGTH\+\_\+X}}~383.\+91
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_ac7e75f8ed20f918c8d404787f47feb48}{FOCAL\+\_\+\+LENGTH\+\_\+Y}}~383.\+91
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a533a8a08048ac58ee1aa1e66d4e388e6}{PRINCIPAL\+\_\+\+POINT\+\_\+X}}~318.\+27
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a586e9231692e7912d69c320a0c71b3bf}{PRINCIPAL\+\_\+\+POINT\+\_\+Y}}~242.\+18
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a4bb8cc4f43cf24b11c7eb234f60f35cf}{BIRD\+\_\+\+VIEW\+\_\+\+WIDTH}}~1000
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_ac7aafa088bf5b23ccd9c54965168dfdf}{BIRD\+\_\+\+VIEW\+\_\+\+HEIGHT}}~500
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a83e324cc0235645b574e059cc433950a}{BIRD\+\_\+\+VIEW\+\_\+\+SCALE}}~0.\+5
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a11e2f86051305762c88332c3ba308cf8}{GROUND\+\_\+\+HEIGHT\+\_\+\+MIN}}~0.\+2
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_a3a8554323f79e01aca9053fa8d90a530}{GROUND\+\_\+\+HEIGHT\+\_\+\+MAX}}~1.\+7
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_ab040c178de008f4761e38af42c6836ca}{GROUND\+\_\+\+FIT\+\_\+\+THRESHOLD}}~0.\+02
+\item 
+\#define \mbox{\hyperlink{UV__detector_8cpp_add135ab1dbedab1810d31601cfbac2f5}{REMOVE\+\_\+\+GROUND}}~false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUVbox}{UVbox}} \mbox{\hyperlink{UV__detector_8cpp_a1d7e2d7191b7677423ba8c067eb217e0}{merge\+\_\+two\+\_\+\+UVbox}} (\mbox{\hyperlink{classUVbox}{UVbox}} father, \mbox{\hyperlink{classUVbox}{UVbox}} son)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of UV-\/based object detection and tracking. 
+
+This file contains the implementation of UV-\/based object detection and tracking using depth data and Kalman filtering for state estimation. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{UV__detector_8cpp_ac7aafa088bf5b23ccd9c54965168dfdf}\label{UV__detector_8cpp_ac7aafa088bf5b23ccd9c54965168dfdf} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!BIRD\_VIEW\_HEIGHT@{BIRD\_VIEW\_HEIGHT}}
+\index{BIRD\_VIEW\_HEIGHT@{BIRD\_VIEW\_HEIGHT}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{BIRD\_VIEW\_HEIGHT}{BIRD\_VIEW\_HEIGHT}}
+{\footnotesize\ttfamily \#define BIRD\+\_\+\+VIEW\+\_\+\+HEIGHT~500}
+
+\Hypertarget{UV__detector_8cpp_a83e324cc0235645b574e059cc433950a}\label{UV__detector_8cpp_a83e324cc0235645b574e059cc433950a} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!BIRD\_VIEW\_SCALE@{BIRD\_VIEW\_SCALE}}
+\index{BIRD\_VIEW\_SCALE@{BIRD\_VIEW\_SCALE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{BIRD\_VIEW\_SCALE}{BIRD\_VIEW\_SCALE}}
+{\footnotesize\ttfamily \#define BIRD\+\_\+\+VIEW\+\_\+\+SCALE~0.\+5}
+
+\Hypertarget{UV__detector_8cpp_a4bb8cc4f43cf24b11c7eb234f60f35cf}\label{UV__detector_8cpp_a4bb8cc4f43cf24b11c7eb234f60f35cf} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!BIRD\_VIEW\_WIDTH@{BIRD\_VIEW\_WIDTH}}
+\index{BIRD\_VIEW\_WIDTH@{BIRD\_VIEW\_WIDTH}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{BIRD\_VIEW\_WIDTH}{BIRD\_VIEW\_WIDTH}}
+{\footnotesize\ttfamily \#define BIRD\+\_\+\+VIEW\+\_\+\+WIDTH~1000}
+
+\Hypertarget{UV__detector_8cpp_a2de22eb946c85d7e743b7cfbac165130}\label{UV__detector_8cpp_a2de22eb946c85d7e743b7cfbac165130} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!COL\_SCALE@{COL\_SCALE}}
+\index{COL\_SCALE@{COL\_SCALE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{COL\_SCALE}{COL\_SCALE}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+SCALE~0.\+5}
+
+\Hypertarget{UV__detector_8cpp_a27bf2fb9cdf6f6f6675b76e02feb272f}\label{UV__detector_8cpp_a27bf2fb9cdf6f6f6675b76e02feb272f} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!FOCAL\_LENGTH\_X@{FOCAL\_LENGTH\_X}}
+\index{FOCAL\_LENGTH\_X@{FOCAL\_LENGTH\_X}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{FOCAL\_LENGTH\_X}{FOCAL\_LENGTH\_X}}
+{\footnotesize\ttfamily \#define FOCAL\+\_\+\+LENGTH\+\_\+X~383.\+91}
+
+\Hypertarget{UV__detector_8cpp_ac7e75f8ed20f918c8d404787f47feb48}\label{UV__detector_8cpp_ac7e75f8ed20f918c8d404787f47feb48} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!FOCAL\_LENGTH\_Y@{FOCAL\_LENGTH\_Y}}
+\index{FOCAL\_LENGTH\_Y@{FOCAL\_LENGTH\_Y}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{FOCAL\_LENGTH\_Y}{FOCAL\_LENGTH\_Y}}
+{\footnotesize\ttfamily \#define FOCAL\+\_\+\+LENGTH\+\_\+Y~383.\+91}
+
+\Hypertarget{UV__detector_8cpp_ab040c178de008f4761e38af42c6836ca}\label{UV__detector_8cpp_ab040c178de008f4761e38af42c6836ca} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!GROUND\_FIT\_THRESHOLD@{GROUND\_FIT\_THRESHOLD}}
+\index{GROUND\_FIT\_THRESHOLD@{GROUND\_FIT\_THRESHOLD}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{GROUND\_FIT\_THRESHOLD}{GROUND\_FIT\_THRESHOLD}}
+{\footnotesize\ttfamily \#define GROUND\+\_\+\+FIT\+\_\+\+THRESHOLD~0.\+02}
+
+\Hypertarget{UV__detector_8cpp_a3a8554323f79e01aca9053fa8d90a530}\label{UV__detector_8cpp_a3a8554323f79e01aca9053fa8d90a530} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!GROUND\_HEIGHT\_MAX@{GROUND\_HEIGHT\_MAX}}
+\index{GROUND\_HEIGHT\_MAX@{GROUND\_HEIGHT\_MAX}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{GROUND\_HEIGHT\_MAX}{GROUND\_HEIGHT\_MAX}}
+{\footnotesize\ttfamily \#define GROUND\+\_\+\+HEIGHT\+\_\+\+MAX~1.\+7}
+
+\Hypertarget{UV__detector_8cpp_a11e2f86051305762c88332c3ba308cf8}\label{UV__detector_8cpp_a11e2f86051305762c88332c3ba308cf8} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!GROUND\_HEIGHT\_MIN@{GROUND\_HEIGHT\_MIN}}
+\index{GROUND\_HEIGHT\_MIN@{GROUND\_HEIGHT\_MIN}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{GROUND\_HEIGHT\_MIN}{GROUND\_HEIGHT\_MIN}}
+{\footnotesize\ttfamily \#define GROUND\+\_\+\+HEIGHT\+\_\+\+MIN~0.\+2}
+
+\Hypertarget{UV__detector_8cpp_a08e4da5f3d0c7936fa52467f40e4b6aa}\label{UV__detector_8cpp_a08e4da5f3d0c7936fa52467f40e4b6aa} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!MAX\_DISTANCE@{MAX\_DISTANCE}}
+\index{MAX\_DISTANCE@{MAX\_DISTANCE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_DISTANCE}{MAX\_DISTANCE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+DISTANCE~5000}
+
+\Hypertarget{UV__detector_8cpp_a4fdef463d2046d077de6006b7b91f1eb}\label{UV__detector_8cpp_a4fdef463d2046d077de6006b7b91f1eb} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!MEASUREMENT\_NOISE@{MEASUREMENT\_NOISE}}
+\index{MEASUREMENT\_NOISE@{MEASUREMENT\_NOISE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{MEASUREMENT\_NOISE}{MEASUREMENT\_NOISE}}
+{\footnotesize\ttfamily \#define MEASUREMENT\+\_\+\+NOISE~0.\+3}
+
+\Hypertarget{UV__detector_8cpp_ae761ababc8f5bd24db4a056f500c2f70}\label{UV__detector_8cpp_ae761ababc8f5bd24db4a056f500c2f70} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!MEASUREMENT\_NOISE\_SCALE@{MEASUREMENT\_NOISE\_SCALE}}
+\index{MEASUREMENT\_NOISE\_SCALE@{MEASUREMENT\_NOISE\_SCALE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{MEASUREMENT\_NOISE\_SCALE}{MEASUREMENT\_NOISE\_SCALE}}
+{\footnotesize\ttfamily \#define MEASUREMENT\+\_\+\+NOISE\+\_\+\+SCALE~0.\+99}
+
+\Hypertarget{UV__detector_8cpp_a549d41dcf9444ed7d6df1da3c73e7d16}\label{UV__detector_8cpp_a549d41dcf9444ed7d6df1da3c73e7d16} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!MIN\_DISTANCE@{MIN\_DISTANCE}}
+\index{MIN\_DISTANCE@{MIN\_DISTANCE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{MIN\_DISTANCE}{MIN\_DISTANCE}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+DISTANCE~10}
+
+\Hypertarget{UV__detector_8cpp_a85126fd26e1fd96ab426d84f0304cf6a}\label{UV__detector_8cpp_a85126fd26e1fd96ab426d84f0304cf6a} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!MIN\_LENGTH\_LINE@{MIN\_LENGTH\_LINE}}
+\index{MIN\_LENGTH\_LINE@{MIN\_LENGTH\_LINE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{MIN\_LENGTH\_LINE}{MIN\_LENGTH\_LINE}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+LENGTH\+\_\+\+LINE~8}
+
+\Hypertarget{UV__detector_8cpp_a67b817379e733876ce528efa2958f85d}\label{UV__detector_8cpp_a67b817379e733876ce528efa2958f85d} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!OVERLAP\_THRESHOLD@{OVERLAP\_THRESHOLD}}
+\index{OVERLAP\_THRESHOLD@{OVERLAP\_THRESHOLD}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{OVERLAP\_THRESHOLD}{OVERLAP\_THRESHOLD}}
+{\footnotesize\ttfamily \#define OVERLAP\+\_\+\+THRESHOLD~0.\+51}
+
+\Hypertarget{UV__detector_8cpp_a533a8a08048ac58ee1aa1e66d4e388e6}\label{UV__detector_8cpp_a533a8a08048ac58ee1aa1e66d4e388e6} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!PRINCIPAL\_POINT\_X@{PRINCIPAL\_POINT\_X}}
+\index{PRINCIPAL\_POINT\_X@{PRINCIPAL\_POINT\_X}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{PRINCIPAL\_POINT\_X}{PRINCIPAL\_POINT\_X}}
+{\footnotesize\ttfamily \#define PRINCIPAL\+\_\+\+POINT\+\_\+X~318.\+27}
+
+\Hypertarget{UV__detector_8cpp_a586e9231692e7912d69c320a0c71b3bf}\label{UV__detector_8cpp_a586e9231692e7912d69c320a0c71b3bf} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!PRINCIPAL\_POINT\_Y@{PRINCIPAL\_POINT\_Y}}
+\index{PRINCIPAL\_POINT\_Y@{PRINCIPAL\_POINT\_Y}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{PRINCIPAL\_POINT\_Y}{PRINCIPAL\_POINT\_Y}}
+{\footnotesize\ttfamily \#define PRINCIPAL\+\_\+\+POINT\+\_\+Y~242.\+18}
+
+\Hypertarget{UV__detector_8cpp_aa4e67e6f9a5e7a8402fad0ae16db75e0}\label{UV__detector_8cpp_aa4e67e6f9a5e7a8402fad0ae16db75e0} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!PROCESS\_NOISE@{PROCESS\_NOISE}}
+\index{PROCESS\_NOISE@{PROCESS\_NOISE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{PROCESS\_NOISE}{PROCESS\_NOISE}}
+{\footnotesize\ttfamily \#define PROCESS\+\_\+\+NOISE~0.\+4}
+
+\Hypertarget{UV__detector_8cpp_a719774871faede09a5498781cda41832}\label{UV__detector_8cpp_a719774871faede09a5498781cda41832} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!PROCESS\_NOISE\_SCALE@{PROCESS\_NOISE\_SCALE}}
+\index{PROCESS\_NOISE\_SCALE@{PROCESS\_NOISE\_SCALE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{PROCESS\_NOISE\_SCALE}{PROCESS\_NOISE\_SCALE}}
+{\footnotesize\ttfamily \#define PROCESS\+\_\+\+NOISE\+\_\+\+SCALE~0.\+0}
+
+\Hypertarget{UV__detector_8cpp_add135ab1dbedab1810d31601cfbac2f5}\label{UV__detector_8cpp_add135ab1dbedab1810d31601cfbac2f5} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!REMOVE\_GROUND@{REMOVE\_GROUND}}
+\index{REMOVE\_GROUND@{REMOVE\_GROUND}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{REMOVE\_GROUND}{REMOVE\_GROUND}}
+{\footnotesize\ttfamily \#define REMOVE\+\_\+\+GROUND~false}
+
+\Hypertarget{UV__detector_8cpp_a97853dc4bb2d5289e9f9d48adce57622}\label{UV__detector_8cpp_a97853dc4bb2d5289e9f9d48adce57622} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!ROW\_DOWNSAMPLE@{ROW\_DOWNSAMPLE}}
+\index{ROW\_DOWNSAMPLE@{ROW\_DOWNSAMPLE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{ROW\_DOWNSAMPLE}{ROW\_DOWNSAMPLE}}
+{\footnotesize\ttfamily \#define ROW\+\_\+\+DOWNSAMPLE~4}
+
+\Hypertarget{UV__detector_8cpp_a63468ab927580f6d6eb4692fdebfe3b4}\label{UV__detector_8cpp_a63468ab927580f6d6eb4692fdebfe3b4} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!SHOW\_BOUNDING\_BOX\_U@{SHOW\_BOUNDING\_BOX\_U}}
+\index{SHOW\_BOUNDING\_BOX\_U@{SHOW\_BOUNDING\_BOX\_U}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{SHOW\_BOUNDING\_BOX\_U}{SHOW\_BOUNDING\_BOX\_U}}
+{\footnotesize\ttfamily \#define SHOW\+\_\+\+BOUNDING\+\_\+\+BOX\+\_\+U~true}
+
+\Hypertarget{UV__detector_8cpp_a17a56c2dcc061b62a8e4b614e1f2f87a}\label{UV__detector_8cpp_a17a56c2dcc061b62a8e4b614e1f2f87a} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!THRESHOLD\_LINE@{THRESHOLD\_LINE}}
+\index{THRESHOLD\_LINE@{THRESHOLD\_LINE}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{THRESHOLD\_LINE}{THRESHOLD\_LINE}}
+{\footnotesize\ttfamily \#define THRESHOLD\+\_\+\+LINE~2}
+
+\Hypertarget{UV__detector_8cpp_a5e889665d0da6d4af7828c140180b352}\label{UV__detector_8cpp_a5e889665d0da6d4af7828c140180b352} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!THRESHOLD\_POINT@{THRESHOLD\_POINT}}
+\index{THRESHOLD\_POINT@{THRESHOLD\_POINT}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{THRESHOLD\_POINT}{THRESHOLD\_POINT}}
+{\footnotesize\ttfamily \#define THRESHOLD\+\_\+\+POINT~2}
+
+\Hypertarget{UV__detector_8cpp_a84e6ffdf694bf58d5a01015e633dd959}\label{UV__detector_8cpp_a84e6ffdf694bf58d5a01015e633dd959} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!TRACKING\_FREQUENCY@{TRACKING\_FREQUENCY}}
+\index{TRACKING\_FREQUENCY@{TRACKING\_FREQUENCY}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{TRACKING\_FREQUENCY}{TRACKING\_FREQUENCY}}
+{\footnotesize\ttfamily \#define TRACKING\+\_\+\+FREQUENCY~30}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{UV__detector_8cpp_a1d7e2d7191b7677423ba8c067eb217e0}\label{UV__detector_8cpp_a1d7e2d7191b7677423ba8c067eb217e0} 
+\index{UV\_detector.cpp@{UV\_detector.cpp}!merge\_two\_UVbox@{merge\_two\_UVbox}}
+\index{merge\_two\_UVbox@{merge\_two\_UVbox}!UV\_detector.cpp@{UV\_detector.cpp}}
+\doxysubsubsection{\texorpdfstring{merge\_two\_UVbox()}{merge\_two\_UVbox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUVbox}{UVbox}} merge\+\_\+two\+\_\+\+UVbox (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUVbox}{UVbox}}}]{father,  }\item[{\mbox{\hyperlink{classUVbox}{UVbox}}}]{son }\end{DoxyParamCaption})}
+

@@ -1,0 +1,68 @@
+\doxysection{obstacle\+\_\+tracker.\+h}
+\hypertarget{obstacle__tracker_8h_source}{}\label{obstacle__tracker_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/obstacle\_tracker.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/obstacle\_tracker.h}}
+\mbox{\hyperlink{obstacle__tracker_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OBSTACLE\_TRACKER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OBSTACLE\_TRACKER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/Point.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ros/time.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{performance__monitor_8h}{zed\_obstacle\_detector/performance\_monitor.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle}{TrackedObstacle}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_ae1c1a5b334cc8f0b3571d450ed3d44ea}{id}};}
+\DoxyCodeLine{00014\ \ \ \ \ geometry\_msgs::Point\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_adb2961d8f2dff7469528e97d3aca403c}{position\_world}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a23d1dbe620f2a558e84b601101a170ec}{radius\_world}};}
+\DoxyCodeLine{00016\ \ \ \ \ ros::Time\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_af4186e9cd8dd8edf087c67f48b3891a6}{last\_seen}};}
+\DoxyCodeLine{00017\ \ \ \ \ ros::Time\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a5711077eaab497755711482df5bfdbea}{first\_seen}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a7e405db7ee1cb17c00c47e2d992d1cab}{detection\_count}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a1fe6867c841253bdc087e5b30745d78a}{confirmed}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a39f15aea882799f8b51ef1448695d28c}{matched\_in\_current\_frame}};}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a95472e103c35c4b47f0ce54578bf7fb5}{TrackedObstacle}}()\ :\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_ae1c1a5b334cc8f0b3571d450ed3d44ea}{id}}(0),\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a23d1dbe620f2a558e84b601101a170ec}{radius\_world}}(0.0f),\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a7e405db7ee1cb17c00c47e2d992d1cab}{detection\_count}}(0),\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a1fe6867c841253bdc087e5b30745d78a}{confirmed}}(false),\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackedObstacle_a39f15aea882799f8b51ef1448695d28c}{matched\_in\_current\_frame}}(false)\ \{\}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{TrackingParams}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams_a7510f0a20c9b88666eca388c3bed8d38}{association\_distance\_sq}};\ \ \textcolor{comment}{//\ Squared\ distance\ for\ association}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams_a465a5d77364fd8c58c35af8df082c9a6}{timeout\_sec}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Timeout\ for\ obstacles}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams_aaee6c4bc82092dbb2c9b669fffc9a5c2}{position\_smoothing\_factor}};\ \textcolor{comment}{//\ Smoothing\ factor\ for\ radius}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams_adfabef35707b6771a7178183d0f170cf}{min\_detections\_for\_confirmation}};\ \textcolor{comment}{//\ Min\ detections\ to\ confirm}}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker}{ObstacleTracker}}\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker}{ObstacleTracker}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{TrackingParams}}\&\ params);}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_ae08fcdc71be359f4e0c91cb1bb4f0971}{\string~ObstacleTracker}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Main\ interface}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_aa0b10774fc8b3f8e8f1778e630f2cc8c}{updateTracks}}(\textcolor{keyword}{const}\ std::vector<std::pair<geometry\_msgs::Point,\ float>>\&\ current\_detections,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ros::Time\&\ current\_time,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor);}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Get\ results}}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<TrackedObstacle>\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a51be10cafd06c4cf75d258919b156fcb}{getConfirmedObstacles}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ std::vector<TrackedObstacle>\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_ac9d10704ec9b326bc89e06bdc59fbcd6}{getAllObstacles}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ tracked\_obstacles\_;\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Set\ parameters}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a98d4739bab64f67d2fb0c5fa7dafe2f1}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{TrackingParams}}\&\ params);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{TrackingParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ObstacleTracker_a7addfce676e55de83530c1edd78eb265}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ cleanupTimedOutObstacles(\textcolor{keyword}{const}\ ros::Time\&\ current\_time);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ findBestMatch(\textcolor{keyword}{const}\ geometry\_msgs::Point\&\ detection,\ \textcolor{keywordtype}{float}\ radius)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<TrackedObstacle>\ tracked\_obstacles\_;}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TrackingParams}{TrackingParams}}\ params\_;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ next\_obstacle\_id\_\ =\ 1;}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ OBSTACLE\_TRACKER\_H\ }}
+
+\end{DoxyCode}

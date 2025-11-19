@@ -1,0 +1,357 @@
+\doxysection{UVdetector Class Reference}
+\hypertarget{classUVdetector}{}\label{classUVdetector}\index{UVdetector@{UVdetector}}
+
+
+{\ttfamily \#include $<$UV\+\_\+detector.\+h$>$}
+
+
+
+Collaboration diagram for UVdetector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classUVdetector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUVdetector_a9d0c740516a6ddb404be220cbaa8b50c}{UVdetector}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_ac28e4f4ce37bd5bfbf694858de89f77d}{readdata}} (Mat \mbox{\hyperlink{classUVdetector_ab10fdda0c69751fb29b7911680798847}{depth}})
+\item 
+void \mbox{\hyperlink{classUVdetector_a8e721c688346359c7c3e35a514202b5c}{fit\+Ground\+Plane}} ()
+\begin{DoxyCompactList}\small\item\em Fits ground plane using RANSAC on depth data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUVdetector_ab8aa67583440b2f3f9fd4dd5c1e902d6}{remove\+Ground\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Removes ground points from depth image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUVdetector_a32d5fafd8076c7fbf55d53b506947146}{extract\+\_\+\+U\+\_\+map}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_abbecf8735edcffe8648ab8cd22f0300d}{extract\+\_\+bb}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_af65703c671f68cbc197da88eacaa4edb}{extract\+\_\+bird\+\_\+view}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_ad92f1d857ab267704407cfdaae79ab62}{detect}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_a08b35aa6971e402da8680b12ed881993}{track}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_a7beb6705b2e920ccba2fc0804cd8a5bb}{output}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_a6f15090d47ea741e18d3b3c5f062c4e8}{display\+\_\+depth}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_a04467a96b224a4f4f27b86ecf696300f}{display\+\_\+\+U\+\_\+map}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_ac4aafcf1200afc4f0e719797d9712fdd}{add\+\_\+tracking\+\_\+result}} ()
+\item 
+void \mbox{\hyperlink{classUVdetector_a88f2ba7d9fc386ee5e6bfdd1a9d09d76}{display\+\_\+bird\+\_\+view}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Mat \mbox{\hyperlink{classUVdetector_ab10fdda0c69751fb29b7911680798847}{depth}}
+\item 
+Mat \mbox{\hyperlink{classUVdetector_a4c913e1b1973c8a47efd1d20b6b5c9a2}{depth\+\_\+low\+\_\+res}}
+\item 
+Mat \mbox{\hyperlink{classUVdetector_ae5fbbc1aeb75da5966881a311b2ea8df}{U\+\_\+map}}
+\item 
+Mat \mbox{\hyperlink{classUVdetector_ac222e14208343b9b7f4e8715790fed3e}{ground\+Mask}}
+\item 
+int \mbox{\hyperlink{classUVdetector_a959cba86e96b47fae318786b5e27bc84}{min\+\_\+dist}}
+\item 
+int \mbox{\hyperlink{classUVdetector_a343e7f8bc20ab9dad8df7b31bd2a8e9d}{max\+\_\+dist}}
+\item 
+int \mbox{\hyperlink{classUVdetector_a923aedec5c31983da8e6dac2d4a6bb82}{row\+\_\+downsample}}
+\item 
+float \mbox{\hyperlink{classUVdetector_ad4ac71e1d66aa65110d2eb4b280a9183}{col\+\_\+scale}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a474823e4d514fc0f42eef053eec5d4ff}{threshold\+\_\+point}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a3c57d9475238d2d4a039da4d36ae7893}{threshold\+\_\+line}}
+\item 
+int \mbox{\hyperlink{classUVdetector_acd14f9ed1298a346b6d88c8fdaa59e46}{min\+\_\+length\+\_\+line}}
+\item 
+bool \mbox{\hyperlink{classUVdetector_a6b378ea356231d8ee2175b2c43285d83}{show\+\_\+bounding\+\_\+box\+\_\+U}}
+\item 
+vector$<$ Rect $>$ \mbox{\hyperlink{classUVdetector_aa2ae772eeeeab190714e7931aa8ba901}{bounding\+\_\+box\+\_\+U}}
+\item 
+vector$<$ Rect $>$ \mbox{\hyperlink{classUVdetector_a75ef243df21543135c5c9f51d0c41564}{bounding\+\_\+box\+\_\+B}}
+\item 
+float \mbox{\hyperlink{classUVdetector_af4eb108984d7d201917bbb686dc03143}{fx}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a1606df543a43fa1f57bde3d64f810fe6}{fy}}
+\item 
+float \mbox{\hyperlink{classUVdetector_ad31aa64960fbcb2f49c5ffbbe8cd6892}{px}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a84678eaf8257db7e42b8015c15ec37d8}{py}}
+\item 
+Vec4f \mbox{\hyperlink{classUVdetector_ad36dd9fe232dbce5e3a476dd514a3f4c}{ground\+Plane}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a3b9cd1c15412554569c0c24cde6c4ee1}{ground\+Height\+Min}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a5df96161bd50eb7feb092a5f9775b0ba}{ground\+Height\+Max}}
+\item 
+float \mbox{\hyperlink{classUVdetector_a9cb1762eef1f274b123bd8147b0db01b}{ground\+Fit\+Threshold}}
+\item 
+bool \mbox{\hyperlink{classUVdetector_a5e545e6f23ba892ce4b26488a4cdc831}{remove\+Ground}}
+\item 
+Mat \mbox{\hyperlink{classUVdetector_a2ed4d24879bc9d389b2d3c635f215db7}{bird\+\_\+view}}
+\item 
+\mbox{\hyperlink{classUVtracker}{UVtracker}} \mbox{\hyperlink{classUVdetector_a96e0147807bea37acde04c721389dbd3}{tracker}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classUVdetector_a9d0c740516a6ddb404be220cbaa8b50c}\label{classUVdetector_a9d0c740516a6ddb404be220cbaa8b50c} 
+\index{UVdetector@{UVdetector}!UVdetector@{UVdetector}}
+\index{UVdetector@{UVdetector}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{UVdetector()}{UVdetector()}}
+{\footnotesize\ttfamily UVdetector\+::\+UVdetector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUVdetector_ac4aafcf1200afc4f0e719797d9712fdd}\label{classUVdetector_ac4aafcf1200afc4f0e719797d9712fdd} 
+\index{UVdetector@{UVdetector}!add\_tracking\_result@{add\_tracking\_result}}
+\index{add\_tracking\_result@{add\_tracking\_result}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{add\_tracking\_result()}{add\_tracking\_result()}}
+{\footnotesize\ttfamily void UVdetector\+::add\+\_\+tracking\+\_\+result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_ad92f1d857ab267704407cfdaae79ab62}\label{classUVdetector_ad92f1d857ab267704407cfdaae79ab62} 
+\index{UVdetector@{UVdetector}!detect@{detect}}
+\index{detect@{detect}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{detect()}{detect()}}
+{\footnotesize\ttfamily void UVdetector\+::detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_a88f2ba7d9fc386ee5e6bfdd1a9d09d76}\label{classUVdetector_a88f2ba7d9fc386ee5e6bfdd1a9d09d76} 
+\index{UVdetector@{UVdetector}!display\_bird\_view@{display\_bird\_view}}
+\index{display\_bird\_view@{display\_bird\_view}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{display\_bird\_view()}{display\_bird\_view()}}
+{\footnotesize\ttfamily void UVdetector\+::display\+\_\+bird\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_a6f15090d47ea741e18d3b3c5f062c4e8}\label{classUVdetector_a6f15090d47ea741e18d3b3c5f062c4e8} 
+\index{UVdetector@{UVdetector}!display\_depth@{display\_depth}}
+\index{display\_depth@{display\_depth}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{display\_depth()}{display\_depth()}}
+{\footnotesize\ttfamily void UVdetector\+::display\+\_\+depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_a04467a96b224a4f4f27b86ecf696300f}\label{classUVdetector_a04467a96b224a4f4f27b86ecf696300f} 
+\index{UVdetector@{UVdetector}!display\_U\_map@{display\_U\_map}}
+\index{display\_U\_map@{display\_U\_map}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{display\_U\_map()}{display\_U\_map()}}
+{\footnotesize\ttfamily void UVdetector\+::display\+\_\+\+U\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_abbecf8735edcffe8648ab8cd22f0300d}\label{classUVdetector_abbecf8735edcffe8648ab8cd22f0300d} 
+\index{UVdetector@{UVdetector}!extract\_bb@{extract\_bb}}
+\index{extract\_bb@{extract\_bb}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{extract\_bb()}{extract\_bb()}}
+{\footnotesize\ttfamily void UVdetector\+::extract\+\_\+bb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_af65703c671f68cbc197da88eacaa4edb}\label{classUVdetector_af65703c671f68cbc197da88eacaa4edb} 
+\index{UVdetector@{UVdetector}!extract\_bird\_view@{extract\_bird\_view}}
+\index{extract\_bird\_view@{extract\_bird\_view}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{extract\_bird\_view()}{extract\_bird\_view()}}
+{\footnotesize\ttfamily void UVdetector\+::extract\+\_\+bird\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_a32d5fafd8076c7fbf55d53b506947146}\label{classUVdetector_a32d5fafd8076c7fbf55d53b506947146} 
+\index{UVdetector@{UVdetector}!extract\_U\_map@{extract\_U\_map}}
+\index{extract\_U\_map@{extract\_U\_map}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{extract\_U\_map()}{extract\_U\_map()}}
+{\footnotesize\ttfamily void UVdetector\+::extract\+\_\+\+U\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_a8e721c688346359c7c3e35a514202b5c}\label{classUVdetector_a8e721c688346359c7c3e35a514202b5c} 
+\index{UVdetector@{UVdetector}!fitGroundPlane@{fitGroundPlane}}
+\index{fitGroundPlane@{fitGroundPlane}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{fitGroundPlane()}{fitGroundPlane()}}
+{\footnotesize\ttfamily void UVdetector\+::fit\+Ground\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fits ground plane using RANSAC on depth data. 
+
+Uses organized point cloud data to fit a plane to ground points. Points are converted from depth to 3D coordinates using camera parameters. \Hypertarget{classUVdetector_a7beb6705b2e920ccba2fc0804cd8a5bb}\label{classUVdetector_a7beb6705b2e920ccba2fc0804cd8a5bb} 
+\index{UVdetector@{UVdetector}!output@{output}}
+\index{output@{output}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily void UVdetector\+::output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_ac28e4f4ce37bd5bfbf694858de89f77d}\label{classUVdetector_ac28e4f4ce37bd5bfbf694858de89f77d} 
+\index{UVdetector@{UVdetector}!readdata@{readdata}}
+\index{readdata@{readdata}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{readdata()}{readdata()}}
+{\footnotesize\ttfamily void UVdetector\+::readdata (\begin{DoxyParamCaption}\item[{Mat}]{depth }\end{DoxyParamCaption})}
+
+\Hypertarget{classUVdetector_ab8aa67583440b2f3f9fd4dd5c1e902d6}\label{classUVdetector_ab8aa67583440b2f3f9fd4dd5c1e902d6} 
+\index{UVdetector@{UVdetector}!removeGroundPoints@{removeGroundPoints}}
+\index{removeGroundPoints@{removeGroundPoints}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{removeGroundPoints()}{removeGroundPoints()}}
+{\footnotesize\ttfamily void UVdetector\+::remove\+Ground\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes ground points from depth image. 
+
+Uses the fitted ground plane to remove points that are likely ground. Also applies height constraints from the paper. \Hypertarget{classUVdetector_a08b35aa6971e402da8680b12ed881993}\label{classUVdetector_a08b35aa6971e402da8680b12ed881993} 
+\index{UVdetector@{UVdetector}!track@{track}}
+\index{track@{track}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{track()}{track()}}
+{\footnotesize\ttfamily void UVdetector\+::track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classUVdetector_a2ed4d24879bc9d389b2d3c635f215db7}\label{classUVdetector_a2ed4d24879bc9d389b2d3c635f215db7} 
+\index{UVdetector@{UVdetector}!bird\_view@{bird\_view}}
+\index{bird\_view@{bird\_view}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{bird\_view}{bird\_view}}
+{\footnotesize\ttfamily Mat UVdetector\+::bird\+\_\+view}
+
+\Hypertarget{classUVdetector_a75ef243df21543135c5c9f51d0c41564}\label{classUVdetector_a75ef243df21543135c5c9f51d0c41564} 
+\index{UVdetector@{UVdetector}!bounding\_box\_B@{bounding\_box\_B}}
+\index{bounding\_box\_B@{bounding\_box\_B}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{bounding\_box\_B}{bounding\_box\_B}}
+{\footnotesize\ttfamily vector$<$Rect$>$ UVdetector\+::bounding\+\_\+box\+\_\+B}
+
+\Hypertarget{classUVdetector_aa2ae772eeeeab190714e7931aa8ba901}\label{classUVdetector_aa2ae772eeeeab190714e7931aa8ba901} 
+\index{UVdetector@{UVdetector}!bounding\_box\_U@{bounding\_box\_U}}
+\index{bounding\_box\_U@{bounding\_box\_U}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{bounding\_box\_U}{bounding\_box\_U}}
+{\footnotesize\ttfamily vector$<$Rect$>$ UVdetector\+::bounding\+\_\+box\+\_\+U}
+
+\Hypertarget{classUVdetector_ad4ac71e1d66aa65110d2eb4b280a9183}\label{classUVdetector_ad4ac71e1d66aa65110d2eb4b280a9183} 
+\index{UVdetector@{UVdetector}!col\_scale@{col\_scale}}
+\index{col\_scale@{col\_scale}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{col\_scale}{col\_scale}}
+{\footnotesize\ttfamily float UVdetector\+::col\+\_\+scale}
+
+\Hypertarget{classUVdetector_ab10fdda0c69751fb29b7911680798847}\label{classUVdetector_ab10fdda0c69751fb29b7911680798847} 
+\index{UVdetector@{UVdetector}!depth@{depth}}
+\index{depth@{depth}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{depth}{depth}}
+{\footnotesize\ttfamily Mat UVdetector\+::depth}
+
+\Hypertarget{classUVdetector_a4c913e1b1973c8a47efd1d20b6b5c9a2}\label{classUVdetector_a4c913e1b1973c8a47efd1d20b6b5c9a2} 
+\index{UVdetector@{UVdetector}!depth\_low\_res@{depth\_low\_res}}
+\index{depth\_low\_res@{depth\_low\_res}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{depth\_low\_res}{depth\_low\_res}}
+{\footnotesize\ttfamily Mat UVdetector\+::depth\+\_\+low\+\_\+res}
+
+\Hypertarget{classUVdetector_af4eb108984d7d201917bbb686dc03143}\label{classUVdetector_af4eb108984d7d201917bbb686dc03143} 
+\index{UVdetector@{UVdetector}!fx@{fx}}
+\index{fx@{fx}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{fx}{fx}}
+{\footnotesize\ttfamily float UVdetector\+::fx}
+
+\Hypertarget{classUVdetector_a1606df543a43fa1f57bde3d64f810fe6}\label{classUVdetector_a1606df543a43fa1f57bde3d64f810fe6} 
+\index{UVdetector@{UVdetector}!fy@{fy}}
+\index{fy@{fy}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{fy}{fy}}
+{\footnotesize\ttfamily float UVdetector\+::fy}
+
+\Hypertarget{classUVdetector_a9cb1762eef1f274b123bd8147b0db01b}\label{classUVdetector_a9cb1762eef1f274b123bd8147b0db01b} 
+\index{UVdetector@{UVdetector}!groundFitThreshold@{groundFitThreshold}}
+\index{groundFitThreshold@{groundFitThreshold}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{groundFitThreshold}{groundFitThreshold}}
+{\footnotesize\ttfamily float UVdetector\+::ground\+Fit\+Threshold}
+
+\Hypertarget{classUVdetector_a5df96161bd50eb7feb092a5f9775b0ba}\label{classUVdetector_a5df96161bd50eb7feb092a5f9775b0ba} 
+\index{UVdetector@{UVdetector}!groundHeightMax@{groundHeightMax}}
+\index{groundHeightMax@{groundHeightMax}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{groundHeightMax}{groundHeightMax}}
+{\footnotesize\ttfamily float UVdetector\+::ground\+Height\+Max}
+
+\Hypertarget{classUVdetector_a3b9cd1c15412554569c0c24cde6c4ee1}\label{classUVdetector_a3b9cd1c15412554569c0c24cde6c4ee1} 
+\index{UVdetector@{UVdetector}!groundHeightMin@{groundHeightMin}}
+\index{groundHeightMin@{groundHeightMin}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{groundHeightMin}{groundHeightMin}}
+{\footnotesize\ttfamily float UVdetector\+::ground\+Height\+Min}
+
+\Hypertarget{classUVdetector_ac222e14208343b9b7f4e8715790fed3e}\label{classUVdetector_ac222e14208343b9b7f4e8715790fed3e} 
+\index{UVdetector@{UVdetector}!groundMask@{groundMask}}
+\index{groundMask@{groundMask}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{groundMask}{groundMask}}
+{\footnotesize\ttfamily Mat UVdetector\+::ground\+Mask}
+
+\Hypertarget{classUVdetector_ad36dd9fe232dbce5e3a476dd514a3f4c}\label{classUVdetector_ad36dd9fe232dbce5e3a476dd514a3f4c} 
+\index{UVdetector@{UVdetector}!groundPlane@{groundPlane}}
+\index{groundPlane@{groundPlane}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{groundPlane}{groundPlane}}
+{\footnotesize\ttfamily Vec4f UVdetector\+::ground\+Plane}
+
+\Hypertarget{classUVdetector_a343e7f8bc20ab9dad8df7b31bd2a8e9d}\label{classUVdetector_a343e7f8bc20ab9dad8df7b31bd2a8e9d} 
+\index{UVdetector@{UVdetector}!max\_dist@{max\_dist}}
+\index{max\_dist@{max\_dist}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{max\_dist}{max\_dist}}
+{\footnotesize\ttfamily int UVdetector\+::max\+\_\+dist}
+
+\Hypertarget{classUVdetector_a959cba86e96b47fae318786b5e27bc84}\label{classUVdetector_a959cba86e96b47fae318786b5e27bc84} 
+\index{UVdetector@{UVdetector}!min\_dist@{min\_dist}}
+\index{min\_dist@{min\_dist}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{min\_dist}{min\_dist}}
+{\footnotesize\ttfamily int UVdetector\+::min\+\_\+dist}
+
+\Hypertarget{classUVdetector_acd14f9ed1298a346b6d88c8fdaa59e46}\label{classUVdetector_acd14f9ed1298a346b6d88c8fdaa59e46} 
+\index{UVdetector@{UVdetector}!min\_length\_line@{min\_length\_line}}
+\index{min\_length\_line@{min\_length\_line}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{min\_length\_line}{min\_length\_line}}
+{\footnotesize\ttfamily int UVdetector\+::min\+\_\+length\+\_\+line}
+
+\Hypertarget{classUVdetector_ad31aa64960fbcb2f49c5ffbbe8cd6892}\label{classUVdetector_ad31aa64960fbcb2f49c5ffbbe8cd6892} 
+\index{UVdetector@{UVdetector}!px@{px}}
+\index{px@{px}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{px}{px}}
+{\footnotesize\ttfamily float UVdetector\+::px}
+
+\Hypertarget{classUVdetector_a84678eaf8257db7e42b8015c15ec37d8}\label{classUVdetector_a84678eaf8257db7e42b8015c15ec37d8} 
+\index{UVdetector@{UVdetector}!py@{py}}
+\index{py@{py}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{py}{py}}
+{\footnotesize\ttfamily float UVdetector\+::py}
+
+\Hypertarget{classUVdetector_a5e545e6f23ba892ce4b26488a4cdc831}\label{classUVdetector_a5e545e6f23ba892ce4b26488a4cdc831} 
+\index{UVdetector@{UVdetector}!removeGround@{removeGround}}
+\index{removeGround@{removeGround}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{removeGround}{removeGround}}
+{\footnotesize\ttfamily bool UVdetector\+::remove\+Ground}
+
+\Hypertarget{classUVdetector_a923aedec5c31983da8e6dac2d4a6bb82}\label{classUVdetector_a923aedec5c31983da8e6dac2d4a6bb82} 
+\index{UVdetector@{UVdetector}!row\_downsample@{row\_downsample}}
+\index{row\_downsample@{row\_downsample}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{row\_downsample}{row\_downsample}}
+{\footnotesize\ttfamily int UVdetector\+::row\+\_\+downsample}
+
+\Hypertarget{classUVdetector_a6b378ea356231d8ee2175b2c43285d83}\label{classUVdetector_a6b378ea356231d8ee2175b2c43285d83} 
+\index{UVdetector@{UVdetector}!show\_bounding\_box\_U@{show\_bounding\_box\_U}}
+\index{show\_bounding\_box\_U@{show\_bounding\_box\_U}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{show\_bounding\_box\_U}{show\_bounding\_box\_U}}
+{\footnotesize\ttfamily bool UVdetector\+::show\+\_\+bounding\+\_\+box\+\_\+U}
+
+\Hypertarget{classUVdetector_a3c57d9475238d2d4a039da4d36ae7893}\label{classUVdetector_a3c57d9475238d2d4a039da4d36ae7893} 
+\index{UVdetector@{UVdetector}!threshold\_line@{threshold\_line}}
+\index{threshold\_line@{threshold\_line}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{threshold\_line}{threshold\_line}}
+{\footnotesize\ttfamily float UVdetector\+::threshold\+\_\+line}
+
+\Hypertarget{classUVdetector_a474823e4d514fc0f42eef053eec5d4ff}\label{classUVdetector_a474823e4d514fc0f42eef053eec5d4ff} 
+\index{UVdetector@{UVdetector}!threshold\_point@{threshold\_point}}
+\index{threshold\_point@{threshold\_point}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{threshold\_point}{threshold\_point}}
+{\footnotesize\ttfamily float UVdetector\+::threshold\+\_\+point}
+
+\Hypertarget{classUVdetector_a96e0147807bea37acde04c721389dbd3}\label{classUVdetector_a96e0147807bea37acde04c721389dbd3} 
+\index{UVdetector@{UVdetector}!tracker@{tracker}}
+\index{tracker@{tracker}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{tracker}{tracker}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUVtracker}{UVtracker}} UVdetector\+::tracker}
+
+\Hypertarget{classUVdetector_ae5fbbc1aeb75da5966881a311b2ea8df}\label{classUVdetector_ae5fbbc1aeb75da5966881a311b2ea8df} 
+\index{UVdetector@{UVdetector}!U\_map@{U\_map}}
+\index{U\_map@{U\_map}!UVdetector@{UVdetector}}
+\doxysubsubsection{\texorpdfstring{U\_map}{U\_map}}
+{\footnotesize\ttfamily Mat UVdetector\+::\+U\+\_\+map}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{UV__detector_8h}{UV\+\_\+detector.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/include/\mbox{\hyperlink{UV__detector_8cpp}{UV\+\_\+detector.\+cpp}}\end{DoxyCompactItemize}

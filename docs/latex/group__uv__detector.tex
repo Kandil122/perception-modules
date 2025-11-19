@@ -1,0 +1,38 @@
+\doxysection{UV Detector ROS Node}
+\hypertarget{group__uv__detector}{}\label{group__uv__detector}\index{UV Detector ROS Node@{UV Detector ROS Node}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmy__detector}{my\+\_\+detector}}
+\begin{DoxyCompactList}\small\item\em Main detector class that handles ROS integration and UV detection pipeline. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__uv__detector_ga3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em Main entry point for the UV detector node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This node interfaces with a Real\+Sense depth camera to perform object detection and tracking using the UV detector algorithm. It subscribes to depth image data, processes it through the UV detector pipeline, and publishes visualization markers for RViz display. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__uv__detector_ga3c04138a5bfe5d72780bb7e82a18e627}\label{group__uv__detector_ga3c04138a5bfe5d72780bb7e82a18e627} 
+\index{UV Detector ROS Node@{UV Detector ROS Node}!main@{main}}
+\index{main@{main}!UV Detector ROS Node@{UV Detector ROS Node}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main entry point for the UV detector node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command line arguments \\
+\hline
+{\em argv} & Command line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Exit status 
+\end{DoxyReturn}

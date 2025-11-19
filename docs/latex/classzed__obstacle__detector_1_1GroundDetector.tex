@@ -1,0 +1,61 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Ground\+Detector Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1GroundDetector}{}\label{classzed__obstacle__detector_1_1GroundDetector}\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+
+
+{\ttfamily \#include $<$ground\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a4f1235d4b23f53070268a99b49c9ef25}{Ground\+Detector}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a4f2ea48dae59ecec0832ceed43843d6e}{\texorpdfstring{$\sim$}{\string~}\+Ground\+Detector}} ()=default
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a688909ff7793930423b776b7f200339d}{detect\+Ground}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&obstacle\+\_\+cloud)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a20329a7d62f8eb4ffac4b6d655b55710}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1GroundDetector_a080946890c92a1cb28ac20481a203c30}{get\+Params}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1GroundDetector_a4f1235d4b23f53070268a99b49c9ef25}\label{classzed__obstacle__detector_1_1GroundDetector_a4f1235d4b23f53070268a99b49c9ef25} 
+\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}!GroundDetector@{GroundDetector}}
+\index{GroundDetector@{GroundDetector}!zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+\doxysubsubsection{\texorpdfstring{GroundDetector()}{GroundDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Ground\+Detector\+::\+Ground\+Detector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1GroundDetector_a4f2ea48dae59ecec0832ceed43843d6e}\label{classzed__obstacle__detector_1_1GroundDetector_a4f2ea48dae59ecec0832ceed43843d6e} 
+\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}!````~GroundDetector@{\texorpdfstring{$\sim$}{\string~}GroundDetector}}
+\index{````~GroundDetector@{\texorpdfstring{$\sim$}{\string~}GroundDetector}!zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GroundDetector()}{\string~GroundDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Ground\+Detector\+::\texorpdfstring{$\sim$}{\string~}\+Ground\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1GroundDetector_a688909ff7793930423b776b7f200339d}\label{classzed__obstacle__detector_1_1GroundDetector_a688909ff7793930423b776b7f200339d} 
+\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}!detectGround@{detectGround}}
+\index{detectGround@{detectGround}!zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+\doxysubsubsection{\texorpdfstring{detectGround()}{detectGround()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Ground\+Detector\+::detect\+Ground (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{obstacle\+\_\+cloud }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1GroundDetector_a080946890c92a1cb28ac20481a203c30}\label{classzed__obstacle__detector_1_1GroundDetector_a080946890c92a1cb28ac20481a203c30} 
+\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Ground\+Detector\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1GroundDetector_a20329a7d62f8eb4ffac4b6d655b55710}\label{classzed__obstacle__detector_1_1GroundDetector_a20329a7d62f8eb4ffac4b6d655b55710} 
+\index{zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::GroundDetector@{zed\_obstacle\_detector::GroundDetector}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Ground\+Detector\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1GroundDetectionParams}{Ground\+Detection\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{ground__detector_8h}{ground\+\_\+detector.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{ground__detector_8cpp}{ground\+\_\+detector.\+cpp}}\end{DoxyCompactItemize}

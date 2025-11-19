@@ -1,0 +1,69 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Cluster\+Detector Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1ClusterDetector}{}\label{classzed__obstacle__detector_1_1ClusterDetector}\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+
+
+{\ttfamily \#include $<$cluster\+\_\+detector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_ab388cd0de03cf8f4d4bd9d717236df8b}{Cluster\+Detector}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_a71592dd4c209a010e353b6bb0ef1e355}{\texorpdfstring{$\sim$}{\string~}\+Cluster\+Detector}} ()=default
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_ab708c4c8108b69c5bf64137494d5113c}{detect\+Clusters}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_ac23009f1329f5476c78c867f8869053e}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_aee95b77a56585072cc23931d441a88d4}{get\+Params}} () const
+\item 
+pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$\+::\+Ptr \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_a48a885b864c89dc209702cdbb4344e7f}{create\+Debug\+Cloud}} (const std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&clusters, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_ab388cd0de03cf8f4d4bd9d717236df8b}\label{classzed__obstacle__detector_1_1ClusterDetector_ab388cd0de03cf8f4d4bd9d717236df8b} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!ClusterDetector@{ClusterDetector}}
+\index{ClusterDetector@{ClusterDetector}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{ClusterDetector()}{ClusterDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::\+Cluster\+Detector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_a71592dd4c209a010e353b6bb0ef1e355}\label{classzed__obstacle__detector_1_1ClusterDetector_a71592dd4c209a010e353b6bb0ef1e355} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!````~ClusterDetector@{\texorpdfstring{$\sim$}{\string~}ClusterDetector}}
+\index{````~ClusterDetector@{\texorpdfstring{$\sim$}{\string~}ClusterDetector}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ClusterDetector()}{\string~ClusterDetector()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::\texorpdfstring{$\sim$}{\string~}\+Cluster\+Detector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_a48a885b864c89dc209702cdbb4344e7f}\label{classzed__obstacle__detector_1_1ClusterDetector_a48a885b864c89dc209702cdbb4344e7f} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!createDebugCloud@{createDebugCloud}}
+\index{createDebugCloud@{createDebugCloud}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{createDebugCloud()}{createDebugCloud()}}
+{\footnotesize\ttfamily pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$\+::\+Ptr zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::create\+Debug\+Cloud (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_ab708c4c8108b69c5bf64137494d5113c}\label{classzed__obstacle__detector_1_1ClusterDetector_ab708c4c8108b69c5bf64137494d5113c} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!detectClusters@{detectClusters}}
+\index{detectClusters@{detectClusters}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{detectClusters()}{detectClusters()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}} $>$ zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::detect\+Clusters (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_aee95b77a56585072cc23931d441a88d4}\label{classzed__obstacle__detector_1_1ClusterDetector_aee95b77a56585072cc23931d441a88d4} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1ClusterDetector_ac23009f1329f5476c78c867f8869053e}\label{classzed__obstacle__detector_1_1ClusterDetector_ac23009f1329f5476c78c867f8869053e} 
+\index{zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::ClusterDetector@{zed\_obstacle\_detector::ClusterDetector}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Cluster\+Detector\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{Cluster\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{cluster__detector_8h}{cluster\+\_\+detector.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{cluster__detector_8cpp}{cluster\+\_\+detector.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\doxysection{coordinate\+\_\+transformer.\+h}
+\hypertarget{coordinate__transformer_8h_source}{}\label{coordinate__transformer_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/coordinate\_transformer.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/coordinate\_transformer.h}}
+\mbox{\hyperlink{coordinate__transformer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COORDINATE\_TRANSFORMER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COORDINATE\_TRANSFORMER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <tf2\_ros/buffer.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <tf2\_ros/transform\_listener.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <tf2\_eigen/tf2\_eigen.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/PointStamped.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/Point.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/TransformStamped.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sensor\_msgs/PointCloud2.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <ros/time.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{performance__monitor_8h}{zed\_obstacle\_detector/performance\_monitor.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{TransformParams}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_a20184f1919ef0ab31820d917b5bb75bc}{source\_frame}};}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_a3cbe9498db2710da45cf9ae280b54d92}{target\_frame}};}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_ae2d63ca3b326607b3dc561ee26f7e755}{world\_frame}};}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_a7aeabbf7e8d050ffc4a170c5e9113765}{camera\_frame}};\ \ \textcolor{comment}{//\ URDF\ camera\ frame\ name}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_a978f98ec562f8b081f05e3c55e568f72}{tf\_lookup\_timeout}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_ae8e30b437f883ebc7f7b5d9d03d2c007}{tf\_buffer\_duration}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_adff218dabd7b1b629d51c7cc6c5b45bb}{enable\_debug\_output}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams_af0c24623fc7fc0697cf58b438db4c47c}{enable\_transformations}};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer}{CoordinateTransformer}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer}{CoordinateTransformer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{TransformParams}}\&\ params);}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a79cf20f8331b0e4402da53bcd1460f83}{\string~CoordinateTransformer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Main\ transformation\ interface\ -\/\ only\ transform\ cluster\ centroids}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_acd52e2dd6d22d7eb7085a72fc43d946b}{transformClustersToWorld}}(\textcolor{keyword}{const}\ std::vector<std::pair<geometry\_msgs::Point,\ float>>\&\ clusters\_camera,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ camera\_frame,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<geometry\_msgs::Point,\ float>>\&\ clusters\_world,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ros::Time\&\ timestamp,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Individual\ transformation\ step\ (for\ internal\ use)}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a5fd9fdd0f0c94a9f4f7c105c563d160e}{transformSinglePoint}}(\textcolor{keyword}{const}\ geometry\_msgs::PointStamped\&\ point\_in,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ geometry\_msgs::PointStamped\&\ point\_out,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ target\_frame);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Parameter\ management}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a92b7f23128000e793b566eaa53a8bc92}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{TransformParams}}\&\ params);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{TransformParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a9986bf3df16f7848fc41995bd8eb69bd}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ TF\ buffer\ access\ (for\ external\ use)}}
+\DoxyCodeLine{00054\ \ \ \ \ std::shared\_ptr<tf2\_ros::Buffer>\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a6ff5ad7a92a9442914de974ba3de1413}{getTFBuffer}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ tf\_buffer\_;\ \}}
+\DoxyCodeLine{00055\ \ \ \ \ std::shared\_ptr<tf2\_ros::TransformListener>\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a11b63420d792ccc524dc10fcd272b49b}{getTFListener}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ tf\_listener\_;\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Utility\ functions}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a986003edc50f50c2725871f935c01f5b}{isTransformAvailable}}(\textcolor{keyword}{const}\ std::string\&\ source\_frame,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ target\_frame,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ros::Time\&\ timestamp)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Debug\ logging\ functions}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1CoordinateTransformer_a90bea89377a7c664abc617bcedb9886c}{logTFTreeStatus}}(\textcolor{keyword}{const}\ std::string\&\ source\_frame,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ target\_frame,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ros::Time\&\ timestamp)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1TransformParams}{TransformParams}}\ params\_;}
+\DoxyCodeLine{00069\ \ \ \ \ std::shared\_ptr<tf2\_ros::Buffer>\ tf\_buffer\_;}
+\DoxyCodeLine{00070\ \ \ \ \ std::shared\_ptr<tf2\_ros::TransformListener>\ tf\_listener\_;}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ COORDINATE\_TRANSFORMER\_H\ }}
+
+\end{DoxyCode}

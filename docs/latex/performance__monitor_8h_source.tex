@@ -1,0 +1,116 @@
+\doxysection{performance\+\_\+monitor.\+h}
+\hypertarget{performance__monitor_8h_source}{}\label{performance__monitor_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/performance\_monitor.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/performance\_monitor.h}}
+\mbox{\hyperlink{performance__monitor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PERFORMANCE\_MONITOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PERFORMANCE\_MONITOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ros/ros.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Timing\ data}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a6488bb4ccead02d6b192679d42a9e09e}{input\_validation\_ms}}\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a7f56337bdd199adced07b781eefb2552}{passthrough\_ms}}\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a23011c0c18327187306d9b06eb8ead0c}{uniform\_sampling\_ms}}\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a0a0f54adc6d07049c3222c39c8a630d5}{voxel\_grid\_ms}}\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_aac91b50050ce1a7a48ae01fa125d8992}{transform\_ms}}\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_afed8eaff982dae019afab191b189d396}{ground\_filter\_ms}}\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a2ca27bbb69ef540ad9de2001edc2a45b}{clustering\_ms}}\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a64e76c53a7066a59a9c358cedb1c97d1}{world\_transform\_ms}}\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_ae7ae16cf9d10c8a8161837e3269e6bfd}{tracking\_ms}}\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_af12d190a98a1b9370c8d9edf50b74ec9}{output\_ms}}\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_ad44f41696ede673509f8153b219efb75}{total\_ms}}\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Processing\ statistics}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a879f55cb0e42ba9fbeb8c213df64d57b}{input\_points}}\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_ad71e17d5772109a5e318d21a33943bc1}{output\_points}}\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a3e0386b9c9df98db8ef1440b5233c419}{clusters\_detected}}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a05c09d2bf8b3bafb9e6986b775db8500}{obstacles\_tracked}}\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a34b4093fced32c5b3c6c419d4c5fd0de}{confirmed\_obstacles}}\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Performance\ flags}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_ade085f70dd775f6602221c2e66e895db}{early\_exit\_triggered}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a34ef28c2eeace523cf1266cbf0f7e719}{aggressive\_downsampling\_used}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Frame\ information}}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_a05df5fb5c849496e82131f86d62e728d}{frame\_id}};}
+\DoxyCodeLine{00039\ \ \ \ \ ros::Time\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics_aa8625c5d16ddba51cd4b1dc01a80324d}{timestamp}};}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{MonitorParams}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams_a2fe8987c240317b3fcb2db7f92e94f7e}{enable\_detailed\_timing}};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams_ae68f17005336742a3119a58444e4cd19}{enable\_debug\_publishers}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams_a1ae4c489efe37cdf67950c91f67e39e1}{timing\_report\_interval}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams_a66955270f2556dc94b850539b586ab20}{enable\_performance\_logging}};}
+\DoxyCodeLine{00047\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams_a63fbabe78ad81a5021f0f357bc2ff7d6}{log\_file\_path}};}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{PerformanceMonitor}}\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{PerformanceMonitor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{MonitorParams}}\&\ params);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_afae7d7429e6c8f996a2da531b7e95edf}{\string~PerformanceMonitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Main\ interface}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a265f8f2b5be38c2a82b47335949265b5}{startFrame}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a96a02d5da2f498aa2e57fb7a0aa424be}{endFrame}}();}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Timing\ measurement}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a6ba2e6bc20d83e81e88d37cdcd105f3e}{startTimer}}(\textcolor{keyword}{const}\ std::string\&\ stage);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ad1ef8fbd756a969ac18fa555d51aa478}{endTimer}}(\textcolor{keyword}{const}\ std::string\&\ stage);\ \ \textcolor{comment}{//\ Returns\ duration\ in\ milliseconds}}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Metrics\ collection}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_af3667cf169e53cfaf306dac0a7a9274b}{recordInputPoints}}(\textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a353234800503cc9596882482a5a8f883}{recordOutputPoints}}(\textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a92349d383d746539113c9c3eadd65a11}{recordClustersDetected}}(\textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ad7eb66085729dcb7fbf56ef525440c2c}{recordObstaclesTracked}}(\textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a46a4fe5a4f3fa7a08d1050a40d9329a5}{recordConfirmedObstacles}}(\textcolor{keywordtype}{size\_t}\ count);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a26ad59af80f8f85be4b05875f00c527c}{recordEarlyExit}}(\textcolor{keywordtype}{bool}\ triggered);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_adc4f5ad4cd39a0cb27f5478688fef21d}{recordAggressiveDownsampling}}(\textcolor{keywordtype}{bool}\ used);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_add16703d75681031285ed34e6e9b1577}{setFrameInfo}}(\textcolor{keyword}{const}\ std::string\&\ frame\_id,\ \textcolor{keyword}{const}\ ros::Time\&\ timestamp);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Reporting}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_aa411d91020f2803a84cedf159a9f9232}{logPerformanceMetrics}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\&\ metrics);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a50296973c32e521505456fb2230ccbba}{printDetailedTiming}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\&\ metrics);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a5134a7da0b9ea47982ddafb46c3cf479}{printSummaryMetrics}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\&\ metrics);}
+\DoxyCodeLine{00077\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Parameter\ management}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a1407830eeb1e486cf0b9772cbcf5268d}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{MonitorParams}}\&\ params);}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{MonitorParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a70729136e2572f535d0d59e9d4accc17}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Utility\ functions}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_a9edf80034390fe7eecb79fd35601b9c5}{getCurrentMetrics}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_ace9e75c3a3f4e745a520192fbeca3a3c}{resetMetrics}}();}
+\DoxyCodeLine{00085\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Helper\ function\ to\ get\ duration\ in\ milliseconds}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor_abe07699644843a836763e072d8616e29}{getDurationMs}}(\textcolor{keyword}{const}\ T\&\ start,\ \textcolor{keyword}{const}\ T\&\ end)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::duration\_cast<std::chrono::microseconds>(end\ -\/\ start).count()\ /\ 1000;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1MonitorParams}{MonitorParams}}\ params\_;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\ current\_metrics\_;}
+\DoxyCodeLine{00095\ \ \ \ \ std::map<std::string,\ std::chrono::high\_resolution\_clock::time\_point>\ active\_timers\_;}
+\DoxyCodeLine{00096\ \ \ \ \ std::chrono::high\_resolution\_clock::time\_point\ frame\_start\_time\_;}
+\DoxyCodeLine{00097\ \ \ \ \ std::chrono::high\_resolution\_clock::time\_point\ frame\_end\_time\_;}
+\DoxyCodeLine{00098\ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Statistics\ tracking}}
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<long>\ total\_times\_;}
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<long>\ processing\_times\_;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ frame\_count\_\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ updateStatistics();}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ logToFile(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1PerformanceMetrics}{PerformanceMetrics}}\&\ metrics);}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PERFORMANCE\_MONITOR\_H\ }}
+
+\end{DoxyCode}

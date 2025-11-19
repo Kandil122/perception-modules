@@ -1,0 +1,101 @@
+\doxysection{zed\+\_\+obstacle\+\_\+detector\+::Point\+Cloud\+Processor Class Reference}
+\hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor}{}\label{classzed__obstacle__detector_1_1PointCloudProcessor}\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+
+
+{\ttfamily \#include $<$point\+\_\+cloud\+\_\+processor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_add4588d397a4523ff4909f7e44f7d60c}{Point\+Cloud\+Processor}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} \&params)
+\item 
+\mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a40ca2719ba942738bbec44341e3106fd}{\texorpdfstring{$\sim$}{\string~}\+Point\+Cloud\+Processor}} ()=default
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_aa91e196453eed6b86514bc9f7151d016}{process\+Point\+Cloud}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&output\+\_\+cloud, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a63841a3da79a9d6e08291be9ebb892e1}{apply\+Pass\+Through\+Filter}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&output\+\_\+cloud, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a769e164022229f2a541709d036a3c238}{apply\+Uniform\+Sampling}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&output\+\_\+cloud, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a6cfea46006f0570848ab9340d45c2c6f}{apply\+Voxel\+Grid\+Filter}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&input\+\_\+cloud, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&output\+\_\+cloud, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$ monitor=nullptr)
+\item 
+void \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a0e85ce04a41b1c65ecd716c0364948bb}{set\+Params}} (const \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} \&params)
+\item 
+\mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_ad359392c331d6a803e37667be8b141d1}{get\+Params}} () const
+\item 
+bool \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a99677f9834aeee3131fd0fe39ef2afb5}{should\+Skip\+Processing}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&cloud) const
+\item 
+double \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a8b683510356cfb493ad27b203ec5e14b}{get\+Adaptive\+Voxel\+Size}} (const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&cloud) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_add4588d397a4523ff4909f7e44f7d60c}\label{classzed__obstacle__detector_1_1PointCloudProcessor_add4588d397a4523ff4909f7e44f7d60c} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!PointCloudProcessor@{PointCloudProcessor}}
+\index{PointCloudProcessor@{PointCloudProcessor}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{PointCloudProcessor()}{PointCloudProcessor()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::\+Point\+Cloud\+Processor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a40ca2719ba942738bbec44341e3106fd}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a40ca2719ba942738bbec44341e3106fd} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!````~PointCloudProcessor@{\texorpdfstring{$\sim$}{\string~}PointCloudProcessor}}
+\index{````~PointCloudProcessor@{\texorpdfstring{$\sim$}{\string~}PointCloudProcessor}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PointCloudProcessor()}{\string~PointCloudProcessor()}}
+{\footnotesize\ttfamily zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::\texorpdfstring{$\sim$}{\string~}\+Point\+Cloud\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a63841a3da79a9d6e08291be9ebb892e1}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a63841a3da79a9d6e08291be9ebb892e1} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!applyPassThroughFilter@{applyPassThroughFilter}}
+\index{applyPassThroughFilter@{applyPassThroughFilter}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{applyPassThroughFilter()}{applyPassThroughFilter()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::apply\+Pass\+Through\+Filter (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{output\+\_\+cloud,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a769e164022229f2a541709d036a3c238}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a769e164022229f2a541709d036a3c238} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!applyUniformSampling@{applyUniformSampling}}
+\index{applyUniformSampling@{applyUniformSampling}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{applyUniformSampling()}{applyUniformSampling()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::apply\+Uniform\+Sampling (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{output\+\_\+cloud,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a6cfea46006f0570848ab9340d45c2c6f}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a6cfea46006f0570848ab9340d45c2c6f} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!applyVoxelGridFilter@{applyVoxelGridFilter}}
+\index{applyVoxelGridFilter@{applyVoxelGridFilter}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{applyVoxelGridFilter()}{applyVoxelGridFilter()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::apply\+Voxel\+Grid\+Filter (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{output\+\_\+cloud,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a8b683510356cfb493ad27b203ec5e14b}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a8b683510356cfb493ad27b203ec5e14b} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!getAdaptiveVoxelSize@{getAdaptiveVoxelSize}}
+\index{getAdaptiveVoxelSize@{getAdaptiveVoxelSize}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{getAdaptiveVoxelSize()}{getAdaptiveVoxelSize()}}
+{\footnotesize\ttfamily double zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::get\+Adaptive\+Voxel\+Size (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{cloud }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_ad359392c331d6a803e37667be8b141d1}\label{classzed__obstacle__detector_1_1PointCloudProcessor_ad359392c331d6a803e37667be8b141d1} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!getParams@{getParams}}
+\index{getParams@{getParams}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_aa91e196453eed6b86514bc9f7151d016}\label{classzed__obstacle__detector_1_1PointCloudProcessor_aa91e196453eed6b86514bc9f7151d016} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!processPointCloud@{processPointCloud}}
+\index{processPointCloud@{processPointCloud}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{processPointCloud()}{processPointCloud()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::process\+Point\+Cloud (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{input\+\_\+cloud,  }\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{output\+\_\+cloud,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classzed__obstacle__detector_1_1PerformanceMonitor}{Performance\+Monitor}} $>$}]{monitor = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a0e85ce04a41b1c65ecd716c0364948bb}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a0e85ce04a41b1c65ecd716c0364948bb} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!setParams@{setParams}}
+\index{setParams@{setParams}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{setParams()}{setParams()}}
+{\footnotesize\ttfamily void zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::set\+Params (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{Processing\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+\Hypertarget{classzed__obstacle__detector_1_1PointCloudProcessor_a99677f9834aeee3131fd0fe39ef2afb5}\label{classzed__obstacle__detector_1_1PointCloudProcessor_a99677f9834aeee3131fd0fe39ef2afb5} 
+\index{zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}!shouldSkipProcessing@{shouldSkipProcessing}}
+\index{shouldSkipProcessing@{shouldSkipProcessing}!zed\_obstacle\_detector::PointCloudProcessor@{zed\_obstacle\_detector::PointCloudProcessor}}
+\doxysubsubsection{\texorpdfstring{shouldSkipProcessing()}{shouldSkipProcessing()}}
+{\footnotesize\ttfamily bool zed\+\_\+obstacle\+\_\+detector\+::\+Point\+Cloud\+Processor\+::should\+Skip\+Processing (\begin{DoxyParamCaption}\item[{const pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZ $>$\+::\+Ptr \&}]{cloud }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/include/zed\+\_\+obstacle\+\_\+detector/\mbox{\hyperlink{point__cloud__processor_8h}{point\+\_\+cloud\+\_\+processor.\+h}}\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/src/\mbox{\hyperlink{point__cloud__processor_8cpp}{point\+\_\+cloud\+\_\+processor.\+cpp}}\end{DoxyCompactItemize}

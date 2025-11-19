@@ -1,0 +1,90 @@
+\doxysection{param\+\_\+checker.\+Parameter\+Checker Class Reference}
+\hypertarget{classparam__checker_1_1ParameterChecker}{}\label{classparam__checker_1_1ParameterChecker}\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_a23e753b4faa8550a12a4d333b26deecf}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classparam__checker_1_1ParameterChecker_ad7b82d027beceac000ed80a4de2c583e}{package\+\_\+root}})
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_af1d86821a99ca8fb422db64af9fd215c}{extract\+\_\+cpp\+\_\+parameters}} (self)
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_ac10784a2307a31db9287206f6e586193}{extract\+\_\+nested\+\_\+params}} (self, data, prefix="{}"{})
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_a78b5f8037429977cd6ad9d4fd7680776}{extract\+\_\+yaml\+\_\+parameters}} (self)
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_a28489d1c1c895c47f50f121575441bae}{check\+\_\+parameters}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_ad7b82d027beceac000ed80a4de2c583e}{package\+\_\+root}}
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_aaa1de7dd20d55b9376a36ad343649ac4}{cpp\+\_\+params}}
+\item 
+\mbox{\hyperlink{classparam__checker_1_1ParameterChecker_a480d65e13aad457a1eea1d956c1022f2}{yaml\+\_\+params}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classparam__checker_1_1ParameterChecker_a23e753b4faa8550a12a4d333b26deecf}\label{classparam__checker_1_1ParameterChecker_a23e753b4faa8550a12a4d333b26deecf} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{package\+\_\+root }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classparam__checker_1_1ParameterChecker_a28489d1c1c895c47f50f121575441bae}\label{classparam__checker_1_1ParameterChecker_a28489d1c1c895c47f50f121575441bae} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!check\_parameters@{check\_parameters}}
+\index{check\_parameters@{check\_parameters}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{check\_parameters()}{check\_parameters()}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+check\+\_\+parameters (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Check for missing parameters\end{DoxyVerb}
+ \Hypertarget{classparam__checker_1_1ParameterChecker_af1d86821a99ca8fb422db64af9fd215c}\label{classparam__checker_1_1ParameterChecker_af1d86821a99ca8fb422db64af9fd215c} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!extract\_cpp\_parameters@{extract\_cpp\_parameters}}
+\index{extract\_cpp\_parameters@{extract\_cpp\_parameters}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{extract\_cpp\_parameters()}{extract\_cpp\_parameters()}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+extract\+\_\+cpp\+\_\+parameters (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extract all parameter names from C++ files\end{DoxyVerb}
+ \Hypertarget{classparam__checker_1_1ParameterChecker_ac10784a2307a31db9287206f6e586193}\label{classparam__checker_1_1ParameterChecker_ac10784a2307a31db9287206f6e586193} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!extract\_nested\_params@{extract\_nested\_params}}
+\index{extract\_nested\_params@{extract\_nested\_params}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{extract\_nested\_params()}{extract\_nested\_params()}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+extract\+\_\+nested\+\_\+params (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data,  }\item[{}]{prefix = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Recursively extract all nested parameter names from a dictionary\end{DoxyVerb}
+ \Hypertarget{classparam__checker_1_1ParameterChecker_a78b5f8037429977cd6ad9d4fd7680776}\label{classparam__checker_1_1ParameterChecker_a78b5f8037429977cd6ad9d4fd7680776} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!extract\_yaml\_parameters@{extract\_yaml\_parameters}}
+\index{extract\_yaml\_parameters@{extract\_yaml\_parameters}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{extract\_yaml\_parameters()}{extract\_yaml\_parameters()}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+extract\+\_\+yaml\+\_\+parameters (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extract all parameter names from YAML files (including nested namespaces)\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classparam__checker_1_1ParameterChecker_aaa1de7dd20d55b9376a36ad343649ac4}\label{classparam__checker_1_1ParameterChecker_aaa1de7dd20d55b9376a36ad343649ac4} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!cpp\_params@{cpp\_params}}
+\index{cpp\_params@{cpp\_params}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{cpp\_params}{cpp\_params}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+cpp\+\_\+params}
+
+\Hypertarget{classparam__checker_1_1ParameterChecker_ad7b82d027beceac000ed80a4de2c583e}\label{classparam__checker_1_1ParameterChecker_ad7b82d027beceac000ed80a4de2c583e} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!package\_root@{package\_root}}
+\index{package\_root@{package\_root}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{package\_root}{package\_root}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+package\+\_\+root}
+
+\Hypertarget{classparam__checker_1_1ParameterChecker_a480d65e13aad457a1eea1d956c1022f2}\label{classparam__checker_1_1ParameterChecker_a480d65e13aad457a1eea1d956c1022f2} 
+\index{param\_checker.ParameterChecker@{param\_checker.ParameterChecker}!yaml\_params@{yaml\_params}}
+\index{yaml\_params@{yaml\_params}!param\_checker.ParameterChecker@{param\_checker.ParameterChecker}}
+\doxysubsubsection{\texorpdfstring{yaml\_params}{yaml\_params}}
+{\footnotesize\ttfamily param\+\_\+checker.\+Parameter\+Checker.\+yaml\+\_\+params}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/zed\+\_\+obstacle\+\_\+detector/scripts/\mbox{\hyperlink{param__checker_8py}{param\+\_\+checker.\+py}}\end{DoxyCompactItemize}

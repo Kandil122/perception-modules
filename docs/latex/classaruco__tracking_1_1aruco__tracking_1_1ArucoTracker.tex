@@ -1,0 +1,163 @@
+\doxysection{aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker Class Reference}
+\hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker}{}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker}\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a088f74adeed5ac2108c2a927996e642e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, int aruco\+Dict\+Type=cv2.\+aruco.\+DICT\+\_\+5\+X5\+\_\+100)
+\item 
+Tuple\mbox{[}List\mbox{[}np.\+ndarray\mbox{]}, Optional\mbox{[}np.\+ndarray\mbox{]}, List\mbox{[}np.\+ndarray\mbox{]}\mbox{]} \mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a6dbf572d62cf5250816a82f75aeb78a3}{detect\+Markers}} (self, np.\+ndarray image)
+\item 
+Tuple\mbox{[}np.\+ndarray, np.\+ndarray\mbox{]} \mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a194bdf434f20c2b903dca05072f44eae}{estimate\+Pose}} (self, List\mbox{[}np.\+ndarray\mbox{]} corners, float marker\+Size, np.\+ndarray camera\+Matrix, np.\+ndarray dist\+Coeffs)
+\item 
+np.\+ndarray \mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a7aef299d228bc573a1c07e31138fcd1b}{draw\+Markers}} (self, np.\+ndarray image, List\mbox{[}np.\+ndarray\mbox{]} corners, Optional\mbox{[}np.\+ndarray\mbox{]} ids, np.\+ndarray rvecs, np.\+ndarray tvecs, np.\+ndarray camera\+Matrix, np.\+ndarray dist\+Coeffs)
+\item 
+np.\+ndarray \mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a03e60f564686aa4716754c2b9c754db9}{draw\+Rejected\+Markers}} (self, np.\+ndarray image, List\mbox{[}np.\+ndarray\mbox{]} rejected)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_aec3cd6df64a9de55ccbe736cf5bbe800}{aruco\+Dict}}
+\item 
+\mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a36abf46982068e6ae2dd73356f09173a}{aruco\+Params}}
+\item 
+\mbox{\hyperlink{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a0fc50d3b5982bd6b61182983490c5777}{aruco\+Detector}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class for detecting and tracking ArUco markers in images.
+
+Attributes
+----------
+arucoDict : cv2.aruco_Dictionary
+    The ArUco dictionary used for marker detection.
+arucoParams : cv2.aruco_DetectorParameters
+    Parameters for the ArUco marker detector.
+arucoDetector : cv2.aruco.ArucoDetector
+    The ArUco detector object.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a088f74adeed5ac2108c2a927996e642e}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a088f74adeed5ac2108c2a927996e642e} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{int }]{aruco\+Dict\+Type = {\ttfamily cv2.aruco.DICT\+\_\+5X5\+\_\+100} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialize the ArucoTracker with the specified ArUco dictionary.
+
+Parameters
+----------
+arucoDictType : int, optional
+    The type of ArUco dictionary to use (default is DICT_5X5_100).
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a6dbf572d62cf5250816a82f75aeb78a3}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a6dbf572d62cf5250816a82f75aeb78a3} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!detectMarkers@{detectMarkers}}
+\index{detectMarkers@{detectMarkers}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{detectMarkers()}{detectMarkers()}}
+{\footnotesize\ttfamily  Tuple\mbox{[}List\mbox{[}np.\+ndarray\mbox{]}, Optional\mbox{[}np.\+ndarray\mbox{]}, List\mbox{[}np.\+ndarray\mbox{]}\mbox{]} aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+detect\+Markers (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+ndarray     }]{image }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Detect ArUco markers in the given image.
+
+Parameters
+----------
+image : np.ndarray
+    The input image in which to detect ArUco markers.
+
+Returns
+-------
+corners : List[np.ndarray]
+    List of detected marker corners.
+ids : Optional[np.ndarray]
+    Array of detected marker IDs (or None if no markers are detected).
+rejected : List[np.ndarray]
+    List of rejected marker candidates.
+\end{DoxyVerb}
+ \Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a7aef299d228bc573a1c07e31138fcd1b}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a7aef299d228bc573a1c07e31138fcd1b} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!drawMarkers@{drawMarkers}}
+\index{drawMarkers@{drawMarkers}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{drawMarkers()}{drawMarkers()}}
+{\footnotesize\ttfamily  np.\+ndarray aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+draw\+Markers (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+ndarray}]{image,  }\item[{List\mbox{[}np.\+ndarray\mbox{]}}]{corners,  }\item[{Optional\mbox{[}np.\+ndarray\mbox{]}}]{ids,  }\item[{np.\+ndarray}]{rvecs,  }\item[{np.\+ndarray}]{tvecs,  }\item[{np.\+ndarray}]{camera\+Matrix,  }\item[{np.\+ndarray}]{dist\+Coeffs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Draw detected ArUco markers, axes, and pose information on the image.
+
+Parameters
+----------
+image : np.ndarray
+    The input image on which to draw the markers.
+corners : List[np.ndarray]
+    List of detected marker corners.
+ids : Optional[np.ndarray]
+    Array of detected marker IDs.
+rvecs : np.ndarray
+    Rotation vectors for each marker.
+tvecs : np.ndarray
+    Translation vectors for each marker.
+cameraMatrix : np.ndarray
+    The camera matrix (3x3).
+distCoeffs : np.ndarray
+    The distortion coefficients.
+
+Returns
+-------
+np.ndarray
+    The image with drawn markers, axes, and pose information.
+\end{DoxyVerb}
+ \Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a03e60f564686aa4716754c2b9c754db9}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a03e60f564686aa4716754c2b9c754db9} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!drawRejectedMarkers@{drawRejectedMarkers}}
+\index{drawRejectedMarkers@{drawRejectedMarkers}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{drawRejectedMarkers()}{drawRejectedMarkers()}}
+{\footnotesize\ttfamily  np.\+ndarray aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+draw\+Rejected\+Markers (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{np.\+ndarray}]{image,  }\item[{List\mbox{[}np.\+ndarray\mbox{]}}]{rejected }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Draw rejected marker candidates on the image.
+
+Parameters
+----------
+image : np.ndarray
+    The input image on which to draw the rejected markers.
+rejected : List[np.ndarray]
+    List of rejected marker candidates.
+
+Returns
+-------
+np.ndarray
+    The image with drawn rejected markers.
+\end{DoxyVerb}
+ \Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a194bdf434f20c2b903dca05072f44eae}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a194bdf434f20c2b903dca05072f44eae} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!estimatePose@{estimatePose}}
+\index{estimatePose@{estimatePose}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{estimatePose()}{estimatePose()}}
+{\footnotesize\ttfamily  Tuple\mbox{[}np.\+ndarray, np.\+ndarray\mbox{]} aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+estimate\+Pose (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{List\mbox{[}np.\+ndarray\mbox{]}}]{corners,  }\item[{float}]{marker\+Size,  }\item[{np.\+ndarray}]{camera\+Matrix,  }\item[{np.\+ndarray}]{dist\+Coeffs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Estimate the pose of detected ArUco markers using solvePnP.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a0fc50d3b5982bd6b61182983490c5777}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a0fc50d3b5982bd6b61182983490c5777} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!arucoDetector@{arucoDetector}}
+\index{arucoDetector@{arucoDetector}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{arucoDetector}{arucoDetector}}
+{\footnotesize\ttfamily aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+aruco\+Detector}
+
+\Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_aec3cd6df64a9de55ccbe736cf5bbe800}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_aec3cd6df64a9de55ccbe736cf5bbe800} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!arucoDict@{arucoDict}}
+\index{arucoDict@{arucoDict}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{arucoDict}{arucoDict}}
+{\footnotesize\ttfamily aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+aruco\+Dict}
+
+\Hypertarget{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a36abf46982068e6ae2dd73356f09173a}\label{classaruco__tracking_1_1aruco__tracking_1_1ArucoTracker_a36abf46982068e6ae2dd73356f09173a} 
+\index{aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}!arucoParams@{arucoParams}}
+\index{arucoParams@{arucoParams}!aruco\_tracking.aruco\_tracking.ArucoTracker@{aruco\_tracking.aruco\_tracking.ArucoTracker}}
+\doxysubsubsection{\texorpdfstring{arucoParams}{arucoParams}}
+{\footnotesize\ttfamily aruco\+\_\+tracking.\+aruco\+\_\+tracking.\+Aruco\+Tracker.\+aruco\+Params}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/adham/\+Documents/\+Perception/\+Automonous perception/aruco\+\_\+tracking/src/aruco\+\_\+tracking/\mbox{\hyperlink{aruco__tracking_8py}{aruco\+\_\+tracking.\+py}}\end{DoxyCompactItemize}

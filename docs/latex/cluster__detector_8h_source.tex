@@ -1,0 +1,91 @@
+\doxysection{cluster\+\_\+detector.\+h}
+\hypertarget{cluster__detector_8h_source}{}\label{cluster__detector_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/cluster\_detector.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/cluster\_detector.h}}
+\mbox{\hyperlink{cluster__detector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLUSTER\_DETECTOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CLUSTER\_DETECTOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <pcl/point\_types.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <pcl/PointIndices.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <pcl/search/kdtree.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <pcl/segmentation/extract\_clusters.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <geometry\_msgs/Point.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{performance__monitor_8h}{zed\_obstacle\_detector/performance\_monitor.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{ClusterParams}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams_a1086ba3f66f7361f83dd50d650aa32ee}{cluster\_tolerance}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams_a3bfafe8e26a7e714d181915bb1fd749d}{min\_cluster\_size}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams_a92d0726950f6175342cf1720fafc8317}{max\_cluster\_size}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams_a0ed4ebb0a20555a99cbfc7bccf8ac8ce}{enable\_debug\_output}};}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox}{BoundingBox}}\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_ada1ace37ce951ba78afeca97bab394b9}{min\_x}}\ =\ std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_a81c192f18b9ddc2e4d6a62ac6adc9906}{min\_y}}\ =\ std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_aeead110d1ed9c21169e9beb8a9ab3b32}{min\_z}}\ =\ std::numeric\_limits<float>::max();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_a517dfb69b735536389b920ce6bb924fc}{max\_x}}\ =\ std::numeric\_limits<float>::lowest();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_a4c856b114a294b30d056aacb45f1a759}{max\_y}}\ =\ std::numeric\_limits<float>::lowest();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1BoundingBox_a8170631971a07f14d141728a71797915}{max\_z}}\ =\ std::numeric\_limits<float>::lowest();}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a501585c1615ec2888d9a442f7538eb69}{id}};}
+\DoxyCodeLine{00034\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_ac8913e9b16c32033cf15d4484c1a7108}{points}};}
+\DoxyCodeLine{00035\ \ \ \ \ geometry\_msgs::Point\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a51d44b8ecd321c7d879f51992fde7582}{centroid}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a0989511fbee1d9cd144e6e36f23415d2}{radius}};}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a52143402e21a527bc62846ae78f85c99}{Cluster}}()\ :\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a501585c1615ec2888d9a442f7538eb69}{id}}(-\/1),\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_ac8913e9b16c32033cf15d4484c1a7108}{points}}(new\ pcl::PointCloud<pcl::PointXYZ>),\ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster_a0989511fbee1d9cd144e6e36f23415d2}{radius}}(0.0f)\ \{\}}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector}{ClusterDetector}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector}{ClusterDetector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{ClusterParams}}\&\ params);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_a71592dd4c209a010e353b6bb0ef1e355}{\string~ClusterDetector}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ Main\ interface}}
+\DoxyCodeLine{00047\ \ \ \ \ std::vector<Cluster>\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_ab708c4c8108b69c5bf64137494d5113c}{detectClusters}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Set\ parameters}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_ac23009f1329f5476c78c867f8869053e}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{ClusterParams}}\&\ params);}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{ClusterParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_aee95b77a56585072cc23931d441a88d4}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Debug\ interface}}
+\DoxyCodeLine{00055\ \ \ \ \ pcl::PointCloud<pcl::PointXYZRGB>::Ptr\ \mbox{\hyperlink{classzed__obstacle__detector_1_1ClusterDetector_a48a885b864c89dc209702cdbb4344e7f}{createDebugCloud}}(\textcolor{keyword}{const}\ std::vector<Cluster>\&\ clusters,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Cluster\ extraction}}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<pcl::PointIndices>\ extractClusterIndices(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud);}
+\DoxyCodeLine{00061\ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Optimized\ cluster\ processing}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1Cluster}{Cluster}}\ processCluster(\textcolor{keyword}{const}\ pcl::PointIndices\&\ cluster\_indices,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cluster\_id,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Optimized\ batch\ processing}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ processClustersBatch(\textcolor{keyword}{const}\ std::vector<pcl::PointIndices>\&\ cluster\_indices,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Cluster>\&\ clusters,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ Single-\/pass\ geometry\ computation\ (optimized)}}
+\DoxyCodeLine{00075\ \ \ \ \ std::pair<geometry\_msgs::Point,\ float>\ computeCentroidRadius(}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ cluster\_points,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1ClusterParams}{ClusterParams}}\ params\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ next\_cluster\_id\_;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLUSTER\_DETECTOR\_H\ }}
+
+\end{DoxyCode}

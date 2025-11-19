@@ -1,0 +1,51 @@
+\doxysection{kalman\+\_\+filter.\+h}
+\hypertarget{kalman__filter_8h_source}{}\label{kalman__filter_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/kalman\_filter.h@{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/kalman\_filter.h}}
+\mbox{\hyperlink{kalman__filter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ KALMAN\_FILTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ KALMAN\_FILTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ }Eigen::MatrixXd;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classkalman__filter}{kalman\_filter}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ members}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_initialized;}
+\DoxyCodeLine{00014\ \ \ \ \ MatrixXd\ states;}
+\DoxyCodeLine{00015\ \ \ \ \ MatrixXd\ A;\ \textcolor{comment}{//\ state\ matrix}}
+\DoxyCodeLine{00016\ \ \ \ \ MatrixXd\ B;\ \textcolor{comment}{//\ input\ matrix}}
+\DoxyCodeLine{00017\ \ \ \ \ MatrixXd\ H;\ \textcolor{comment}{//\ observation\ matrix}}
+\DoxyCodeLine{00018\ \ \ \ \ MatrixXd\ P;\ \textcolor{comment}{//\ uncertianty}}
+\DoxyCodeLine{00019\ \ \ \ \ MatrixXd\ Q;\ \textcolor{comment}{//\ process\ noise}}
+\DoxyCodeLine{00020\ \ \ \ \ MatrixXd\ R;\ \textcolor{comment}{//\ obsevation\ noise}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classkalman__filter_afbabf6a12c84722c0dcc964bd375ef18}{kalman\_filter}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ set\ up\ the\ filter}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesetup}{setup}}(\ MatrixXd\ states,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ A,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ B,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ H,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ P,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ Q,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatrixXd\ R);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ set\ A\ (sometimes\ sampling\ time\ will\ differ)}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classkalman__filter_a00cd5454a224726ffea58b79fe91e484}{setA}}(MatrixXd\ A);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ state\ estimate}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classkalman__filter_a340eb070459cca3d23bd62d969c7ff88}{estimate}}(MatrixXd\ z,\ MatrixXd\ u);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ read\ output\ from\ the\ state}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classkalman__filter_a366a6cb0d9b66a1058b42232ccb5eaed}{output}}(\textcolor{keywordtype}{int}\ state\_index);}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

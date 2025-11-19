@@ -1,0 +1,82 @@
+\doxysection{point\+\_\+cloud\+\_\+processor.\+h}
+\hypertarget{point__cloud__processor_8h_source}{}\label{point__cloud__processor_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/point\_cloud\_processor.h@{/home/adham/Documents/Perception/Automonous perception/zed\_obstacle\_detector/include/zed\_obstacle\_detector/point\_cloud\_processor.h}}
+\mbox{\hyperlink{point__cloud__processor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POINT\_CLOUD\_PROCESSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POINT\_CLOUD\_PROCESSOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <pcl/point\_types.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <pcl/filters/voxel\_grid.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <pcl/filters/passthrough.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <pcl/filters/uniform\_sampling.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{performance__monitor_8h}{zed\_obstacle\_detector/performance\_monitor.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacezed__obstacle__detector}{zed\_obstacle\_detector}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{ProcessingParams}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ PassThrough\ filter\ parameters}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_aad7ea9f7ba8b2ff0c7ee63e1ce1d27c4}{passthrough\_z\_min}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_aaa9282649298f2e6c5539b1cd88ab224}{passthrough\_z\_max}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_ac862222170328c578f3f5e817728f273}{passthrough\_x\_min}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a7b1db6e9ba14d6f10f8d4c139ed4a2fb}{passthrough\_x\_max}};}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Voxel\ grid\ parameters}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a27b7dd4b7ff4ce0f10fb168863b47cbe}{voxel\_leaf\_size}};}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Uniform\ sampling\ parameters\ (optional)}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a9a5049b531c558f6ea99aa2155ff7746}{enable\_uniform\_downsampling}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a66be96500962a23d5b08be3b77bb7fbf}{uniform\_sampling\_radius}};}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Performance\ thresholds}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a172be35d533385ce3a7c78964e430cd1}{enable\_early\_exit}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a77d930a15620eacd0285fde1aaad94a0}{min\_points\_for\_processing}};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_ae35b61bf29a6b37dc969d5acc5f7ede5}{max\_points\_for\_processing}};}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Frame\ information}}
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a566c0ec55305dd911cf21400c2c2400c}{input\_frame\_id}};}
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams_a832e5c1cbee9bf6a75bc9bd412d8b8d8}{target\_frame\_id}};}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ \ \ \ \ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor}{PointCloudProcessor}}\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor}{PointCloudProcessor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{ProcessingParams}}\&\ params);}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a40ca2719ba942738bbec44341e3106fd}{\string~PointCloudProcessor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Main\ processing\ interface}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_aa91e196453eed6b86514bc9f7151d016}{processPointCloud}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ output\_cloud,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Individual\ processing\ steps\ (for\ testing\ and\ debugging)}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a63841a3da79a9d6e08291be9ebb892e1}{applyPassThroughFilter}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ output\_cloud,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00053\ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a769e164022229f2a541709d036a3c238}{applyUniformSampling}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ output\_cloud,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00057\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a6cfea46006f0570848ab9340d45c2c6f}{applyVoxelGridFilter}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ input\_cloud,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ output\_cloud,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PerformanceMonitor>\ monitor\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Parameter\ management}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a0e85ce04a41b1c65ecd716c0364948bb}{setParams}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{ProcessingParams}}\&\ params);}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{ProcessingParams}}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_ad359392c331d6a803e37667be8b141d1}{getParams}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ params\_;\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Utility\ functions}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a99677f9834aeee3131fd0fe39ef2afb5}{shouldSkipProcessing}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ cloud)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classzed__obstacle__detector_1_1PointCloudProcessor_a8b683510356cfb493ad27b203ec5e14b}{getAdaptiveVoxelSize}}(\textcolor{keyword}{const}\ pcl::PointCloud<pcl::PointXYZ>::Ptr\&\ cloud)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{structzed__obstacle__detector_1_1ProcessingParams}{ProcessingParams}}\ params\_;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ zed\_obstacle\_detector}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ POINT\_CLOUD\_PROCESSOR\_H\ }}
+
+\end{DoxyCode}

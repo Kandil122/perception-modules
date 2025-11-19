@@ -1,0 +1,130 @@
+\doxysection{UV\+\_\+detector.\+h}
+\hypertarget{UV__detector_8h_source}{}\label{UV__detector_8h_source}\index{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/UV\_detector.h@{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/include/UV\_detector.h}}
+\mbox{\hyperlink{UV__detector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UV\_DETECTOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UV\_DETECTOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{kalman__filter_8h}{kalman\_filter.h}}>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }cv;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUVbox}{UVbox}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ members}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVbox_a517ae04c942f39351a02b4cb1e01ddeb}{id}};\ \textcolor{comment}{//\ its\ id}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVbox_a4b002cfd4b2e5d6d68188cf62e666e2d}{toppest\_parent\_id}};\ \textcolor{comment}{//\ its\ toppest\ parent's\ id}}
+\DoxyCodeLine{00018\ \ \ \ \ Rect\ \mbox{\hyperlink{classUVbox_a72417013d94f8381031e3782835f9ad3}{bb}};\ \textcolor{comment}{//\ bounding\ box}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ default\ constructor}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classUVbox_a6c99d8f4936efbf2f2ced4594098892b}{UVbox}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ constructor\ for\ new\ line}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classUVbox_a6c99d8f4936efbf2f2ced4594098892b}{UVbox}}(\textcolor{keywordtype}{int}\ seg\_id,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right);}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUVtracker}{UVtracker}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ members}}
+\DoxyCodeLine{00030\ \ \ \ \ vector<Rect>\ \mbox{\hyperlink{classUVtracker_a12998f8c10736a23aae309889dbe17e2}{pre\_bb}};\ \textcolor{comment}{//\ bounding\ box\ information}}
+\DoxyCodeLine{00031\ \ \ \ \ vector<Rect>\ \mbox{\hyperlink{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65}{now\_bb}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ vector<vector<Point2f>\ >\ \mbox{\hyperlink{classUVtracker_adea0b3e5ec48ee2f2e380380c3001cc8}{pre\_history}};\ \textcolor{comment}{//\ thehistory\ of\ previous\ detection}}
+\DoxyCodeLine{00033\ \ \ \ \ vector<vector<Point2f>\ >\ \mbox{\hyperlink{classUVtracker_ab81cc84b6cb6d66789129e99de3cb81a}{now\_history}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ vector<kalman\_filter>\ \mbox{\hyperlink{classUVtracker_a17f020b3d92e656abf0dfdb7913305b7}{pre\_filter}};\ \textcolor{comment}{//\ states\ includes\ x,\ y,\ vx,\ vy,\ width,\ depth}}
+\DoxyCodeLine{00035\ \ \ \ \ vector<kalman\_filter>\ \mbox{\hyperlink{classUVtracker_a2f0cc9db2a405a131f13207a123e727e}{now\_filter}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVtracker_a6cdab74af8a755404764053cdf0caccb}{overlap\_threshold}};\ \textcolor{comment}{//\ threshold\ to\ determind\ tracked\ or\ not}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classUVtracker_af7594994e2ba0400a8b1550df29dbf90}{UVtracker}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ read\ new\ bounding\ box\ information}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVtracker_a431a155193497ba77e1007c2002b2ca5}{read\_bb}}(vector<Rect>\ \mbox{\hyperlink{classUVtracker_a5c2d5d2be2a3ad57ffcf12eda0c48f65}{now\_bb}});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ check\ tracking\ status}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVtracker_aca6392e4aea38c2c6618a8671951670d}{check\_status}}();}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUVdetector}{UVdetector}}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ members}}
+\DoxyCodeLine{00052\ \ \ \ \ Mat\ \mbox{\hyperlink{classUVdetector_ab10fdda0c69751fb29b7911680798847}{depth}};\ \textcolor{comment}{//\ depth\ map}}
+\DoxyCodeLine{00053\ \ \ \ \ Mat\ \mbox{\hyperlink{classUVdetector_a4c913e1b1973c8a47efd1d20b6b5c9a2}{depth\_low\_res}};\ \textcolor{comment}{//\ depth\ map\ with\ low\ resolution}}
+\DoxyCodeLine{00054\ \ \ \ \ Mat\ \mbox{\hyperlink{classUVdetector_ae5fbbc1aeb75da5966881a311b2ea8df}{U\_map}};\ \textcolor{comment}{//\ U\ map}}
+\DoxyCodeLine{00055\ \ \ \ \ Mat\ \mbox{\hyperlink{classUVdetector_ac222e14208343b9b7f4e8715790fed3e}{groundMask}};\ \textcolor{comment}{//\ mask\ of\ ground}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVdetector_a959cba86e96b47fae318786b5e27bc84}{min\_dist}};\ \textcolor{comment}{//\ lower\ bound\ of\ range\ of\ interest}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVdetector_a343e7f8bc20ab9dad8df7b31bd2a8e9d}{max\_dist}};\ \textcolor{comment}{//\ upper\ bound\ of\ range\ of\ interest}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVdetector_a923aedec5c31983da8e6dac2d4a6bb82}{row\_downsample}};\ \textcolor{comment}{//\ ratio\ (depth\ map's\ height\ /\ U\ map's\ height)}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_ad4ac71e1d66aa65110d2eb4b280a9183}{col\_scale}};\ \textcolor{comment}{//\ scale\ factor\ in\ horizontal\ direction}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a474823e4d514fc0f42eef053eec5d4ff}{threshold\_point}};\ \textcolor{comment}{//\ threshold\ of\ point\ of\ interest}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a3c57d9475238d2d4a039da4d36ae7893}{threshold\_line}};\ \textcolor{comment}{//\ threshold\ of\ line\ of\ interest}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUVdetector_acd14f9ed1298a346b6d88c8fdaa59e46}{min\_length\_line}};\ \textcolor{comment}{//\ min\ value\ of\ line's\ length}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUVdetector_a6b378ea356231d8ee2175b2c43285d83}{show\_bounding\_box\_U}};\ \textcolor{comment}{//\ show\ bounding\ box\ or\ not}}
+\DoxyCodeLine{00064\ \ \ \ \ vector<Rect>\ \mbox{\hyperlink{classUVdetector_aa2ae772eeeeab190714e7931aa8ba901}{bounding\_box\_U}};\ \textcolor{comment}{//\ extracted\ bounding\ boxes\ on\ U\ map}}
+\DoxyCodeLine{00065\ \ \ \ \ vector<Rect>\ \mbox{\hyperlink{classUVdetector_a75ef243df21543135c5c9f51d0c41564}{bounding\_box\_B}};\ \textcolor{comment}{//\ bunding\ boxes\ on\ the\ bird's\ view\ map}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_af4eb108984d7d201917bbb686dc03143}{fx}};\ \textcolor{comment}{//\ focal\ length}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a1606df543a43fa1f57bde3d64f810fe6}{fy}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_ad31aa64960fbcb2f49c5ffbbe8cd6892}{px}};\ \textcolor{comment}{//\ principle\ point}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a84678eaf8257db7e42b8015c15ec37d8}{py}};}
+\DoxyCodeLine{00070\ \ \ \ \ Vec4f\ \mbox{\hyperlink{classUVdetector_ad36dd9fe232dbce5e3a476dd514a3f4c}{groundPlane}};\ \textcolor{comment}{//\ ground\ plane\ parameters}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a3b9cd1c15412554569c0c24cde6c4ee1}{groundHeightMin}};\ \textcolor{comment}{//\ min\ height\ of\ ground}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a5df96161bd50eb7feb092a5f9775b0ba}{groundHeightMax}};\ \textcolor{comment}{//\ max\ height\ of\ ground}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classUVdetector_a9cb1762eef1f274b123bd8147b0db01b}{groundFitThreshold}};\ \textcolor{comment}{//\ threshold\ of\ ground\ fitting}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUVdetector_a5e545e6f23ba892ce4b26488a4cdc831}{removeGround}};\ \textcolor{comment}{//\ remove\ ground\ or\ not}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ Mat\ \mbox{\hyperlink{classUVdetector_a2ed4d24879bc9d389b2d3c635f215db7}{bird\_view}};\ \textcolor{comment}{//\ bird's\ view\ map\ }}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classUVtracker}{UVtracker}}\ \mbox{\hyperlink{classUVdetector_a96e0147807bea37acde04c721389dbd3}{tracker}};\ \textcolor{comment}{//\ tracker\ in\ bird's\ view\ map}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ constructor}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classUVdetector_a9d0c740516a6ddb404be220cbaa8b50c}{UVdetector}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ read\ data}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_ac28e4f4ce37bd5bfbf694858de89f77d}{readdata}}(Mat\ \mbox{\hyperlink{classUVdetector_ab10fdda0c69751fb29b7911680798847}{depth}});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Fit\ ground\ plane}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a8e721c688346359c7c3e35a514202b5c}{fitGroundPlane}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Remove\ ground\ points}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_ab8aa67583440b2f3f9fd4dd5c1e902d6}{removeGroundPoints}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ extract\ U\ map}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a32d5fafd8076c7fbf55d53b506947146}{extract\_U\_map}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ extract\ bounding\ box}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_abbecf8735edcffe8648ab8cd22f0300d}{extract\_bb}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ extract\ bird's\ view\ map}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_af65703c671f68cbc197da88eacaa4edb}{extract\_bird\_view}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ detect}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_ad92f1d857ab267704407cfdaae79ab62}{detect}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ track\ the\ object}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a08b35aa6971e402da8680b12ed881993}{track}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ output\ detection\ }}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a7beb6705b2e920ccba2fc0804cd8a5bb}{output}}();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ display\ depth}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a6f15090d47ea741e18d3b3c5f062c4e8}{display\_depth}}();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ display\ U\ map}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a04467a96b224a4f4f27b86ecf696300f}{display\_U\_map}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ add\ tracking\ result\ to\ bird's\ view\ map}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_ac4aafcf1200afc4f0e719797d9712fdd}{add\_tracking\_result}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ display\ bird's\ view\ map}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUVdetector_a88f2ba7d9fc386ee5e6bfdd1a9d09d76}{display\_bird\_view}}();}
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \mbox{\hyperlink{classUVbox}{UVbox}}\ \mbox{\hyperlink{UV__detector_8h_a1d7e2d7191b7677423ba8c067eb217e0}{merge\_two\_UVbox}}(\mbox{\hyperlink{classUVbox}{UVbox}}\ father,\ \mbox{\hyperlink{classUVbox}{UVbox}}\ son);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

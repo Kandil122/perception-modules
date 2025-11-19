@@ -1,0 +1,96 @@
+\doxysection{detect\+\_\+pose\+\_\+zed Namespace Reference}
+\hypertarget{namespacedetect__pose__zed}{}\label{namespacedetect__pose__zed}\index{detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_a26d33bb48841ee32e61c8e2ff010b014}{init\+\_\+zed}} (resolution=sl.\+RESOLUTION.\+HD720, fps=30, depth\+\_\+mode=sl.\+DEPTH\+\_\+\+MODE.\+PERFORMANCE)
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_aefbe060abc6ff172d3b708a861672c9e}{get\+\_\+3d\+\_\+position}} (point\+\_\+cloud, x1, y1, x2, y2)
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_a5db7ecd241dc7600d5c9d633ee9d62f9}{main}} (\mbox{\hyperlink{namespacedetect__pose__zed_a47de1c4c93d55f3cee5df891199c8df6}{args}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacedetect__pose__zed_a713b2ce61387365a4066990e9ae15bf7}{CLASS\+\_\+\+NAMES}} = \mbox{[}"{}regolith"{}, "{}rock"{}, "{}unexpected object"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_ab794abb7b958d70def23651d8a1b5c1e}{parser}} = argparse.\+Argument\+Parser()
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_ab2c9b0df4498a3523f78f0f069f4975b}{type}}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_ae941749df01d5ef6cd01be157496eaea}{str}}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_a191974341c8117fd7f5c3339632651d3}{required}}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_a6cfe9b27b1436021fc8f1aa2e7aeedc2}{help}}
+\item 
+\mbox{\hyperlink{namespacedetect__pose__zed_a47de1c4c93d55f3cee5df891199c8df6}{args}} = parser.\+parse\+\_\+args()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedetect__pose__zed_aefbe060abc6ff172d3b708a861672c9e}\label{namespacedetect__pose__zed_aefbe060abc6ff172d3b708a861672c9e} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!get\_3d\_position@{get\_3d\_position}}
+\index{get\_3d\_position@{get\_3d\_position}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{get\_3d\_position()}{get\_3d\_position()}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+get\+\_\+3d\+\_\+position (\begin{DoxyParamCaption}\item[{}]{point\+\_\+cloud,  }\item[{}]{x1,  }\item[{}]{y1,  }\item[{}]{x2,  }\item[{}]{y2 }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Get 3D centroid from ZED point cloud inside the bounding box\end{DoxyVerb}
+ \Hypertarget{namespacedetect__pose__zed_a26d33bb48841ee32e61c8e2ff010b014}\label{namespacedetect__pose__zed_a26d33bb48841ee32e61c8e2ff010b014} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!init\_zed@{init\_zed}}
+\index{init\_zed@{init\_zed}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{init\_zed()}{init\_zed()}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+init\+\_\+zed (\begin{DoxyParamCaption}\item[{}]{resolution = {\ttfamily sl.RESOLUTION.HD720},  }\item[{}]{fps = {\ttfamily 30},  }\item[{}]{depth\+\_\+mode = {\ttfamily sl.DEPTH\+\_\+MODE.PERFORMANCE} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initialize ZED camera\end{DoxyVerb}
+ \Hypertarget{namespacedetect__pose__zed_a5db7ecd241dc7600d5c9d633ee9d62f9}\label{namespacedetect__pose__zed_a5db7ecd241dc7600d5c9d633ee9d62f9} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!main@{main}}
+\index{main@{main}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+main (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacedetect__pose__zed_a47de1c4c93d55f3cee5df891199c8df6}\label{namespacedetect__pose__zed_a47de1c4c93d55f3cee5df891199c8df6} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!args@{args}}
+\index{args@{args}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+args = parser.\+parse\+\_\+args()}
+
+\Hypertarget{namespacedetect__pose__zed_a713b2ce61387365a4066990e9ae15bf7}\label{namespacedetect__pose__zed_a713b2ce61387365a4066990e9ae15bf7} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!CLASS\_NAMES@{CLASS\_NAMES}}
+\index{CLASS\_NAMES@{CLASS\_NAMES}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{CLASS\_NAMES}{CLASS\_NAMES}}
+{\footnotesize\ttfamily list detect\+\_\+pose\+\_\+zed.\+CLASS\+\_\+\+NAMES = \mbox{[}"{}regolith"{}, "{}rock"{}, "{}unexpected object"{}\mbox{]}}
+
+\Hypertarget{namespacedetect__pose__zed_a6cfe9b27b1436021fc8f1aa2e7aeedc2}\label{namespacedetect__pose__zed_a6cfe9b27b1436021fc8f1aa2e7aeedc2} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!help@{help}}
+\index{help@{help}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{help}{help}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+help}
+
+\Hypertarget{namespacedetect__pose__zed_ab794abb7b958d70def23651d8a1b5c1e}\label{namespacedetect__pose__zed_ab794abb7b958d70def23651d8a1b5c1e} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!parser@{parser}}
+\index{parser@{parser}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{parser}{parser}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+parser = argparse.\+Argument\+Parser()}
+
+\Hypertarget{namespacedetect__pose__zed_a191974341c8117fd7f5c3339632651d3}\label{namespacedetect__pose__zed_a191974341c8117fd7f5c3339632651d3} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!required@{required}}
+\index{required@{required}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{required}{required}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+required}
+
+\Hypertarget{namespacedetect__pose__zed_ae941749df01d5ef6cd01be157496eaea}\label{namespacedetect__pose__zed_ae941749df01d5ef6cd01be157496eaea} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!str@{str}}
+\index{str@{str}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{str}{str}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+str}
+
+\Hypertarget{namespacedetect__pose__zed_ab2c9b0df4498a3523f78f0f069f4975b}\label{namespacedetect__pose__zed_ab2c9b0df4498a3523f78f0f069f4975b} 
+\index{detect\_pose\_zed@{detect\_pose\_zed}!type@{type}}
+\index{type@{type}!detect\_pose\_zed@{detect\_pose\_zed}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily detect\+\_\+pose\+\_\+zed.\+type}
+

@@ -1,0 +1,341 @@
+\chapter{ZED Obstacle Detector -\/ Docker Setup}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker}{}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker}\index{ZED Obstacle Detector -\/ Docker Setup@{ZED Obstacle Detector -\/ Docker Setup}}
+\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md0}%
+\Hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md0}%
+ This directory contains Docker configuration files for running the ZED Obstacle Detector ROS node in a containerized environment.\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md1}{}\doxysection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md1}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md2}{}\doxysubsection{\texorpdfstring{System Requirements}{System Requirements}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Ubuntu 20.\+04 or later
+\item Docker Engine 20.\+10 or later
+\item Docker Compose 2.\+0 or later
+\item NVIDIA Docker runtime (for GPU acceleration)
+\item NVIDIA drivers compatible with CUDA 11.\+4
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md3}{}\doxysubsection{\texorpdfstring{Hardware Requirements}{Hardware Requirements}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md3}
+
+\begin{DoxyItemize}
+\item ZED camera (ZED2i recommended)
+\item NVIDIA GPU (optional, for CUDA acceleration)
+\item USB 3.\+0 port for ZED camera
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md4}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md4}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md5}{}\doxysubsection{\texorpdfstring{1. Install Docker and NVIDIA Docker}{1. Install Docker and NVIDIA Docker}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Install\ Docker}
+\DoxyCodeLine{curl\ -\/fsSL\ https://get.docker.com\ -\/o\ get-\/docker.sh}
+\DoxyCodeLine{sudo\ sh\ get-\/docker.sh}
+\DoxyCodeLine{sudo\ usermod\ -\/aG\ docker\ \$USER}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Install\ NVIDIA\ Docker}
+\DoxyCodeLine{distribution=\$(.\ /etc/os-\/release;echo\ \$ID\$VERSION\_ID)}
+\DoxyCodeLine{curl\ -\/s\ -\/L\ https://nvidia.github.io/nvidia-\/docker/gpgkey\ |\ sudo\ apt-\/key\ add\ -\/}
+\DoxyCodeLine{curl\ -\/s\ -\/L\ https://nvidia.github.io/nvidia-\/docker/\$distribution/nvidia-\/docker.list\ |\ sudo\ tee\ /etc/apt/sources.list.d/nvidia-\/docker.list}
+\DoxyCodeLine{}
+\DoxyCodeLine{sudo\ apt-\/get\ update}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ -\/y\ nvidia-\/docker2}
+\DoxyCodeLine{sudo\ systemctl\ restart\ docker}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md6}{}\doxysubsection{\texorpdfstring{2. Clone and Setup}{2. Clone and Setup}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Navigate\ to\ the\ zed\_obstacle\_detector\ directory}
+\DoxyCodeLine{cd\ Perception/zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Create\ necessary\ directories}
+\DoxyCodeLine{mkdir\ -\/p\ config\ logs\ rviz\_config}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md7}{}\doxysection{\texorpdfstring{Building the Docker Image}{Building the Docker Image}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md7}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md8}{}\doxysubsection{\texorpdfstring{Option 1\+: Using Docker Compose (\+Recommended)}{Option 1: Using Docker Compose (Recommended)}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md8}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Build\ the\ image}
+\DoxyCodeLine{docker-\/compose\ build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Or\ build\ with\ no\ cache\ (if\ you\ encounter\ issues)}
+\DoxyCodeLine{docker-\/compose\ build\ -\/-\/no-\/cache}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md9}{}\doxysubsection{\texorpdfstring{Option 2\+: Using Docker directly}{Option 2: Using Docker directly}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Build\ the\ image}
+\DoxyCodeLine{docker\ build\ -\/t\ zed\_obstacle\_detector:latest\ .}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Tag\ the\ image\ (optional)}
+\DoxyCodeLine{docker\ tag\ zed\_obstacle\_detector:latest\ your-\/registry/zed\_obstacle\_detector:latest}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md10}{}\doxysection{\texorpdfstring{Running the Container}{Running the Container}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md10}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md11}{}\doxysubsection{\texorpdfstring{Option 1\+: Using Docker Compose (\+Recommended)}{Option 1: Using Docker Compose (Recommended)}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md11}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Basic Usage}{Basic Usage}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md12}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Start\ the\ obstacle\ detector}
+\DoxyCodeLine{docker-\/compose\ up}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ in\ background}
+\DoxyCodeLine{docker-\/compose\ up\ -\/d}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ View\ logs}
+\DoxyCodeLine{docker-\/compose\ logs\ -\/f\ zed\_obstacle\_detector}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md13}{}\doxysubsubsection{\texorpdfstring{With ROS Master}{With ROS Master}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md13}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Start\ ROS\ master\ and\ obstacle\ detector}
+\DoxyCodeLine{docker-\/compose\ -\/-\/profile\ ros-\/master\ up}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Or\ start\ them\ separately}
+\DoxyCodeLine{docker-\/compose\ up\ roscore\ -\/d}
+\DoxyCodeLine{docker-\/compose\ up\ zed\_obstacle\_detector}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{With Visualization}{With Visualization}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md14}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Start\ with\ RViz\ for\ visualization}
+\DoxyCodeLine{docker-\/compose\ -\/-\/profile\ visualization\ up}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md15}{}\doxysubsection{\texorpdfstring{Option 2\+: Using Docker directly}{Option 2: Using Docker directly}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md15}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Run\ the\ container}
+\DoxyCodeLine{docker\ run\ -\/-\/rm\ -\/it\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/runtime=nvidia\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/network=host\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/privileged\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/e\ DISPLAY=\$DISPLAY\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ /tmp/.X11-\/unix:/tmp/.X11-\/unix:rw\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ /dev/bus/usb:/dev/bus/usb:ro\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ \$(pwd)/config:/catkin\_ws/src/zed\_obstacle\_detector/config:ro\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ \$(pwd)/logs:/catkin\_ws/logs:rw\ \(\backslash\)}
+\DoxyCodeLine{\ \ zed\_obstacle\_detector:latest}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Or\ run\ with\ specific\ command}
+\DoxyCodeLine{docker\ run\ -\/-\/rm\ -\/it\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/runtime=nvidia\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/network=host\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/privileged\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/e\ DISPLAY=\$DISPLAY\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ /tmp/.X11-\/unix:/tmp/.X11-\/unix:rw\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ /dev/bus/usb:/dev/bus/usb:ro\ \(\backslash\)}
+\DoxyCodeLine{\ \ zed\_obstacle\_detector:latest\ \(\backslash\)}
+\DoxyCodeLine{\ \ roslaunch\ zed\_obstacle\_detector\ pc.launch}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md16}{}\doxysection{\texorpdfstring{Configuration}{Configuration}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md16}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md17}{}\doxysubsection{\texorpdfstring{Environment Variables}{Environment Variables}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md17}
+You can customize the behavior by setting environment variables\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ docker-\/compose.yml\ or\ docker\ run\ command}
+\DoxyCodeLine{environment:}
+\DoxyCodeLine{\ \ -\/\ ROS\_MASTER\_URI=http://your-\/ros-\/master:11311}
+\DoxyCodeLine{\ \ -\/\ ROS\_HOSTNAME=your-\/hostname}
+\DoxyCodeLine{\ \ -\/\ DISPLAY=:0}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md18}{}\doxysubsection{\texorpdfstring{Volume Mounts}{Volume Mounts}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md18}
+The container mounts several volumes for configuration and data\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily ./config/} → {\ttfamily /catkin\+\_\+ws/src/zed\+\_\+obstacle\+\_\+detector/config/} (read-\/only)
+\item {\ttfamily ./logs/} → {\ttfamily /catkin\+\_\+ws/logs/} (read-\/write)
+\item {\ttfamily /dev/bus/usb/} → {\ttfamily /dev/bus/usb/} (for ZED camera access)
+\end{DoxyItemize}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md19}{}\doxysubsection{\texorpdfstring{ROS Parameters}{ROS Parameters}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md19}
+You can pass ROS parameters when launching\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Using\ docker-\/compose}
+\DoxyCodeLine{command:\ >}
+\DoxyCodeLine{\ \ bash\ -\/c\ "{}}
+\DoxyCodeLine{\ \ \ \ roslaunch\ zed\_obstacle\_detector\ pc.launch}
+\DoxyCodeLine{\ \ \ \ camera\_name:=zed2i}
+\DoxyCodeLine{\ \ \ \ enable\_ground\_filtering:=true}
+\DoxyCodeLine{\ \ "{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Using\ docker\ run}
+\DoxyCodeLine{docker\ run\ ...\ zed\_obstacle\_detector:latest\ \(\backslash\)}
+\DoxyCodeLine{\ \ roslaunch\ zed\_obstacle\_detector\ pc.launch\ camera\_name:=zed2i}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md20}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md20}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md21}{}\doxysubsection{\texorpdfstring{Common Issues}{Common Issues}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md21}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md22}{}\doxysubsubsection{\texorpdfstring{1. ZED Camera Not Detected}{1. ZED Camera Not Detected}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md22}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Check\ if\ ZED\ camera\ is\ connected}
+\DoxyCodeLine{lsusb\ |\ grep\ ZED}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ USB\ permissions}
+\DoxyCodeLine{sudo\ chmod\ 666\ /dev/bus/usb/*/*}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ container\ with\ USB\ device\ access}
+\DoxyCodeLine{docker\ run\ -\/-\/privileged\ -\/v\ /dev/bus/usb:/dev/bus/usb:ro\ ...}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{2. Display Issues}{2. Display Issues}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md23}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Allow\ X11\ connections}
+\DoxyCodeLine{xhost\ +local:docker}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ DISPLAY\ variable}
+\DoxyCodeLine{echo\ \$DISPLAY}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ with\ X11\ forwarding}
+\DoxyCodeLine{docker\ run\ -\/e\ DISPLAY=\$DISPLAY\ -\/v\ /tmp/.X11-\/unix:/tmp/.X11-\/unix:rw\ ...}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{3. CUDA/\+GPU Issues}{3. CUDA/GPU Issues}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md24}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Check\ NVIDIA\ Docker\ installation}
+\DoxyCodeLine{docker\ run\ -\/-\/rm\ -\/-\/gpus\ all\ nvidia/cuda:11.4-\/base-\/ubuntu20.04\ nvidia-\/smi}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ GPU\ availability\ in\ container}
+\DoxyCodeLine{docker\ run\ -\/-\/rm\ -\/-\/gpus\ all\ zed\_obstacle\_detector:latest\ nvidia-\/smi}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{4. Build Failures}{4. Build Failures}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md25}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Clean\ build}
+\DoxyCodeLine{docker-\/compose\ build\ -\/-\/no-\/cache}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ available\ disk\ space}
+\DoxyCodeLine{df\ -\/h}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Increase\ Docker\ memory\ limit}
+\DoxyCodeLine{\#\ Edit\ /etc/docker/daemon.json}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}default-\/shm-\/size"{}:\ "{}2G"{}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md26}{}\doxysubsection{\texorpdfstring{Debugging}{Debugging}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md26}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md27}{}\doxysubsubsection{\texorpdfstring{Enter the Container}{Enter the Container}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md27}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Interactive\ shell}
+\DoxyCodeLine{docker-\/compose\ exec\ zed\_obstacle\_detector\ bash}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Or\ with\ docker\ run}
+\DoxyCodeLine{docker\ run\ -\/it\ zed\_obstacle\_detector:latest\ bash}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md28}{}\doxysubsubsection{\texorpdfstring{Check ROS Topics}{Check ROS Topics}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md28}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Inside\ the\ container}
+\DoxyCodeLine{rostopic\ list}
+\DoxyCodeLine{rostopic\ echo\ /zed\_obstacle/obstacle\_array}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md29}{}\doxysubsubsection{\texorpdfstring{View Logs}{View Logs}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md29}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Docker\ logs}
+\DoxyCodeLine{docker-\/compose\ logs\ -\/f\ zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ ROS\ logs}
+\DoxyCodeLine{docker-\/compose\ exec\ zed\_obstacle\_detector\ tail\ -\/f\ /catkin\_ws/logs/zed\_obstacle\_detector.log}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md30}{}\doxysection{\texorpdfstring{Performance Optimization}{Performance Optimization}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md30}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md31}{}\doxysubsection{\texorpdfstring{Resource Limits}{Resource Limits}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md31}
+Adjust resource limits in {\ttfamily docker-\/compose.\+yml}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{deploy:}
+\DoxyCodeLine{\ \ resources:}
+\DoxyCodeLine{\ \ \ \ limits:}
+\DoxyCodeLine{\ \ \ \ \ \ memory:\ 4G}
+\DoxyCodeLine{\ \ \ \ \ \ cpus:\ '2.0'}
+\DoxyCodeLine{\ \ \ \ reservations:}
+\DoxyCodeLine{\ \ \ \ \ \ memory:\ 2G}
+\DoxyCodeLine{\ \ \ \ \ \ cpus:\ '1.0'}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md32}{}\doxysubsection{\texorpdfstring{GPU Memory}{GPU Memory}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md32}
+For better GPU performance\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Set\ GPU\ memory\ fraction}
+\DoxyCodeLine{export\ CUDA\_VISIBLE\_DEVICES=0}
+\DoxyCodeLine{export\ CUDA\_MEMORY\_FRACTION=0.8}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md33}{}\doxysection{\texorpdfstring{Development}{Development}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md33}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md34}{}\doxysubsection{\texorpdfstring{Building for Development}{Building for Development}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md34}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Build\ with\ development\ tools}
+\DoxyCodeLine{docker\ build\ -\/-\/target\ development\ -\/t\ zed\_obstacle\_detector:dev\ .}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Run\ development\ container}
+\DoxyCodeLine{docker\ run\ -\/it\ -\/-\/rm\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/runtime=nvidia\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/network=host\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/-\/privileged\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/v\ \$(pwd):/workspace\ \(\backslash\)}
+\DoxyCodeLine{\ \ zed\_obstacle\_detector:dev}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md35}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md35}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Run\ tests}
+\DoxyCodeLine{docker-\/compose\ exec\ zed\_obstacle\_detector\ \(\backslash\)}
+\DoxyCodeLine{\ \ bash\ -\/c\ "{}cd\ /catkin\_ws\ \&\&\ catkin\_make\ run\_tests"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ test\ results}
+\DoxyCodeLine{docker-\/compose\ exec\ zed\_obstacle\_detector\ \(\backslash\)}
+\DoxyCodeLine{\ \ bash\ -\/c\ "{}cd\ /catkin\_ws\ \&\&\ catkin\_test\_results"{}}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md36}{}\doxysection{\texorpdfstring{Monitoring}{Monitoring}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md36}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md37}{}\doxysubsection{\texorpdfstring{Health Checks}{Health Checks}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md37}
+The container includes health checks\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Check\ container\ health}
+\DoxyCodeLine{docker-\/compose\ ps}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ View\ health\ check\ logs}
+\DoxyCodeLine{docker\ inspect\ zed\_obstacle\_detector\ |\ grep\ -\/A\ 10\ Health}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md38}{}\doxysubsection{\texorpdfstring{Metrics}{Metrics}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md38}
+Monitor resource usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Container\ stats}
+\DoxyCodeLine{docker\ stats\ zed\_obstacle\_detector}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ GPU\ usage}
+\DoxyCodeLine{nvidia-\/smi}
+
+\end{DoxyCode}
+\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md39}{}\doxysection{\texorpdfstring{Support}{Support}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md39}
+For issues and questions\+:
+
+
+\begin{DoxyEnumerate}
+\item Check the troubleshooting section above
+\item Review ROS and ZED camera documentation
+\item Check container logs\+: {\ttfamily docker-\/compose logs \doxylink{namespacezed__obstacle__detector}{zed\+\_\+obstacle\+\_\+detector}}
+\item Contact maintainer\+: \href{mailto:abdulrahman.hany003@gmail.com}{\texttt{ abdulrahman.\+hany003@gmail.\+com}}
+\end{DoxyEnumerate}\hypertarget{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md40}{}\doxysection{\texorpdfstring{License}{License}}\label{md__2home_2adham_2Documents_2Perception_2Automonous_01perception_2zed__obstacle__detector_2docker_2README__Docker_autotoc_md40}
+This Docker setup is part of the ROAR Autonomous System project and follows the same license as the main project. 

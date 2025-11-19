@@ -1,0 +1,43 @@
+\doxysection{/home/adham/\+Documents/\+Perception/\+Automonous perception/uv\+\_\+detector\+\_\+node/src/uv\+\_\+detector\+\_\+node.cpp File Reference}
+\hypertarget{uv__detector__node_8cpp}{}\label{uv__detector__node_8cpp}\index{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/uv\_detector\_node.cpp@{/home/adham/Documents/Perception/Automonous perception/uv\_detector\_node/src/uv\_detector\_node.cpp}}
+
+
+ROS node implementation for UV-\/based object detection and tracking.  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$image\+\_\+transport/image\+\_\+transport.\+h$>$}\newline
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$cv\+\_\+bridge/cv\+\_\+bridge.\+h$>$}\newline
+{\ttfamily \#include $<$sensor\+\_\+msgs/\+Image.\+h$>$}\newline
+{\ttfamily \#include $<$visualization\+\_\+msgs/\+Marker.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$UV\+\_\+detector.\+h$>$}\newline
+{\ttfamily \#include $<$kalman\+\_\+filter.\+h$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+Include dependency graph for uv\+\_\+detector\+\_\+node.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uv__detector__node_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmy__detector}{my\+\_\+detector}}
+\begin{DoxyCompactList}\small\item\em Main detector class that handles ROS integration and UV detection pipeline. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{group__uv__detector_ga3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em Main entry point for the UV detector node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ROS node implementation for UV-\/based object detection and tracking. 
+
