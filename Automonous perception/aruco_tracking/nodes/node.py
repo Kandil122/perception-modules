@@ -42,6 +42,8 @@ class ArucoTrackingNode:
         """
         Initialize the ArucoTrackingNode and load parameters.
         """
+        # Starts the node.
+        #bridge Used to convert ROS image messages into OpenCV’s numpy images.
         rospy.init_node("arucoTrackingNode", anonymous=True)
         self.bridge = CvBridge()
 
@@ -55,21 +57,24 @@ class ArucoTrackingNode:
         width = 1280
         height = 720
         h_fov = 1.7633  # radians
+        #optical center
         cx = 659.3049926757812
         cy = 371.39849853515625
-
+        #focal lengths
         fx = width / (2 * np.tan(h_fov / 2))
         fy = fx  # assuming square pixels
-
+        #camera matrix
         K = [fx, 0.0, cx,
             0.0, fy, cy,
             0.0, 0.0, 1.0]
-
+        
+        #distortion coefficients
         D = [-0.040993299,
         0.009593590,
         -0.004429849,
         0.000192024,
         -0.000320880]
+
         self.cameraMatrix = np.array(K).reshape(3, 3)
         self.distCoeffs = np.array(D)
         print("Camera Matrix:", self.cameraMatrix)

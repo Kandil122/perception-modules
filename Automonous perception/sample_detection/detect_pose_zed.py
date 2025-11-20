@@ -69,7 +69,7 @@ def main(args):
 
     # Init ZED
     zed, runtime_params = init_zed()
-
+    #Allocate memory for images & point cloud
     image_zed = sl.Mat()
     point_cloud = sl.Mat()
 

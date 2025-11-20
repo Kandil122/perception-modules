@@ -33,6 +33,7 @@ class ArucoTracker:
         arucoDictType : int, optional
             The type of ArUco dictionary to use (default is DICT_5X5_100).
         """
+        # Constructors
         # This line is already correct for OpenCV 4.7.0+
         self.arucoDict = cv2.aruco.getPredefinedDictionary(arucoDictType)
         
