@@ -1,0 +1,16 @@
+<launch>
+    
+    <!-- Load parameters from the YAML file into the node's private namespace -->
+    <rosparam command="load" file="$(find rock_detector)/config/detection_params.yaml" ns="rock_detector_node"/>
+
+    <!-- Start the rock detector Python node -->
+    <node name="rock_detector_node"
+          pkg="rock_detector"
+          type="rock_detector_node.py"
+          output="screen">
+
+        <!-- Find the model file path and set it as a parameter for this node -->
+        <param name="model_path" value="$(find rock_detector)/model/best.pt" />
+    </node>
+
+</launch>

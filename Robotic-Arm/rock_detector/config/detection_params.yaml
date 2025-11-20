@@ -1,0 +1,18 @@
+# =======================================================
+# SIMPLIFIED Parameters for the Rock Detector Node
+# =======================================================
+
+# --- Input Topics ---
+image_topic: "/zed2i/zed_node/rgb/image_rect_color"
+depth_topic: "/zed2i/zed_node/depth/depth_registered"
+camera_info_topic: "/zed2i/zed_node/depth/camera_info"
+
+# --- YOLOv8 Model Configuration ---
+confidence_threshold: 0.5
+
+# --- Detection & Targeting ---
+target_class_name: "rock"
+
+# --- Output Configuration ---
+# The topic where the detected rock's pose will be published
+pose_topic: "/rock_detector/pose"
